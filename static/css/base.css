@@ -1,0 +1,46 @@
+/* navigation styling */
+.nav-bar {
+    background: rgba(255,255,255,0.8);
+    z-index: 1000;
+}
+nav.nav-bar ul li a {
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+/* cover styling */
+.cover {
+    background-image: url(../img/colombia_cover.jpg);
+}
+.cover-box {
+    background: rgba(0,0,0,0.4);
+    color: #ddd;
+    padding: 2em;
+}
+.cover-name {
+    font-size: 2.5em;
+    font-weight: 300;
+}
+.cover-sub {
+    font-size: 1em;
+}
+
+/* section styling */
+section {
+    margin-bottom: 80px;
+    padding-top: 40px;
+}
+#home {
+    margin-top: -80px;
+}
+.skills-list div {
+    margin-bottom: 20px;
+}
+
+/* education styling */
+.edu-list img {
+    width: 300px;
+}
+.edu-list div {
+    margin-bottom: 40px;
+}
