@@ -27,7 +27,7 @@ nav.nav-bar ul li a {
 
 /* section styling */
 section {
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     padding-top: 40px;
 }
 #home {
@@ -43,4 +43,12 @@ section {
 }
 .edu-list div {
     margin-bottom: 40px;
+}
+
+/* footer styling */
+#footer {
+    margin-bottom: 0;
+}
+.footer-cover {
+    background-image: url(../img/colombia_footer.jpg);
 }

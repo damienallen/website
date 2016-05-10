@@ -9,12 +9,15 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,300" type="text/css">
     <link rel="stylesheet" href="/static/css/uikit.min.css" type="text/css" />
+    <link rel="stylesheet" href="/static/css/components/sticky.min.css.min.css" type="text/css" />
+    <link rel="stylesheet" href="/static/css/components/tooltip.min.css" type="text/css" />
     <link rel="stylesheet" href="/static/css/base.css" type="text/css" />
 
     <script src="/static/js/jquery-2.2.3.min.js"></script>
     <script src="/static/js/uikit.min.js"></script>
     <script src="/static/js/components/sticky.min.js"></script>
     <script src="/static/js/components/parallax.min.js"></script>
+    <script src="/static/js/components/tooltip.min.js"></script>
 
 </head>
 
@@ -22,7 +25,7 @@
 
     <main>
 
-        <nav class="uk-navbar nav-bar uk-flex uk-flex-center" data-uk-sticky>
+        <nav class="uk-navbar nav-bar uk-flex uk-flex-center uk-animation-fade uk-animation-5" data-uk-sticky>
             <ul class="uk-navbar-nav">
                 <li><a href="#home" data-uk-smooth-scroll>home</a></li>
                 <li><a href="#about" data-uk-smooth-scroll>about</a></li>
@@ -34,7 +37,7 @@
         </nav>
 
         <section id="home">
-            <div class="uk-cover-background uk-height-viewport cover uk-animation-fade">
+            <div class="uk-cover-background uk-height-viewport cover uk-animation-fade uk-animation-5">
                 <img class="uk-invisible" src="/static/img/colombia_cover.jpg" width="2560" height="1714" alt="">
                 <div class="uk-position-cover uk-flex uk-flex-center uk-flex-middle">
                     <div class="uk-text-center cover-box">
@@ -50,7 +53,7 @@
         <section id="about">
             <div class="uk-container uk-container-center">
                 <h1>about</h1>
-                <hr>
+                <hr><br>
                 <div class="uk-grid">
                     <div class="uk-width-2-3">
                         <p>I am a craft beer enthousiast and an avid supporter of the local beer scene. I make an effort to try
@@ -67,30 +70,32 @@
         <section id="work">
             <div class="uk-container uk-container-center">
                 <h1>work</h1>
-                <hr>
+                <hr><br>
             </div>
         </section>
 
         <section id="education">
             <div class="uk-container uk-container-center">
                 <h1>education</h1>
-                <hr>
+                <hr><br>
                 <div class="uk-grid uk-grid-divider edu-list">
-                    <div class="uk-width-1-2">
+                    <div class="uk-width-medium-1-2">
                         <img src="/static/img/tu-logo.jpg" alt="TU Delft">
                     </div>
-                    <div class="uk-width-1-2">
+                    <div class="uk-width-medium-1-2">
                         <h3>M.Sc. in Civil Engineering</h3>
                         <em>2012-2015</em><br>
                         Delft University of Technology<br>
-                        Specialization in Water Management
+                        Department of Water Management<br><br>
+                        Specialization in Remote Sensing Hydrology<br>
+                        Thesis on land use classification <a href=""><i class="uk-icon-download"></i></a>
                     </div>
                 </div>
                 <div class="uk-grid uk-grid-divider edu-list">
-                    <div class="uk-width-1-2">
+                    <div class="uk-width-medium-1-2">
                         <img src="/static/img/cu-logo.jpg" alt="CU Boulder">
                     </div>
-                    <div class="uk-width-1-2">
+                    <div class="uk-width-medium-1-2">
                         <h3>B.Sc. in Environmental Engineering</h3>
                         <em>2008-2012</em><br>
                         University of Colorado at Boulder<br>
@@ -98,14 +103,18 @@
                     </div>
                 </div>
                 <div class="uk-grid uk-grid-divider edu-list">
-                    <div class="uk-width-1-2">
+                    <div class="uk-width-medium-1-2">
                         <img src="/static/img/sas-logo.jpg" alt="Semester at Sea">
                     </div>
-                    <div class="uk-width-1-2">
+                    <div class="uk-width-medium-1-2">
                         <h3>Semester at Sea</h3>
                         <em>Fall 2010</em><br>
                         Non-conventional study-abroad program<br>
-                        12 countries across N. America, Europe, Africa & Asia
+                        12 countries across
+                        <span data-uk-tooltip title="Canada & United States">N. America</span>,
+                        <span data-uk-tooltip title="Spain">Europe</span>,
+                        <span data-uk-tooltip title="Morocco, Ghana, South Africa & Mauritius">Africa</span> &
+                        <span data-uk-tooltip title="India, Singapore, Vietnam, China & Japan">Asia</span>
                     </div>
                 </div>
             </div>
@@ -114,7 +123,7 @@
         <section id="skills">
             <div class="uk-container uk-container-center">
                 <h1>skills</h1>
-                <hr>
+                <hr><br>
                 <div class="uk-grid skills-list">
                     <div class="uk-width-large-1-4 uk-width-medium-1-2">
                         <h3>Coding & Computation</h3>
@@ -163,7 +172,7 @@
         <section id="contact">
             <div class="uk-container uk-container-center">
                 <h1>contact</h1>
-                <hr>
+                <hr><br>
                 <div class="uk-grid">
                     <div class="uk-width-1-2">
                         <form class="uk-form">
@@ -181,6 +190,12 @@
 
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="footer">
+            <div class="uk-cover-background footer-cover" style="height: 500px">
+                <img class="uk-invisible" src="/static/img/colombia_footer.jpg.jpg" width="2560" height="650" alt="">
             </div>
         </section>
 
