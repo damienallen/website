@@ -11,22 +11,10 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+from dallen.secret import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'uq+ir0yo0q03er=1uy420r)a76cc(orm=c$9_0qebuuhgtp3ot'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -77,12 +65,14 @@ WSGI_APPLICATION = 'dallen.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dallen',
-        'USER': 'db_user',
-        'PASSWORD': 'VpFSpx5CZP79',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sqlite',
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': 'dallen',
+        # 'USER': 'db_user',
+        # 'PASSWORD': 'VpFSpx5CZP79',
+        # 'HOST': 'localhost',
+        # 'PORT': '',
     }
 }
 
