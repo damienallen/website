@@ -67,12 +67,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'sqlite',
-        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        # 'NAME': 'dallen',
-        # 'USER': 'db_user',
-        # 'PASSWORD': 'VpFSpx5CZP79',
-        # 'HOST': 'localhost',
-        # 'PORT': '',
     }
 }
 

@@ -1,6 +1,4 @@
 Django==1.10.2
 gunicorn==19.6.0
-psycopg2==2.6.2
 pytz==2016.6.1
-requests==2.11.1
-sendgrid
+sendgrid==3.6.0
