@@ -3,6 +3,7 @@ from django.core.mail import send_mail
 from django.shortcuts import redirect
 from django.template import Context
 from django.template.loader import get_template
+from ipware.ip import get_ip
 
 import sendgrid
 from sendgrid.helpers.mail import *
@@ -14,6 +15,12 @@ from base.forms import ContactForm
 def index(request):
 
     form_class = ContactForm
+
+    ip = get_ip(request)
+    if ip is not None:
+        print(ip)
+    else:
+        print("we don't have an IP address for user")
 
     # build context object
     context = {
@@ -33,6 +40,9 @@ def contact(request):
         form = form_class(data=request.POST)
 
         if form.is_valid():
+
+            print(request.POST.get('g-recaptcha-response'))
+
             name = request.POST.get('name')
             email = request.POST.get('email')
             subject = request.POST.get('subject')

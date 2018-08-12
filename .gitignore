@@ -1,0 +1,5 @@
+*.pyc
+dallen/secret.py
+sqlite
+.idea/
+venv/
