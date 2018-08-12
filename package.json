@@ -1,0 +1,32 @@
+{
+  "name": "dallen.co",
+  "version": "1.0.0",
+  "description": "Personal website",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "bootstrap": "^4.1.2",
+    "codemirror": "^5.39.2",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.24.5",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1",
+    "merge-stream": "^1.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damienallen/dallen.git"
+  },
+  "keywords": [],
+  "author": "Damien Allen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/damienallen/dallen/issues"
+  },
+  "homepage": "https://github.com/damienallen/dallen#readme"
+}
