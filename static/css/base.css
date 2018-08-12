@@ -1,0 +1,69 @@
+/* navigation styling */
+.nav-bar {
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 1000; }
+
+nav.nav-bar ul li a {
+  font-size: 1.2em;
+  font-weight: 300; }
+
+/* cover styling */
+.cover {
+  background-image: url(../img/colombia_cover.jpg); }
+
+.cover-box {
+  background: rgba(0, 0, 0, 0.4);
+  color: #ddd;
+  padding: 2em;
+  border-radius: 8px; }
+
+.cover-name {
+  font-size: 2.5em;
+  font-weight: 300; }
+
+.cover-sub {
+  font-size: 1em;
+  color: #bbb; }
+
+/* section styling */
+section {
+  margin-bottom: 40px;
+  padding-top: 40px; }
+
+#home {
+  margin-top: -80px; }
+
+.skills-list div {
+  margin-bottom: 20px; }
+
+/* education styling */
+.edu-list img {
+  width: 300px; }
+
+.edu-list div {
+  margin-bottom: 40px; }
+
+span.dotted {
+  border-bottom: 1px dotted #999;
+  text-decoration: none; }
+
+/* contact form styling */
+#contact-form {
+  max-width: 700px; }
+
+.form-message {
+  width: 100%;
+  height: 100px; }
+
+.form-input {
+  width: 100%; }
+
+.CodeMirror-wrap {
+  height: 100px; }
+
+/* footer styling */
+#footer {
+  margin-bottom: 0; }
+
+.footer-cover {
+  background-image: url(../img/colombia_footer.jpg); }
