@@ -4,10 +4,11 @@
   "description": "Personal website",
   "main": "gulpfile.js",
   "dependencies": {
-    "bootstrap": "^4.1.2",
     "codemirror": "^5.39.2",
     "jquery": "^3.3.1",
-    "popper.js": "^1.14.3"
+    "marked": "^0.4.0",
+    "popper.js": "^1.14.3",
+    "uikit": "^3.0.0-rc.11"
   },
   "devDependencies": {
     "browser-sync": "^2.24.5",

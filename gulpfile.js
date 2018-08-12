@@ -29,11 +29,18 @@ gulp.task('assets', ()=>{
     return merge(
         gulp.src('assets\\images\\*').pipe(gulp.dest('static\\img')).pipe(browserSync.stream()),
         gulp.src('assets\\scripts\\*').pipe(gulp.dest('static\\js')).pipe(browserSync.stream()),
-        // Get simple icons
+        // Get font icons
         gulp.src('assets\\icons\\.*').pipe(gulp.dest('static\\ic')),
         // Import JS libraries
         gulp.src('node_modules\\jquery\\dist\\jquery.js').pipe(gulp.dest('static\\js')),
-        gulp.src('node_modules\\bootstrap\\dist\\js\\*.js').pipe(gulp.dest('static\\js')),
-        gulp.src('node_modules\\bootstrap\\dist\\css\\*.css').pipe(gulp.dest('static\\css')),
+        gulp.src('node_modules\\uikit\\dist\\css\\uikit.css').pipe(gulp.dest('static\\css')),
+        gulp.src('node_modules\\uikit\\dist\\js\\uikit.js').pipe(gulp.dest('static\\js')),
+        gulp.src('node_modules\\codemirror\\lib\\codemirror.js').pipe(gulp.dest('static\\js')),
+        gulp.src('node_modules\\codemirror\\lib\\codemirror.css').pipe(gulp.dest('static\\css')),
+        gulp.src('node_modules\\codemirror\\mode\\markdown\\markdown.js').pipe(gulp.dest('static\\js')),
+        gulp.src('node_modules\\codemirror\\mode\\xml\\xml.js').pipe(gulp.dest('static\\js')),
+        gulp.src('node_modules\\codemirror\\mode\\gfm\\gfm.js').pipe(gulp.dest('static\\js')),
+        gulp.src('node_modules\\codemirror\\addon\\mode\\overlay.js').pipe(gulp.dest('static\\js')),
+        gulp.src('node_modules\\marked\\lib\\marked.js').pipe(gulp.dest('static\\js')),
     )
 });
