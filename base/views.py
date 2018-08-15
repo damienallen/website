@@ -27,7 +27,7 @@ def index(request):
         'form': form_class,
     }
 
-    return render(request, 'base/index.html', context)
+    return render(request, 'index.html', context)
 
 
 # contact form

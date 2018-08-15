@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+{% load static %}
+
 <head>
 
     <meta charset="UTF-8">
@@ -12,24 +14,24 @@
     <script src="https://www.google.com/recaptcha/api.js"></script>
 
     <!-- Codemirror and marked dependencies -->
-    <link rel="stylesheet" href="/static/css/codemirror.css">
-    <script src="/static/js/codemirror.js"></script>
-    <script src="/static/js/markdown.js"></script>
-    <script src="/static/js/overlay.js"></script>
-    <script src="/static/js/xml.js"></script>
-    <script src="/static/js/gfm.js"></script>
-    <script src="/static/js/marked.js"></script>
+    <link rel="stylesheet" href="/static/css/codemirror.min.css">
+    <script src="{% static 'js/codemirror.min.js' %}"></script>
+    <script src="{% static 'js/markdown.min.js' %}"></script>
+    <script src="{% static 'js/overlay.min.js' %}"></script>
+    <script src="{% static 'js/xml.min.js' %}"></script>
+    <script src="{% static 'js/gfm.min.js' %}"></script>
+    <script src="{% static 'js/marked.min.js' %}"></script>
 
-    <!-- UIKIT and jQuery components -->
-    <link rel="stylesheet" href="/static/css/uikit.css" type="text/css" />
-    <script src="/static/js/uikit.js"></script>
+    <!-- Bootstrap and jQuery components -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css" />
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
-    <script src="/static/js/jquery.js"></script>
-    <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.min.js' %}" async defer></script>
 
     <!-- Custom CSS and JS -->
-    <link rel="stylesheet" href="/static/css/base.css" type="text/css" />
-    <script src="/static/js/base.js"></script>
+    <link rel="stylesheet" href="{% static 'css/base.min.css' %}" type="text/css" />
+    <script src="{% static 'js/base.min.js' %}"></script>
 
 </head>
 
