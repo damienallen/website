@@ -49,8 +49,6 @@ gulp.task('lib', ()=>{
     return merge(
         // Dependencies from node_modules
         gulp.src('node_modules/jquery/dist/jquery.js').pipe(gulp.dest(jsDir)),
-        gulp.src('node_modules/bootstrap/dist/*/*').pipe(gulp.dest(buildDir)),
-        gulp.src('node_modules/jquery/dist/jquery.js').pipe(gulp.dest(jsDir)),
         gulp.src('node_modules/bootstrap/dist/**/*').pipe(gulp.dest(buildDir)),
         gulp.src('node_modules/codemirror/lib/codemirror.js').pipe(gulp.dest(jsDir)),
         gulp.src('node_modules/codemirror/lib/codemirror.css').pipe(gulp.dest(cssDir)),
@@ -59,6 +57,7 @@ gulp.task('lib', ()=>{
         gulp.src('node_modules/codemirror/mode/gfm/gfm.js').pipe(gulp.dest(jsDir)),
         gulp.src('node_modules/codemirror/addon/mode/overlay.js').pipe(gulp.dest(jsDir)),
         gulp.src('node_modules/marked/lib/marked.js').pipe(gulp.dest(jsDir)),
+        gulp.src('node_modules/popper.js/dist/popper.js').pipe(gulp.dest(jsDir)),
         // Font icons
         gulp.src('node_modules/font-awesome/css/font-awesome.css').pipe(gulp.dest(cssDir)),
         gulp.src('node_modules/font-awesome/fonts/*').pipe(gulp.dest(fontDir)),
