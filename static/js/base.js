@@ -27,3 +27,19 @@
 //    });
 //
 //});
+
+$(document).ready(function () {
+
+    // Fade cover background on scroll
+    $(window).scroll(function () {
+
+        var multiplier = 0.1;
+
+        var coverOpacity = (100 - $(this).scrollTop()*multiplier)/100;
+        if (coverOpacity < 0) {
+            coverOpacity = 0;
+        }
+        $('.cover').css({opacity: coverOpacity})
+    });
+
+});
