@@ -64,6 +64,5 @@ span.dotted {
 /* footer styling */
 #footer {
   margin-bottom: 0; }
-
-.footer-cover {
-  background-image: url(../img/colombia_footer.jpg); }
+  #footer .footer-cover {
+    background-image: url("../img/colombia_footer.jpg"); }

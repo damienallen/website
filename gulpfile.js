@@ -4,7 +4,7 @@ const del = require('del');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 const minifyCSS = require('gulp-csso');
-const minifyJS = require('gulp-minify');
+const uglify = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync').create();
 const merge = require('merge-stream');
@@ -22,30 +22,27 @@ const buildDir = 'static';
 const cssDir = buildDir + '/css';
 const jsDir = buildDir + '/js';
 const imgDir = buildDir + '/img';
-const fontDir = buildDir + '/fonts';
+const svgDir = buildDir + '/svgs';
 
 // Uncompressed file directories
 const cssSrc = [cssDir + '/**/*.css', '!' + cssDir + '/**/*.min.css'];
 const jsSrc = [jsDir + '/**/*.js', '!' + jsDir + '/**/*.min.js'];
 
 // Compile and copy SASS files
-gulp.task('sass', (done)=>{
-    gulp.src(styleSrc).pipe(sass()).pipe(gulp.dest(cssDir));
-    done();
-});
+function styles() {
+    return gulp.src(styleSrc).pipe(sass()).pipe(gulp.dest(cssDir));
+}
 
 // Copy dashboard JS files
-gulp.task('js', (done)=>{
-    gulp.src(scriptSrc).pipe(gulp.dest(jsDir));
-    done();
-});
+function scripts() {
+    return gulp.src(scriptSrc).pipe(gulp.dest(jsDir));
+}
 
-gulp.task('img', (done)=>{
-    gulp.src(imageSrc).pipe(imagemin()).pipe(gulp.dest(imgDir)).pipe(browserSync.stream());
-    done();
-});
+function images() {
+    return gulp.src(imageSrc).pipe(imagemin()).pipe(gulp.dest(imgDir)).pipe(browserSync.stream());
+}
 
-gulp.task('lib', ()=>{
+function libraries() {
     return merge(
         // Dependencies from node_modules
         gulp.src('node_modules/jquery/dist/jquery.js').pipe(gulp.dest(jsDir)),
@@ -57,41 +54,54 @@ gulp.task('lib', ()=>{
         gulp.src('node_modules/codemirror/mode/gfm/gfm.js').pipe(gulp.dest(jsDir)),
         gulp.src('node_modules/codemirror/addon/mode/overlay.js').pipe(gulp.dest(jsDir)),
         gulp.src('node_modules/marked/lib/marked.js').pipe(gulp.dest(jsDir)),
-        gulp.src('node_modules/popper.js/dist/popper.js').pipe(gulp.dest(jsDir)),
+        gulp.src('node_modules/popper.js/dist/popper.min.js').pipe(gulp.dest(jsDir)),
         // Font icons
-        gulp.src('node_modules/font-awesome/css/font-awesome.css').pipe(gulp.dest(cssDir)),
-        gulp.src('node_modules/font-awesome/fonts/*').pipe(gulp.dest(fontDir)),
+        gulp.src('node_modules/@fortawesome/fontawesome-free/js/all.js').pipe(rename('font-awesome.js')).pipe(gulp.dest(jsDir)),
+        gulp.src('node_modules/@fortawesome/fontawesome-free/svgs/**/*.svg').pipe(gulp.dest(svgDir)),
+        // Favicon
+        // gulp.src(staticSrc + '/favicon.ico').pipe(gulp.dest(buildDir)),
     )
-});
+}
 
-gulp.task('minifycss', (done)=>{
-    gulp.src(cssSrc)
+function minifycss() {
+    return gulp.src(cssSrc)
         .pipe(minifyCSS())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest(cssDir))
         .pipe(browserSync.stream());
-    done();
-});
+}
 
-gulp.task('minifyjs', (done)=>{
-    gulp.src(jsSrc)
-        .pipe(minifyJS({
-            ext:{
-                min:'.min.js'
-            },
-            ignoreFiles: ['.min.js']
-        }))
-        .pipe(gulp.dest(jsDir))
-        .pipe(browserSync.stream());
-    done();
-});
+function minifyjs() {
+    return gulp.src(jsSrc)
+        .pipe(uglify())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest(jsDir));
+}
 
-// Serve command called by django-gulp
-gulp.task('serve', gulp.series(gulp.parallel('sass', 'js', 'img', 'lib'), gulp.parallel('minifycss', 'minifyjs'), ()=>{
+function clean() {
+    return del([buildDir]);
+}
+
+// Sub tasks
+exports.styles = styles;
+exports.scripts = scripts;
+exports.images = images;
+exports.libraries = libraries;
+
+exports.minifycss = minifycss;
+exports.minifyjs = minifyjs;
+exports.clean = clean;
+
+// Master tasks
+var compile = gulp.series(gulp.parallel(styles, scripts, images, libraries), gulp.parallel(minifycss, minifyjs));
+gulp.task('compile', compile);
+gulp.task('build', gulp.series(clean, compile));
+
+var serve = gulp.series(compile, ()=>{
     browserSync.init({
         injectChanges: true,
         notify: false,
-        // open: false,
+        // open: false, // turn off auto-open if desired
         port: 8000,
         proxy: {
             target: 'localhost:8000',
@@ -100,11 +110,9 @@ gulp.task('serve', gulp.series(gulp.parallel('sass', 'js', 'img', 'lib'), gulp.p
             }
         },
     });
-    gulp.watch(styleSrc, gulp.series('sass', 'minifycss'));
-    gulp.watch(scriptSrc).on('change', gulp.series('js', 'minifyjs'));
+    gulp.watch(styleSrc).on('change', gulp.series(styles, minifycss));
+    gulp.watch(scriptSrc).on('change', gulp.series(scripts, minifyjs, browserSync.reload));
     gulp.watch(templateSrc).on('change', browserSync.reload);
-}));
-
-gulp.task('clean', () => del([buildDir]));
-gulp.task('build', gulp.series('clean', gulp.parallel('sass', 'js', 'img', 'lib'), gulp.parallel('minifycss', 'minifyjs')));
-gulp.task('default', gulp.series('serve'));
+});
+gulp.task('serve', serve);
+gulp.task('default', serve);
