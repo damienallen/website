@@ -42,4 +42,13 @@ $(document).ready(function () {
         $('.cover').css({opacity: coverOpacity})
     });
 
+    // Add padding to in-page nav
+    var offset = 50;
+
+    $('.navbar li a').click(function(event) {
+        event.preventDefault();
+        $($(this).attr('href'))[0].scrollIntoView();
+        scrollBy(0, -offset);
+    });
+
 });

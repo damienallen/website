@@ -5,8 +5,9 @@
   .navbar .navbar-brand {
     text-align: center;
     font-size: 0.9em;
+    font-weight: 600;
     line-height: 1em;
-    color: #f00;
+    color: #ff1f4f;
     padding: 0 !important; }
   .navbar .nav-icons {
     font-size: 1.5em; }
@@ -14,7 +15,7 @@
       margin: 0 !important;
       padding: 0 10px !important; }
 
-/* Cover styling */
+/* cover styling */
 .cover {
   position: fixed;
   top: 0;
@@ -41,13 +42,17 @@
   100% {
     opacity: 0; } }
 
-/* container and section styling */
-.container {
-  padding-top: 25vh; }
-
-section {
+/* section styling */
+.generic-section {
   background: #fff;
   padding: 20px; }
+  .generic-section h1 {
+    font-size: 2em;
+    font-weight: 200; }
+
+/* about styling */
+#about {
+  padding-top: 50vh; }
 
 /* education styling */
 .edu-list img {
@@ -80,6 +85,6 @@ span.dotted {
 
 /* footer styling */
 #footer {
-  margin-bottom: 0; }
-  #footer .footer-cover {
-    background-image: url("../img/colombia_footer.jpg"); }
+  margin: 50px 0 0 0; }
+  #footer img {
+    width: 100%; }
