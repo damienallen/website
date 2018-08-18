@@ -1,0 +1,6 @@
+/* Override bootstrap container cutoffs */
+@media (min-width: 992px) {
+    .container{
+        max-width: 800px;
+    }
+}

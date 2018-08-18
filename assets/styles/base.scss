@@ -1,0 +1,116 @@
+/* navigation styling */
+.navbar {
+  background: rgba(255,255,255,0.8);
+  z-index: 1000;
+
+  .navbar-brand {
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: 600;
+    line-height: 1em;
+    color: #ff1f4f;
+    padding: 0 !important;
+  }
+
+  .nav-icons {
+    font-size: 1.5em;
+
+    .nav-link {
+      margin: 0 !important;
+      padding: 0 10px !important;
+    }
+  }
+}
+
+/* cover styling */
+.cover {
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+
+  background-image: url('../img/colombia_cover.jpg');
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .cover-fill {
+    height: 100%;
+    width: 100%;
+
+    background-color: #fff;
+
+    animation-name: fadeOut;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* section styling */
+.generic-section {
+  background: #fff;
+  padding: 20px;
+
+  h1 {
+    font-size: 2em;
+    font-weight: 200;
+  }
+}
+
+/* about styling */
+#about {
+  padding-top: 50vh;
+}
+
+/* education styling */
+.edu-list img {
+  width: 300px;
+}
+.edu-list div {
+  margin-bottom: 40px;
+}
+
+/* skills styling */
+.skills-list div {
+  margin-bottom: 20px;
+}
+
+span.dotted {
+  border-bottom: 1px dotted #999;
+  text-decoration: none;
+}
+
+/* contact form styling */
+#contact-form {
+  max-width: 700px;
+}
+.form-message {
+  width: 100%;
+  height: 100px;
+}
+.form-input {
+  width: 100%;
+}
+.CodeMirror-wrap {
+  height: 100px;
+}
+/* footer styling */
+#footer {
+  margin: 50px 0 0 0;
+
+  img {
+    width: 100%;
+  }
+}

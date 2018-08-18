@@ -1,5 +1,4 @@
 *.pyc
-assets/
 dallen/secret.py
 sqlite
 .idea/
