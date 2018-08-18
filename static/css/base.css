@@ -22,9 +22,7 @@
   z-index: -1;
   height: 100%;
   width: 100%;
-  background-image: url("../img/colombia_cover.jpg");
-  background-position: left;
-  background-repeat: no-repeat;
+  background: url("../img/colombia_cover.jpg") no-repeat left;
   background-size: cover; }
   .cover .cover-fill {
     height: 100%;
@@ -65,26 +63,16 @@
 .skills-list div {
   margin-bottom: 20px; }
 
-span.dotted {
+.dotted {
   border-bottom: 1px dotted #999;
   text-decoration: none; }
 
 /* contact form styling */
-#contact-form {
-  max-width: 700px; }
-
-.form-message {
-  width: 100%;
-  height: 100px; }
-
-.form-input {
-  width: 100%; }
-
-.CodeMirror-wrap {
-  height: 100px; }
+#contact-form .row {
+  margin-bottom: 25px; }
 
 /* footer styling */
 #footer {
-  margin: 50px 0 0 0; }
+  margin: 20px 0 0 0; }
   #footer img {
     width: 100%; }

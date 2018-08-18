@@ -51,4 +51,17 @@ $(document).ready(function () {
         scrollBy(0, -offset);
     });
 
+    // Add WYSIWYG editor to textarea
+    $('#message-text').trumbowyg({
+    btns: [
+        ['viewHTML'],
+        ['undo', 'redo'], // Only supported in Blink browsers
+        ['formatting'],
+        ['strong', 'em', 'del'],
+        ['unorderedList', 'orderedList'],
+        ['link', 'insertImage'],
+        ['fullscreen']
+    ]
+});
+
 });

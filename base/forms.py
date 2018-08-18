@@ -8,8 +8,8 @@ class ContactForm(forms.ModelForm):
         fields = ['name', 'email', 'subject', 'message']
 
         widgets = {
-            'name': forms.TextInput(attrs={'placeholder': 'Name', 'class': 'form-input'}),
-            'email': forms.TextInput(attrs={'placeholder': 'Email', 'class': 'form-input'}),
-            'subject': forms.TextInput(attrs={'placeholder': 'Subject', 'class': 'form-input'}),
-            'message': forms.Textarea(attrs={'data-uk-htmleditor': '', 'class': 'form-message'})
+            'name': forms.TextInput(attrs={'placeholder': 'Name', 'class': 'form-control'}),
+            'email': forms.TextInput(attrs={'placeholder': 'Email', 'class': 'form-control'}),
+            'subject': forms.TextInput(attrs={'placeholder': 'Subject', 'class': 'form-control'}),
+            'message': forms.Textarea(attrs={'id': 'message-text'})
         }

@@ -2,6 +2,7 @@
 const gulp = require('gulp');
 const del = require('del');
 const rename = require('gulp-rename');
+var replace = require('gulp-replace');
 const sass = require('gulp-sass');
 const minifyCSS = require('gulp-csso');
 const uglify = require('gulp-uglify');
@@ -47,13 +48,9 @@ function libraries() {
         // Dependencies from node_modules
         gulp.src('node_modules/jquery/dist/jquery.js').pipe(gulp.dest(jsDir)),
         gulp.src('node_modules/bootstrap/dist/**/*').pipe(gulp.dest(buildDir)),
-        gulp.src('node_modules/codemirror/lib/codemirror.js').pipe(gulp.dest(jsDir)),
-        gulp.src('node_modules/codemirror/lib/codemirror.css').pipe(gulp.dest(cssDir)),
-        gulp.src('node_modules/codemirror/mode/markdown/markdown.js').pipe(gulp.dest(jsDir)),
-        gulp.src('node_modules/codemirror/mode/xml/xml.js').pipe(gulp.dest(jsDir)),
-        gulp.src('node_modules/codemirror/mode/gfm/gfm.js').pipe(gulp.dest(jsDir)),
-        gulp.src('node_modules/codemirror/addon/mode/overlay.js').pipe(gulp.dest(jsDir)),
-        gulp.src('node_modules/marked/lib/marked.js').pipe(gulp.dest(jsDir)),
+        gulp.src('node_modules/trumbowyg/dist/trumbowyg.min.js').pipe(replace('ui/icons.svg', '../svgs/trumbowyg-icons.svg')).pipe(gulp.dest(jsDir)),
+        gulp.src('node_modules/trumbowyg/dist/ui/icons.svg').pipe(rename('trumbowyg-icons.svg')).pipe(gulp.dest(svgDir)),
+        gulp.src('node_modules/trumbowyg/dist/ui/trumbowyg.min.css').pipe(gulp.dest(cssDir)),
         gulp.src('node_modules/popper.js/dist/popper.min.js').pipe(gulp.dest(jsDir)),
         // Font icons
         gulp.src('node_modules/@fortawesome/fontawesome-free/js/all.js').pipe(rename('font-awesome.js')).pipe(gulp.dest(jsDir)),
