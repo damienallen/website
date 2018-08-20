@@ -1,3 +1,5 @@
+//TODO: Give section headers class names, full width footer pic
+
 /* variables */
 $standard-cutoff: 768px;
 $cover-url: url('../img/colombia_cover.jpg');
@@ -136,6 +138,7 @@ $logo-width: 200px;
 }
 
 .edu-list, .work-list {
+
   img {
     width: 250px;
   }
@@ -157,8 +160,23 @@ $logo-width: 200px;
 
 /* skills styling */
 .skills-list {
+
   div {
     margin-bottom: 20px;
+  }
+
+  ul {
+    padding: 0;
+    list-style: none;
+    font-size: 0.9em;
+  }
+
+  h4 {
+    font-size: 0.8em;
+    line-height: 24px;
+    margin-bottom: 20px;
+    color: #5f5f5f;
+    font-style: italic;
   }
 }
 
