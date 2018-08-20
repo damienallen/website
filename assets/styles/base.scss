@@ -1,3 +1,8 @@
+/* variables */
+$standard-cutoff: 768px;
+$cover-url: url('../img/colombia_cover.jpg');
+$logo-width: 200px;
+
 /* navigation styling */
 .navbar {
   background: rgba(255,255,255,0.8);
@@ -23,9 +28,14 @@
 }
 
 /* cover styling */
-@media (max-width: 768px) {
-  .cover-fill {
-    opacity: 0.6 !important;
+@media (max-width: $standard-cutoff) {
+  .cover {
+    background-image: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.2),
+                    rgba(0, 0, 0, 0.6)
+    ), $cover-url !important;
+
   }
 }
 
@@ -36,7 +46,14 @@
   height: 100%;
   width: 100%;
 
-  background: url('../img/colombia_cover.jpg') no-repeat left;
+  background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0),
+                  rgba(0, 0, 0, 0.4)
+  ), $cover-url;
+
+  background-repeat: no-repeat;
+  background-position: left;
   background-size: cover;
 
   .cover-fill {
@@ -74,14 +91,12 @@
 }
 
 /* about styling */
-
-@media (max-width: 768px) {
+@media (max-width: $standard-cutoff) {
 
   #about {
 
     .about-content {
       padding-top: 20vh !important;
-      color: #121212 !important;
       font-size: 1.1em !important;
     }
 
@@ -98,9 +113,9 @@
 
   .about-content {
     color: #fff;
-    font-size: 1.3em;
+    font-size: 1.2em;
     text-align: justify;
-    padding-top: 30vh;
+    padding-top: 50vh;
   }
 
   .down-arrow {
@@ -115,21 +130,28 @@
   }
 }
 
-/* work styling */
+/* work & education styling */
 #work {
   box-shadow: 0 3px 15px rgba(0,0,0,0.2);
 }
 
-/* education styling */
-.edu-list {
+.edu-list, .work-list {
   img {
-    width: 300px;
+    width: 250px;
   }
-}
 
-.edu-list {
   div {
     margin-bottom: 40px;
+    font-size: 0.9em;
+  }
+
+  em {
+    color: #d05;
+  }
+
+  h3 {
+    font-size: 18px;
+    line-height: 24px;
   }
 }
 
