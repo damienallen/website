@@ -39,7 +39,12 @@ $(document).ready(function () {
         if (coverOpacity < 0) {
             coverOpacity = 0;
         }
+
+        var boxShadowInitialOpacity = 0.2;
+        var boxShadowOpacity = boxShadowInitialOpacity * coverOpacity;
+        var boxShadowValue = '0 3px 15px rgba(0,0,0,' + boxShadowOpacity + ')';
         $('.cover').css({opacity: coverOpacity})
+        $('#work').css({boxShadow: boxShadowValue})
     });
 
     // Add padding to in-page nav

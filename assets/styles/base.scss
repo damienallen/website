@@ -23,6 +23,12 @@
 }
 
 /* cover styling */
+@media (max-width: 768px) {
+  .cover-fill {
+    opacity: 0.6 !important;
+  }
+}
+
 .cover {
   position: fixed;
   top: 0;
@@ -68,8 +74,50 @@
 }
 
 /* about styling */
+
+@media (max-width: 768px) {
+
+  #about {
+
+    .about-content {
+      padding-top: 20vh !important;
+      color: #121212 !important;
+      font-size: 1.1em !important;
+    }
+
+    .down-arrow {
+      margin-top: 0 !important;
+    }
+  }
+}
+
 #about {
-  padding-top: 50vh;
+  position: relative;
+  height: 100vh;
+  margin-bottom: 40px;
+
+  .about-content {
+    color: #fff;
+    font-size: 1.3em;
+    text-align: justify;
+    padding-top: 30vh;
+  }
+
+  .down-arrow {
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    font-size: 2em;
+    padding-bottom: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+/* work styling */
+#work {
+  box-shadow: 0 3px 15px rgba(0,0,0,0.2);
 }
 
 /* education styling */
@@ -100,7 +148,7 @@
 /* contact form styling */
 #contact-form {
   .row {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
   }
 }
 
