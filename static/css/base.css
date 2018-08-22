@@ -11,11 +11,12 @@ h1 {
   font-weight: 200; }
 
 h2 {
-  font-size: 1.4em;
+  font-size: 1.2em;
   margin-bottom: 20px; }
 
 h3 {
-  font-size: 1em; }
+  font-size: 0.9em;
+  margin-bottom: 5px; }
 
 h4 {
   font-size: 0.8em;
@@ -26,6 +27,8 @@ h4 {
 
 /*--[ navigation styling  ]--*/
 .navbar {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
   background: rgba(255, 255, 255, 0.8);
   z-index: 1000; }
   .navbar .navbar-brand {
@@ -34,17 +37,17 @@ h4 {
     font-weight: 600;
     line-height: 1em;
     color: #ff1f4f;
-    padding: 0 !important; }
+    padding: 0; }
   .navbar .nav-icons {
     font-size: 1.5em; }
     .navbar .nav-icons .nav-link {
-      margin: 0 !important;
-      padding: 0 10px !important; }
+      margin: 0;
+      padding: 0 10px; }
 
 /*--[ cover styling  ]--*/
 @media (max-width: 768px) {
   .cover {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url("../img/colombia_cover.jpg") !important; } }
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url("../img/colombia_cover.jpg"); } }
 
 .cover {
   position: fixed;
@@ -80,10 +83,10 @@ h4 {
 /*--[ about styling  ]--*/
 @media (max-width: 768px) {
   #about .about-content {
-    padding-top: 20vh !important;
-    font-size: 1.1em !important; }
+    padding-top: 20vh;
+    font-size: 1.1em; }
   #about .down-arrow {
-    margin-top: 0 !important; } }
+    margin-top: 0; } }
 
 #about {
   position: relative;
@@ -108,17 +111,23 @@ h4 {
 #work {
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2); }
 
-.edu-list .duration, .work-list .duration {
-  font-size: 1em;
-  color: #d05;
-  font-style: italic; }
-
-.edu-list img, .work-list img {
-  width: 250px; }
-
-.edu-list div, .work-list div {
-  margin-bottom: 40px;
-  font-size: 0.9em; }
+.edu-list, .work-list {
+  margin-bottom: 40px; }
+  .edu-list .duration, .work-list .duration {
+    font-size: 0.8em;
+    color: #d05;
+    font-style: italic; }
+  .edu-list .details, .work-list .details {
+    font-size: 0.9em;
+    padding-top: 20px; }
+    .edu-list .details ul, .work-list .details ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none; }
+      .edu-list .details ul li:before, .work-list .details ul li:before {
+        content: "- "; }
+  .edu-list img, .work-list img {
+    width: 250px; }
 
 /*--[ skills styling  ]--*/
 .skills-list div {
@@ -139,6 +148,7 @@ h4 {
 
 /*--[ footer styling  ]--*/
 #footer {
-  margin: 20px 0 0 0; }
+  margin: 20px 0 0 0;
+  width: 100%; }
   #footer img {
     width: 100%; }

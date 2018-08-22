@@ -4,6 +4,7 @@
 
 $standard-cutoff: 768px;
 $cover-url: url('../img/colombia_cover.jpg');
+$footer-url: url('../img/tatra_footer.jpg');
 $logo-width: 200px;
 
 
@@ -23,12 +24,13 @@ h1 {
 }
 
 h2 {
-  font-size: 1.4em;
+  font-size: 1.2em;
   margin-bottom: 20px;
 }
 
 h3 {
-  font-size: 1em;
+  font-size: 0.9em;
+  margin-bottom: 5px;
 }
 
 h4 {
@@ -43,6 +45,8 @@ h4 {
 /*--[ navigation styling  ]--*/
 
 .navbar {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
   background: rgba(255,255,255,0.8);
   z-index: 1000;
 
@@ -52,15 +56,15 @@ h4 {
     font-weight: 600;
     line-height: 1em;
     color: #ff1f4f;
-    padding: 0 !important;
+    padding: 0;
   }
 
   .nav-icons {
     font-size: 1.5em;
 
     .nav-link {
-      margin: 0 !important;
-      padding: 0 10px !important;
+      margin: 0;
+      padding: 0 10px;
     }
 
   }
@@ -77,7 +81,7 @@ h4 {
                     to bottom,
                     rgba(0, 0, 0, 0.2),
                     rgba(0, 0, 0, 0.6)
-    ), $cover-url !important;
+    ), $cover-url;
 
   }
 
@@ -143,12 +147,12 @@ h4 {
   #about {
 
     .about-content {
-      padding-top: 20vh !important;
-      font-size: 1.1em !important;
+      padding-top: 20vh;
+      font-size: 1.1em;
     }
 
     .down-arrow {
-      margin-top: 0 !important;
+      margin-top: 0;
     }
 
   }
@@ -188,24 +192,33 @@ h4 {
 }
 
 .edu-list, .work-list {
+  margin-bottom: 40px;
 
   .duration {
-    font-size: 1em;
+    font-size: 0.8em;
     color: #d05;
     font-style: italic;
   }
 
-  .detail {
+  .details {
+    font-size: 0.9em;
+    padding-top: 20px;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+
+      li:before {
+        content: "- ";
+      }
+
+    }
 
   }
 
   img {
     width: 250px;
-  }
-
-  div {
-    margin-bottom: 40px;
-    font-size: 0.9em;
   }
 
 }
@@ -248,9 +261,9 @@ h4 {
 
 #footer {
   margin: 20px 0 0 0;
+  width: 100%;
 
   img {
     width: 100%;
   }
-
 }
