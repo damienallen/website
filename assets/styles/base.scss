@@ -1,11 +1,47 @@
-//TODO: Give section headers class names, full width footer pic
 
-/* variables */
+
+/*--[ variables  ]--*/
+
 $standard-cutoff: 768px;
 $cover-url: url('../img/colombia_cover.jpg');
 $logo-width: 200px;
 
-/* navigation styling */
+
+/*--[ fonts & text styling ]--*/
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-size: 1.8em;
+  font-weight: 200;
+}
+
+h2 {
+  font-size: 1.4em;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+h4 {
+  font-size: 0.8em;
+  line-height: 24px;
+  color: #5f5f5f;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+
+/*--[ navigation styling  ]--*/
+
 .navbar {
   background: rgba(255,255,255,0.8);
   z-index: 1000;
@@ -26,11 +62,16 @@ $logo-width: 200px;
       margin: 0 !important;
       padding: 0 10px !important;
     }
+
   }
+
 }
 
-/* cover styling */
+
+/*--[ cover styling  ]--*/
+
 @media (max-width: $standard-cutoff) {
+
   .cover {
     background-image: linear-gradient(
                     to bottom,
@@ -39,6 +80,7 @@ $logo-width: 200px;
     ), $cover-url !important;
 
   }
+
 }
 
 .cover {
@@ -53,7 +95,6 @@ $logo-width: 200px;
                   rgba(0, 0, 0, 0),
                   rgba(0, 0, 0, 0.4)
   ), $cover-url;
-
   background-repeat: no-repeat;
   background-position: left;
   background-size: cover;
@@ -70,29 +111,33 @@ $logo-width: 200px;
     animation-duration: 1s;
     animation-fill-mode: forwards;
   }
+
 }
 
 @keyframes fadeOut {
+
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
+
 }
 
-/* section styling */
+
+/*--[ section styling  ]--*/
+
 .generic-section {
   background: #fff;
   padding: 20px;
 
-  h1 {
-    font-size: 2em;
-    font-weight: 200;
-  }
 }
 
-/* about styling */
+
+/*--[ about styling  ]--*/
+
 @media (max-width: $standard-cutoff) {
 
   #about {
@@ -105,7 +150,9 @@ $logo-width: 200px;
     .down-arrow {
       margin-top: 0 !important;
     }
+
   }
+
 }
 
 #about {
@@ -130,14 +177,27 @@ $logo-width: 200px;
     bottom: 0;
     left: 0;
   }
+
 }
 
-/* work & education styling */
+
+/*--[ work & education styling  ]--*/
+
 #work {
   box-shadow: 0 3px 15px rgba(0,0,0,0.2);
 }
 
 .edu-list, .work-list {
+
+  .duration {
+    font-size: 1em;
+    color: #d05;
+    font-style: italic;
+  }
+
+  .detail {
+
+  }
 
   img {
     width: 250px;
@@ -148,17 +208,11 @@ $logo-width: 200px;
     font-size: 0.9em;
   }
 
-  em {
-    color: #d05;
-  }
-
-  h3 {
-    font-size: 18px;
-    line-height: 24px;
-  }
 }
 
-/* skills styling */
+
+/*--[ skills styling  ]--*/
+
 .skills-list {
 
   div {
@@ -171,13 +225,6 @@ $logo-width: 200px;
     font-size: 0.9em;
   }
 
-  h4 {
-    font-size: 0.8em;
-    line-height: 24px;
-    margin-bottom: 20px;
-    color: #5f5f5f;
-    font-style: italic;
-  }
 }
 
 .dotted {
@@ -185,18 +232,25 @@ $logo-width: 200px;
   text-decoration: none;
 }
 
-/* contact form styling */
+
+/*--[ contact form styling  ]--*/
+
 #contact-form {
+
   .row {
     margin-bottom: 20px;
   }
+
 }
 
-/* footer styling */
+
+/*--[ footer styling  ]--*/
+
 #footer {
   margin: 20px 0 0 0;
 
   img {
     width: 100%;
   }
+
 }

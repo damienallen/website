@@ -9,282 +9,287 @@
 
     <title>Damien Allen</title>
 
-    <!-- Font Awesome -->
+    <!-- Fonts & icons -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i|Open+Sans" rel="stylesheet">
     <script defer src="{% static 'js/font-awesome.js' %}"></script>
 
-    <!-- CSS -->
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css" />
     <link rel="stylesheet" href="{% static 'css/trumbowyg.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/base.min.css' %}" type="text/css" />
     <link rel="stylesheet" href="{% static 'css/layout.min.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/base.min.css' %}" type="text/css" />
 
 </head>
 
 <body data-spy="scroll" data-target="#navbar-content" data-offset="120">
 
-    <header>
-        <!-- Fixed navbar -->
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="navbar-content">
-            <span class="navbar-brand">DAMIEN<br>ALLEN</span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbar-links">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">about</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#work">work</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#education">education</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills">skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">contact</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto nav-icons">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.linkedin.com/in/damienaallen/"><i class="fab fa-linkedin"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/damienallen/"><i class="fab fa-github-square"></i></a>
-                    </li>
-                </ul>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="navbar-content">
+        <span class="navbar-brand">DAMIEN<br>ALLEN</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-links">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">about</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#work">work</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#education">education</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">contact</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto nav-icons">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.linkedin.com/in/damienaallen/"><i class="fab fa-linkedin"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/damienallen/"><i class="fab fa-github-square"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="cover">
+    <div class="cover-fill"></div>
+</div>
+
+<main class="container">
+
+    <section id="about">
+        <div class="about-content">
+            <p>
+                Hello!
+            </p>
+            <p>
+                I am a software developer working in the water sector on app-based solutions for measuring water
+                levels, rainfall, and drinking water consumption. My background is in water resources,
+                hydrology and remote sensing.
+            </p>
+            <p>
+                I also like to grow chilies, brew beer and throw pottery.
+            </p>
+        </div>
+
+        <div class="down-arrow">
+            <i class="fas fa-angle-double-down"></i>
+        </div>
+    </section>
+
+    <section id="work" class="generic-section">
+        <h1>work</h1>
+        <hr><br>
+        <div class="row work-list">
+            <div class="col-sm-6">
+                <img src="/static/img/mwm-logo.jpg" class="img-fluid" alt="Mobile Water Management">
             </div>
-        </nav>
-    </header>
-
-    <div class="cover">
-        <div class="cover-fill"></div>
-    </div>
-
-    <main class="container">
-
-        <section id="about">
-
-            <div class="about-content">
-                <p>
-                    Hello!
-                </p>
-                <p>
-                    I am a software developer working in the water sector on app-based solutions for measuring water
-                    levels, rainfall, and drinking water consumption. My background is in water resources,
-                    hydrology and remote sensing.
-                </p>
-                <p>
-                    I am also like to grow chilies, brew beer and throw pottery.
-                </p>
-            </div>
-
-            <div class="down-arrow">
-                <i class="fas fa-angle-double-down"></i>
-            </div>
-
-        </section>
-
-        <section id="work" class="generic-section">
-
-            <h1>work</h1>
-            <hr><br>
-            <div class="row work-list">
-                <div class="col-sm-6">
-                    <img src="/static/img/mwm-logo.jpg" class="img-fluid" alt="Mobile Water Management">
+            <div class="col-sm-6">
+                <h2>Backend Python Developer</h2>
+                <h3>Mobile Water Management BV</h3>
+                <div class="duration">Aug. 2016 - present</div>
+                <div class="details">
+                    <ul>
+                        <li>Server infrastructure design</li>
+                        <li>Two-way communication with mobile apps</li>
+                        <li>Feature development and integration</li>
+                        <li>Providing and interfacing with REST APIs</li>
+                        <li>Devops</li>
+                    </ul>
                 </div>
-                <div class="col-sm-6">
-                    <h3>Backend Python Developer</h3>
-                    <em>Aug. 2016 - present</em><br>
-                    Mobile Water Management BV<br><br>
-                    - Server infrastructure design<br>
-                    - Two-way communication with mobile apps<br>
-                    - Feature development and integration<br>
-                    - Providing and interfacing with REST APIs<br>
-                    - Devops
+
+            </div>
+        </div>
+        <div class="row work-list">
+            <div class="col-sm-6">
+                <img src="/static/img/kk-logo.jpg" class="img-fluid" alt="De Koperen Kat">
+            </div>
+            <div class="col-sm-6">
+                <h2>Brewery Volunteer</h2>
+                <h3>Delftse Stadsbrouwerij De Koperen Kat</h3>
+                <div class="duration">2015 - 2016</div>
+                <div class="details">
+                    Assisting the operations of a local craft brewery.
                 </div>
             </div>
-            <div class="row work-list">
-                <div class="col-sm-6">
-                    <img src="/static/img/kk-logo.jpg" class="img-fluid" alt="De Koperen Kat">
-                </div>
-                <div class="col-sm-6">
-                    <h3>Brewery Volunteer</h3>
-                    <em>2015 - 2016</em><br>
-                    Delftse Stadsbrouwerij De Koperen Kat<br><br>
-                    Occasionally assisting the operations of a local craft brewery.
-                </div>
+        </div>
+        <div class="row work-list">
+            <div class="col-sm-6">
+                <img src="/static/img/akvo-logo.jpg" class="img-fluid" alt="Akvo">
             </div>
-            <div class="row work-list">
-                <div class="col-sm-6">
-                    <img src="/static/img/akvo-logo.jpg" class="img-fluid" alt="Akvo">
-                </div>
-                <div class="col-sm-6">
-                    <h3>Django Developer Intern</h3>
-                    <em>Apr. 2016 - Jul. 2016</em><br>
-                    Akvo Foundation<br><br>
+            <div class="col-sm-6">
+                <h2>Django Developer Intern</h2>
+                <h3>Akvo Foundation</h3>
+                <div class="duration">Apr. 2016 - Jul. 2016</div>
+                <div class="details">
                     Internship which assisted with development of Akvo RSR.
                 </div>
             </div>
-            <div class="row work-list">
-                <div class="col-sm-6">
-                    <img src="/static/img/cu-logo.jpg" class="img-fluid" alt="Akvo">
-                </div>
-                <div class="col-sm-6">
-                    <h3>IT Systems Administrator</h3>
-                    <em>Feb. 2009 - Mar. 2012</em><br>
-                    University of Colorado at Boulder<br><br>
-                    - Managed computers in numerous on-campus labs<br>
-                    - Network deployment of software and operating systems<br>
-                    - Diagnosed and repaired software and hardware issues
+        </div>
+        <div class="row work-list">
+            <div class="col-sm-6">
+                <img src="/static/img/cu-logo.jpg" class="img-fluid" alt="Akvo">
+            </div>
+            <div class="col-sm-6">
+                <h2>IT Systems Administrator</h2>
+                <h3>University of Colorado at Boulder</h3>
+                <div class="duration">Feb. 2009 - Mar. 2012</div>
+                <div class="details">
+                    <ul>
+                        <li>Managed computers in numerous on-campus labs</li>
+                        <li>Network deployment of software and operating systems</li>
+                        <li>Diagnosed and repaired software and hardware issues</li>
+                    </ul>
                 </div>
             </div>
+        </div>
+    </section>
 
-        </section>
-
-        <section id="education" class="generic-section">
-
-            <h1>education</h1>
-            <hr><br>
-            <div class="row edu-list">
-                <div class="col-sm-6">
-                    <img src="/static/img/tu-logo.jpg" class="img-fluid" alt="TU Delft">
-                </div>
-                <div class="col-sm-6">
-                    <h3>M.Sc. in Civil Engineering</h3>
-                    <em>2012-2015</em><br>
-                    Delft University of Technology<br>
-                    Department of Water Management<br><br>
+    <section id="education" class="generic-section">
+        <h1>education</h1>
+        <hr><br>
+        <div class="row edu-list">
+            <div class="col-sm-6">
+                <img src="/static/img/tu-logo.jpg" class="img-fluid" alt="TU Delft">
+            </div>
+            <div class="col-sm-6">
+                <h2>M.Sc. in Civil Engineering</h2>
+                <h3>Delft University of Technology</h3>
+                <div class="duration">2012-2015</div>
+                <div class="details">
+                    Department of Water Management<br>
                     Specialization in Remote Sensing Hydrology<br>
                     Thesis on land use classification <a href=""><i class="uk-icon-download"></i></a>
                 </div>
             </div>
-            <div class="row edu-list">
-                <div class="col-sm-6">
-                    <img src="/static/img/cu-logo.jpg" class="img-fluid" alt="CU Boulder">
-                </div>
-                <div class="col-sm-6">
-                    <h3>B.Sc. in Environmental Engineering</h3>
-                    <em>2008-2012</em><br>
-                    University of Colorado at Boulder<br>
-                    Specialization in Water Resources
+        </div>
+        <div class="row edu-list">
+            <div class="col-sm-6">
+                <img src="/static/img/cu-logo.jpg" class="img-fluid" alt="CU Boulder">
+            </div>
+            <div class="col-sm-6">
+                <h2>B.Sc. in Environmental Engineering</h2>
+                <div class="duration">2008-2012</div>
+                University of Colorado at Boulder<br>
+                Specialization in Water Resources
+            </div>
+        </div>
+        <div class="row edu-list">
+            <div class="col-sm-6">
+                <img src="/static/img/sas-logo.jpg" class="img-fluid" alt="Semester at Sea">
+            </div>
+            <div class="col-sm-6">
+                <h2>Semester at Sea</h2>
+                <div class="duration">Fall 2010</div>
+                Non-conventional study-abroad program<br>
+                12 countries across
+                <span class="dotted" data-uk-tooltip title="Canada & United States">N. America</span>,
+                <span class="dotted" data-uk-tooltip title="Spain">Europe</span>,
+                <span class="dotted" data-uk-tooltip title="Morocco, Ghana, South Africa & Mauritius">Africa</span> &
+                <span class="dotted" data-uk-tooltip title="India, Singapore, Vietnam, China & Japan">Asia</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="generic-section">
+        <h1>skills</h1>
+        <hr><br>
+        <div class="row skills-list">
+            <div class="col-lg-3 col-sm-6">
+                <h4>Coding & Computation</h4>
+                <ul class="uk-list">
+                    <li>Python</li>
+                    <li>MATLAB</li>
+                    <li>C++</li>
+                    <li>Java</li>
+                    <li>Arduino</li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <h4>Hydrology & GIS</h4>
+                <ul class="uk-list">
+                    <li>Hydrological modeling</li>
+                    <li>Sobek (2D)</li>
+                    <li>EPANET</li>
+                    <li>GRASS GIS</li>
+                    <li>QGIS</li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <h4>Web & Publishing</h4>
+                <ul class="uk-list">
+                    <li>HTML5 & CSS</li>
+                    <li>Django (Python)</li>
+                    <li>jQuery (JS)</li>
+                    <li>PostgreSQL, MySQL & MSSQL</li>
+                    <li>Adobe InDesign</li>
+                    <li>Adobe Photoshop</li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <h4>Language</h4>
+                <ul class="uk-list">
+                    <li>English (native)</li>
+                    <li>Dutch (intermediate)</li>
+                    <li>French (basic)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="generic-section">
+        <h1>contact</h1>
+        <hr><br>
+        <form id="contact-form" action="/contact/" method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="row">
+                <div class="col-6">{{ form.name.errors }}{{ form.name }}</div>
+                <div class="col-6">{{ form.email.errors }}{{ form.email }}</div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">{{ form.subject.errors }}{{ form.subject }}</div>
+            </div>
+            <div class="row">
+                <div class="col-12">{{ form.message.errors }}{{ form.message }}</div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="g-recaptcha" data-sitekey="6LdSAwoUAAAAANSnCwZTzzntVxh2NuN_XqGDpaZn"></div>
                 </div>
             </div>
-            <div class="row edu-list">
-                <div class="col-sm-6">
-                    <img src="/static/img/sas-logo.jpg" class="img-fluid" alt="Semester at Sea">
-                </div>
-                <div class="col-sm-6">
-                    <h3>Semester at Sea</h3>
-                    <em>Fall 2010</em><br>
-                    Non-conventional study-abroad program<br>
-                    12 countries across
-                    <span class="dotted" data-uk-tooltip title="Canada & United States">N. America</span>,
-                    <span class="dotted" data-uk-tooltip title="Spain">Europe</span>,
-                    <span class="dotted" data-uk-tooltip title="Morocco, Ghana, South Africa & Mauritius">Africa</span> &
-                    <span class="dotted" data-uk-tooltip title="India, Singapore, Vietnam, China & Japan">Asia</span>
+            <div class="row">
+                <div class="col-3">
+                    <button class="form-control" type="submit">Send</button>
                 </div>
             </div>
+        </form>
+    </section>
 
-        </section>
+    <footer id="footer">
+        <img src="/static/img/colombia_footer.jpg" alt="Footer graphic: Riohacha, Colombia">
+    </footer>
 
-        <section id="skills" class="generic-section">
+</main>
 
-            <h1>skills</h1>
-            <hr><br>
-            <div class="row skills-list">
-                <div class="col-lg-3 col-sm-6">
-                    <h4>Coding & Computation</h4>
-                    <ul class="uk-list">
-                        <li>Python</li>
-                        <li>MATLAB</li>
-                        <li>C++</li>
-                        <li>Java</li>
-                        <li>Arduino</li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <h4>Hydrology & GIS</h4>
-                    <ul class="uk-list">
-                        <li>Hydrological modeling</li>
-                        <li>Sobek (2D)</li>
-                        <li>EPANET</li>
-                        <li>GRASS GIS</li>
-                        <li>QGIS</li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <h4>Web & Publishing</h4>
-                    <ul class="uk-list">
-                        <li>HTML5 & CSS</li>
-                        <li>Django (Python)</li>
-                        <li>jQuery (JS)</li>
-                        <li>PostgreSQL, MySQL & MSSQL</li>
-                        <li>Adobe InDesign</li>
-                        <li>Adobe Photoshop</li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <h4>Language</h4>
-                    <ul class="uk-list">
-                        <li>English (native)</li>
-                        <li>Dutch (intermediate)</li>
-                        <li>French (basic)</li>
-                    </ul>
-                </div>
-            </div>
+<!-- Bootstrap and jQuery scripts -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
 
-        </section>
-
-        <section id="contact" class="generic-section">
-
-            <h1>contact</h1>
-            <hr><br>
-            <form id="contact-form" action="/contact/" method="post">
-                {% csrf_token %}
-                {{ form.non_field_errors }}
-                <div class="row">
-                    <div class="col-6">{{ form.name.errors }}{{ form.name }}</div>
-                    <div class="col-6">{{ form.email.errors }}{{ form.email }}</div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12">{{ form.subject.errors }}{{ form.subject }}</div>
-                </div>
-                <div class="row">
-                    <div class="col-12">{{ form.message.errors }}{{ form.message }}</div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="g-recaptcha" data-sitekey="6LdSAwoUAAAAANSnCwZTzzntVxH3NuN_XqGDpaZn"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-3">
-                        <button class="form-control" type="submit">Send</button>
-                    </div>
-                </div>
-            </form>
-
-        </section>
-
-        <footer id="footer">
-            <img src="/static/img/colombia_footer.jpg" alt="Footer graphic: Riohacha, Colombia">
-        </footer>
-
-    </main>
-
-    <!-- Bootstrap and jQuery scripts -->
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-
-    <!-- JS dependencies -->
-    <script src="{% static 'js/trumbowyg.min.js' %}"></script>
-    <script src="{% static 'js/base.min.js' %}"></script>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+<!-- JS dependencies -->
+<script src="{% static 'js/trumbowyg.min.js' %}"></script>
+<script src="{% static 'js/base.min.js' %}"></script>
+<script src="https://www.google.com/recaptcha/api.js"></script>
 
 </body>
 
