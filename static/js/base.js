@@ -26,7 +26,6 @@
 //        sendEmail();
 //    });
 //
-//});
 
 $(document).ready(function () {
 
@@ -55,6 +54,10 @@ $(document).ready(function () {
         $($(this).attr('href'))[0].scrollIntoView();
         scrollBy(0, -offset);
     });
+
+    // Add tooltops
+    $('[data-toggle="tooltip"]').tooltip();
+
 
     // Add WYSIWYG editor to textarea
     $('#message-text').trumbowyg({
