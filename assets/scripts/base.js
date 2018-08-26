@@ -58,15 +58,16 @@ $(document).ready(function () {
 
     // Add WYSIWYG editor to textarea
     $('#message-text').trumbowyg({
-    btns: [
-        ['viewHTML'],
-        ['undo', 'redo'], // Only supported in Blink browsers
-        ['formatting'],
-        ['strong', 'em', 'del'],
-        ['unorderedList', 'orderedList'],
-        ['link', 'insertImage'],
-        ['fullscreen']
-    ]
-});
+        autogrow: true,
+        // autogrowOnEnter: true,
+        btns: [
+            ['viewHTML'],
+            ['undo', 'redo'], // Only supported in Blink browsers
+            ['formatting'],
+            ['strong', 'em'],
+            ['unorderedList', 'orderedList'],
+            ['fullscreen']
+        ]
+    });
 
 });

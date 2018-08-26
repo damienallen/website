@@ -1,5 +1,3 @@
-
-
 /*--[ variables  ]--*/
 
 $standard-cutoff: 768px;
@@ -107,8 +105,8 @@ h4 {
   @media (max-width: $standard-cutoff) {
     background-image: linear-gradient(
                     to bottom,
-                    rgba(0, 0, 0, 0.2),
-                    rgba(0, 0, 0, 0.6)
+                    rgba(0, 0, 0, 0.4),
+                    rgba(0, 0, 0, 0.4)
     ), $cover-url;
   }
 
@@ -188,13 +186,18 @@ h4 {
   @media (max-width: $standard-cutoff) {
 
     .about-content {
-      padding: 10vh 20px 0 20px;
-      font-size: 0.9em;
+      padding: 15vh 20px 0 20px;
+      font-size: 1em;
 
-      .hello {
-        width: 80px;
-        height: 40px;
+      .name {
+        margin-top: 10px;
+
+      img {
+        width: 150px;
+        margin-left: 25px;
       }
+
+    }
 
     }
 
@@ -273,7 +276,11 @@ h4 {
 #contact-form {
 
   .row {
-    margin-bottom: 20px;
+
+    div {
+      margin-bottom: 20px;
+    }
+
   }
 
 }

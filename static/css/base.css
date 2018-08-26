@@ -67,7 +67,7 @@ h4 {
     animation-fill-mode: forwards; }
   @media (max-width: 768px) {
     .cover {
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url("../img/colombia_cover.jpg"); } }
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/colombia_cover.jpg"); } }
 
 @keyframes fadeOut {
   0% {
@@ -113,11 +113,13 @@ h4 {
     left: 0; }
   @media (max-width: 768px) {
     #about .about-content {
-      padding: 10vh 20px 0 20px;
-      font-size: 0.9em; }
-      #about .about-content .hello {
-        width: 80px;
-        height: 40px; }
+      padding: 15vh 20px 0 20px;
+      font-size: 1em; }
+      #about .about-content .name {
+        margin-top: 10px; }
+        #about .about-content .name img {
+          width: 150px;
+          margin-left: 25px; }
     #about .down-arrow {
       margin-top: 0; } }
 
@@ -157,7 +159,7 @@ h4 {
   text-decoration: none; }
 
 /*--[ contact form styling  ]--*/
-#contact-form .row {
+#contact-form .row div {
   margin-bottom: 20px; }
 
 /*--[ footer styling  ]--*/

@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-# Create your models here.
+# Model to store emails from contact form
 class Email(models.Model):
 
     name = models.CharField(max_length=25)
