@@ -52,11 +52,11 @@ h4 {
 
   .navbar-brand {
     text-align: center;
-    font-size: 0.9em;
-    font-weight: 600;
+    font-size: 1.1em;
     line-height: 1em;
-    color: #ff1f4f;
+    color: #f76767;
     padding: 0;
+    cursor: default;
   }
 
   .nav-icons {
@@ -65,6 +65,7 @@ h4 {
     .nav-link {
       margin: 0;
       padding: 0 10px;
+      color: #d5cfb5;
     }
 
   }
@@ -73,19 +74,6 @@ h4 {
 
 
 /*--[ cover styling  ]--*/
-
-@media (max-width: $standard-cutoff) {
-
-  .cover {
-    background-image: linear-gradient(
-                    to bottom,
-                    rgba(0, 0, 0, 0.2),
-                    rgba(0, 0, 0, 0.6)
-    ), $cover-url;
-
-  }
-
-}
 
 .cover {
   position: fixed;
@@ -96,7 +84,7 @@ h4 {
 
   background-image: linear-gradient(
                   to bottom,
-                  rgba(0, 0, 0, 0),
+                  rgba(0, 0, 0, 0.2),
                   rgba(0, 0, 0, 0.4)
   ), $cover-url;
   background-repeat: no-repeat;
@@ -116,7 +104,16 @@ h4 {
     animation-fill-mode: forwards;
   }
 
+  @media (max-width: $standard-cutoff) {
+    background-image: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.2),
+                    rgba(0, 0, 0, 0.6)
+    ), $cover-url;
+  }
+
 }
+
 
 @keyframes fadeOut {
 
@@ -142,23 +139,6 @@ h4 {
 
 /*--[ about styling  ]--*/
 
-@media (max-width: $standard-cutoff) {
-
-  #about {
-
-    .about-content {
-      padding-top: 20vh;
-      font-size: 1.1em;
-    }
-
-    .down-arrow {
-      margin-top: 0;
-    }
-
-  }
-
-}
-
 #about {
   position: relative;
   height: 100vh;
@@ -168,7 +148,30 @@ h4 {
     color: #fff;
     font-size: 1.2em;
     text-align: justify;
-    padding-top: 50vh;
+    padding: 30vh 100px 0 100px;
+
+    .hello {
+      display: inline-block;
+      margin-bottom: 25px;
+
+      img {
+        width: 100px;
+        margin-left: -10px;
+      }
+
+    }
+
+    .name {
+      display: inline-block;
+      margin-top: 25px;
+
+      img {
+        width: 150px;
+        margin-left: 50px;
+      }
+
+    }
+
   }
 
   .down-arrow {
@@ -180,6 +183,25 @@ h4 {
     position: absolute;
     bottom: 0;
     left: 0;
+  }
+
+  @media (max-width: $standard-cutoff) {
+
+    .about-content {
+      padding: 10vh 20px 0 20px;
+      font-size: 0.9em;
+
+      .hello {
+        width: 80px;
+        height: 40px;
+      }
+
+    }
+
+    .down-arrow {
+      margin-top: 0;
+    }
+
   }
 
 }

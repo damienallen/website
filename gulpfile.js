@@ -46,8 +46,9 @@ function images() {
 function libraries() {
     return merge(
         // Dependencies from node_modules
-        gulp.src('node_modules/jquery/dist/jquery.js').pipe(gulp.dest(jsDir)),
-        gulp.src('node_modules/bootstrap/dist/**/*').pipe(gulp.dest(buildDir)),
+        gulp.src('node_modules/jquery/dist/jquery.min.js').pipe(gulp.dest(jsDir)),
+        gulp.src('node_modules/bootstrap/dist/js/bootstrap.min.js').pipe(gulp.dest(jsDir)),
+        gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css').pipe(gulp.dest(cssDir)),
         gulp.src('node_modules/trumbowyg/dist/trumbowyg.min.js').pipe(replace('ui/icons.svg', '../svgs/trumbowyg-icons.svg')).pipe(gulp.dest(jsDir)),
         gulp.src('node_modules/trumbowyg/dist/ui/icons.svg').pipe(rename('trumbowyg-icons.svg')).pipe(gulp.dest(svgDir)),
         gulp.src('node_modules/trumbowyg/dist/ui/trumbowyg.min.css').pipe(gulp.dest(cssDir)),
