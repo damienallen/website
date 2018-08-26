@@ -4,6 +4,7 @@ import requests
 
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.http import JsonResponse
 
 from dallen.secret import *
 from base.models import Email
@@ -52,6 +53,15 @@ def contact(request):
                 }
             )
             print(r.status_code, r.json()['success'])
+            if not r.json()['success']:
+                return JsonResponse(
+                    {
+                        'sent': False,
+                        'captcha': False,
+                        'message': 'Captcha check failed!'
+                    },
+                    status=400
+                )
 
             # Save email to database
             Email.objects.create(
@@ -67,10 +77,42 @@ def contact(request):
             print(response.status_code)
             print(response.headers)
 
+            if response.status_code == 200:
+                return JsonResponse(
+                    {
+                        'sent': True,
+                        'captcha': True,
+                        'message': 'Message delivered!'
+                    },
+                    status=200
+                )
+
+            else:
+                return JsonResponse(
+                    {
+                        'sent': False,
+                        'captcha': True,
+                        'message': 'Error %s, please try again!' % response.status_code
+                    },
+                    status=400
+                )
+
         else:
-            print('Form validation failed')
+            return JsonResponse(
+                {
+                    'sent': False,
+                    'captcha': None,
+                    'message': 'Invalid form input!'
+                },
+                status=400
+            )
 
     else:
-        print('Only POST allowed')
-
-    return redirect('index')
+        return JsonResponse(
+            {
+                'sent': False,
+                'captcha': None,
+                'message': 'Only POST method allowed!'
+            },
+            status=400
+        )

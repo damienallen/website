@@ -166,8 +166,14 @@ h4 {
   text-decoration: none; }
 
 /*--[ contact form styling  ]--*/
-#contact-form .row div {
+#contact-form .form-field {
   margin-bottom: 20px; }
+
+#contact-form .trumbowyg-box {
+  margin: 0 auto !important; }
+
+#contact-form #submit-button {
+  margin-top: 20px; }
 
 /*--[ footer styling  ]--*/
 #footer {

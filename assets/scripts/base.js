@@ -1,33 +1,34 @@
-//function sendEmail() {
-//    console.log("create post is working!") // sanity check
-//    $.ajax({
-//        url : "/contact/", // the endpoint
-//        type : "POST", // http method
-//        data : { the_post : $('#post-text').val() }, // data sent with the post request
-//
-//        // handle a successful response
-//        success : function(json) {
-//            console.log(json); // log the returned json to the console
-//            console.log("success"); // another sanity check
-//        },
-//
-//        // handle a non-successful response
-//        error : function(xhr,errmsg,err) {
-//            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
-//        }
-//    });
-//};
-//
-//$( document ).ready(function() {
-//
-//    $('#contact-form').on('submit', function(event){
-//        event.preventDefault();
-//        console.log("form submitted!");
-//        sendEmail();
-//    });
-//
+function sendEmail() {
+    console.log("create post is working!");
+    $.ajax({
+        url : "/contact/",
+        type : "POST",
+        data : { the_post : $('#post-text').val() },
+        success : function(json) {
+            console.log(json); // log the returned json to the console
+            console.log("success"); // another sanity check
+        },
+        error : function(xhr,errmsg,err) {
+            console.log(xhr.status + ": " + xhr.responseText);
+        }
+    });
+}
+
 
 $(document).ready(function () {
+
+    // Get CSRF tokens for AJAX requests
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", Cookies.get('csrftoken'));
+            }
+        }
+    });
 
     // Fade cover background on scroll
     $(window).scroll(function () {
@@ -55,14 +56,20 @@ $(document).ready(function () {
         scrollBy(0, -offset);
     });
 
-    // Add tooltops
+    // Add tooltips
     $('[data-toggle="tooltip"]').tooltip();
 
+    // Initialize contact form
+    $('#contact-form').on('submit', function(event){
+        event.preventDefault();
+        console.log("form submitted!");
+        sendEmail();
+    });
 
     // Add WYSIWYG editor to textarea
     $('#message-text').trumbowyg({
-        autogrow: true,
-        // autogrowOnEnter: true,
+        // autogrow: true,
+        // autogrowOnEnterb: true,
         btns: [
             ['viewHTML'],
             ['undo', 'redo'], // Only supported in Blink browsers

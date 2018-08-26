@@ -287,12 +287,16 @@ h4 {
 
 #contact-form {
 
-  .row {
+  .form-field {
+    margin-bottom: 20px;
+  }
 
-    div {
-      margin-bottom: 20px;
-    }
+  .trumbowyg-box {
+    margin: 0 auto !important;
+  }
 
+  #submit-button {
+    margin-top: 20px;
   }
 
 }

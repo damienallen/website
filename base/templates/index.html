@@ -309,15 +309,15 @@
             {% csrf_token %}
             {{ form.non_field_errors }}
             <div class="row">
-                <div class="col-sm-6">{{ form.name.errors }}{{ form.name }}</div>
-                <div class="col-sm-6">{{ form.email.errors }}{{ form.email }}</div>
+                <div class="form-field col-sm-6">{{ form.name.errors }}{{ form.name }}</div>
+                <div class="form-field col-sm-6">{{ form.email.errors }}{{ form.email }}</div>
             </div>
 
             <div class="row">
-                <div class="col-12">{{ form.subject.errors }}{{ form.subject }}</div>
+                <div class="form-field col-12">{{ form.subject.errors }}{{ form.subject }}</div>
             </div>
             <div class="row">
-                <div class="col-12">{{ form.message.errors }}{{ form.message }}</div>
+                <div class="form-field col-12">{{ form.message.errors }}{{ form.message }}</div>
             </div>
             <div class="row">
                 <div class="col-12">
@@ -326,7 +326,7 @@
             </div>
             <div class="row">
                 <div class="col-3">
-                    <button class="form-control" type="submit">Send</button>
+                    <button id="submit-button" class="form-control" type="submit">Send</button>
                 </div>
             </div>
         </form>
@@ -345,6 +345,7 @@
 
 <!-- JS dependencies -->
 <script src="{% static 'js/trumbowyg.min.js' %}"></script>
+<script src="{% static 'js/js.cookie.min.js' %}"></script>
 <script src="{% static 'js/base.min.js' %}"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 

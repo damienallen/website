@@ -62,6 +62,7 @@ function libraries() {
         gulp.src('node_modules/trumbowyg/dist/ui/icons.svg').pipe(rename('trumbowyg-icons.svg')).pipe(gulp.dest(svgDir)),
         gulp.src('node_modules/trumbowyg/dist/ui/trumbowyg.min.css').pipe(gulp.dest(cssDir)),
         gulp.src('node_modules/popper.js/dist/umd/popper.min.js').pipe(gulp.dest(jsDir)),
+        gulp.src('node_modules/js-cookie/src/js.cookie.js').pipe(gulp.dest(jsDir)),
         // Font icons
         gulp.src('node_modules/@fortawesome/fontawesome-free/js/all.js').pipe(rename('font-awesome.js')).pipe(gulp.dest(jsDir)),
         gulp.src('node_modules/@fortawesome/fontawesome-free/svgs/**/*.svg').pipe(gulp.dest(svgDir)),
