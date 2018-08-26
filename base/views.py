@@ -30,8 +30,6 @@ def contact(request):
 
         if form.is_valid():
 
-            print()
-
             name = request.POST.get('name')
             email = request.POST.get('email')
             subject = request.POST.get('subject')
@@ -40,7 +38,7 @@ def contact(request):
             sg = sendgrid.SendGridAPIClient(apikey=SENDGRID_KEY)
             from_email = sendgrid.helpers.mail.Email(email)
             subject = '[Contact Form] %s' % subject
-            to_email = sendgrid.helpers.mail.Email('contact@dallen.co')
+            to_email = sendgrid.helpers.mail.Email(CONTACT_EMAIL)
             content = sendgrid.helpers.mail.Content("text/plain", message)
             mail = sendgrid.helpers.mail.Mail(from_email, subject, to_email, content)
 
@@ -56,7 +54,13 @@ def contact(request):
             print(r.status_code, r.json()['success'])
 
             # Save email to database
-            Email.objects.create(name=name, email=email, subject=subject, message=message, ip=ip_address)
+            Email.objects.create(
+                name=name,
+                email=email,
+                subject=subject.replace('[Contact Form] ', ''),
+                message=message,
+                ip=ip_address
+            )
 
             # Send email
             response = sg.client.mail.send.post(request_body=mail.get())

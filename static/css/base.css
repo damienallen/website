@@ -22,8 +22,7 @@ h4 {
   font-size: 0.8em;
   line-height: 24px;
   color: #5f5f5f;
-  font-style: italic;
-  margin-bottom: 20px; }
+  font-style: italic; }
 
 /*--[ navigation styling  ]--*/
 .navbar {
@@ -128,14 +127,19 @@ h4 {
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2); }
 
 .edu-list, .work-list {
-  margin-bottom: 40px; }
+  margin-bottom: 80px; }
+  .edu-list h2, .work-list h2 {
+    margin-top: 15px; }
+  .edu-list h4, .work-list h4 {
+    margin-top: 15px;
+    font-size: 1em; }
   .edu-list .duration, .work-list .duration {
     font-size: 0.8em;
     color: #d05;
     font-style: italic; }
   .edu-list .details, .work-list .details {
     font-size: 0.9em;
-    padding-top: 20px; }
+    padding-top: 15px; }
     .edu-list .details ul, .work-list .details ul {
       margin: 0;
       padding: 0;
@@ -146,6 +150,9 @@ h4 {
     width: 250px; }
 
 /*--[ skills styling  ]--*/
+.skills-list h4 {
+  margin-bottom: 20px; }
+
 .skills-list div {
   margin-bottom: 20px; }
 

@@ -16,6 +16,7 @@ const staticSrc = 'assets';
 const styleSrc = staticSrc + '/styles/**/*.scss';
 const scriptSrc = staticSrc + '/scripts/**/*.js';
 const imageSrc = staticSrc + '/images/**';
+const documentSrc = staticSrc + '/documents/**';
 const templateSrc = 'base/templates/**/*.html';
 
 // Build directories
@@ -23,6 +24,7 @@ const buildDir = 'static';
 const cssDir = buildDir + '/css';
 const jsDir = buildDir + '/js';
 const imgDir = buildDir + '/img';
+const docDir = buildDir + '/doc';
 const svgDir = buildDir + '/svgs';
 
 // Uncompressed file directories
@@ -39,10 +41,17 @@ function scripts() {
     return gulp.src(scriptSrc).pipe(gulp.dest(jsDir));
 }
 
+// Copy & optimize images
 function images() {
     return gulp.src(imageSrc).pipe(imagemin()).pipe(gulp.dest(imgDir)).pipe(browserSync.stream());
 }
 
+// Copy documents
+function documents() {
+    return gulp.src(documentSrc).pipe(gulp.dest(docDir));
+}
+
+// Copy required library files
 function libraries() {
     return merge(
         // Dependencies from node_modules
@@ -84,6 +93,7 @@ function clean() {
 exports.styles = styles;
 exports.scripts = scripts;
 exports.images = images;
+exports.documents = documents;
 exports.libraries = libraries;
 
 exports.minifycss = minifycss;
@@ -91,7 +101,7 @@ exports.minifyjs = minifyjs;
 exports.clean = clean;
 
 // Master tasks
-var compile = gulp.series(gulp.parallel(styles, scripts, images, libraries), gulp.parallel(minifycss, minifyjs));
+var compile = gulp.series(gulp.parallel(styles, scripts, images, documents, libraries), gulp.parallel(minifycss, minifyjs));
 gulp.task('compile', compile);
 gulp.task('build', gulp.series(clean, compile));
 
@@ -112,5 +122,6 @@ var serve = gulp.series(compile, ()=>{
     gulp.watch(scriptSrc).on('change', gulp.series(scripts, minifyjs, browserSync.reload));
     gulp.watch(templateSrc).on('change', browserSync.reload);
 });
+
 gulp.task('serve', serve);
 gulp.task('default', serve);
