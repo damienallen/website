@@ -3,11 +3,13 @@ certifi==2018.4.16
 chardet==3.0.4
 configparser==3.5.0
 Django==2.1
+django-csp==3.4
 django-gulp==4.1.0
 django-ipware==2.1.0
 env-tools==2.2.0
 gunicorn==19.9.0
 idna==2.7
+pkg-resources==0.0.0
 psutil==5.4.6
 python-http-client==3.1.0
 pytz==2018.5
