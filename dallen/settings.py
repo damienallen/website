@@ -117,6 +117,6 @@ STATICFILES_DIRS = [
 # Keep our policy as strict as possible
 CSP_DEFAULT_SRC = ("'none'",)
 CSP_STYLE_SRC = ("'self'", 'fonts.googleapis.com', "'unsafe-inline'")
-CSP_SCRIPT_SRC = ("'self'", 'www.google.com')
+CSP_SCRIPT_SRC = ("'self'", 'nonce-EDNnf03nceIOfn69fn3e9h3sdfa')
 CSP_FONT_SRC = ("'self'", 'fonts.gstatic.com')
 CSP_IMG_SRC = ("'self'",)
