@@ -85,7 +85,7 @@ function minifyjs() {
 }
 
 function clean() {
-    return del([buildDir]);
+    return del([buildDir, staticDir]);
 }
 
 // Sub tasks
