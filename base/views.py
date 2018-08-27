@@ -1,58 +1,118 @@
-from django.shortcuts import render
-from django.core.mail import send_mail
-from django.shortcuts import redirect
-from django.template import Context
-from django.template.loader import get_template
-
+from ipware.ip import get_ip
 import sendgrid
-from sendgrid.helpers.mail import *
+import requests
 
+from django.shortcuts import render
+from django.shortcuts import redirect
+from django.http import JsonResponse
+
+from dallen.secret import *
+from base.models import Email
 from base.forms import ContactForm
 
 
 # display home page
 def index(request):
 
-    form_class = ContactForm
-
-    # build context object
     context = {
-        'form': form_class,
+        'form': ContactForm,
     }
 
-    return render(request, 'base/index.html', context)
+    return render(request, 'index.html', context)
 
 
 # contact form
 def contact(request):
 
-    form_class = ContactForm
-
     if request.method == 'POST':
 
-        form = form_class(data=request.POST)
+        form = ContactForm(data=request.POST)
+        ip_address = get_ip(request)
 
         if form.is_valid():
+
             name = request.POST.get('name')
             email = request.POST.get('email')
             subject = request.POST.get('subject')
             message = request.POST.get('message')
 
-            sg = sendgrid.SendGridAPIClient(apikey='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')
-            from_email = Email(email)
+            sg = sendgrid.SendGridAPIClient(apikey=SENDGRID_KEY)
+            from_email = sendgrid.helpers.mail.Email(email)
             subject = '[Contact Form] %s' % subject
-            to_email = Email('contact@dallen.co')
-            content = Content("text/plain", message)
-            mail = Mail(from_email, subject, to_email, content)
+            to_email = sendgrid.helpers.mail.Email(CONTACT_EMAIL)
+            content = sendgrid.helpers.mail.Content("text/plain", message)
+            mail = sendgrid.helpers.mail.Mail(from_email, subject, to_email, content)
+
+            # Captcha check
+            r = requests.post(
+                'https://www.google.com/recaptcha/api/siteverify',
+                data={
+                    'secret': RECAPTCHA_SECRET,
+                    'response': request.POST.get('g-recaptcha-response', None),
+                    'remoteip': ip_address
+                }
+            )
+            print(r.status_code, r.json()['success'])
+            if not r.json()['success']:
+                return JsonResponse(
+                    {
+                        'sent': False,
+                        'captcha': False,
+                        'message': 'Captcha check failed!'
+                    },
+                    status=400
+                )
+
+            # Save email to database
+            Email.objects.create(
+                name=name,
+                email=email,
+                subject=subject.replace('[Contact Form] ', ''),
+                message=message,
+                ip=ip_address
+            )
+
+            # Send email
             response = sg.client.mail.send.post(request_body=mail.get())
             print(response.status_code)
-            print(response.body)
             print(response.headers)
 
+            if response.status_code == 200:
+                return JsonResponse(
+                    {
+                        'sent': True,
+                        'captcha': True,
+                        'message': 'Message delivered!'
+                    },
+                    status=200
+                )
+
+            else:
+                return JsonResponse(
+                    {
+                        'sent': False,
+                        'captcha': True,
+                        'message': 'Error %s, please try again!' % response.status_code
+                    },
+                    status=400
+                )
+
         else:
-            print('Form validation failed')
+            return JsonResponse(
+                {
+                    'sent': False,
+                    'captcha': None,
+                    'message': 'Invalid form input!'
+                },
+                status=400
+            )
 
     else:
-        print('Only POST allowed')
-
-    return redirect('index')
+        return JsonResponse(
+            {
+                'sent': False,
+                'captcha': None,
+                'message': 'Only POST method allowed!'
+            },
+            status=400
+        )
