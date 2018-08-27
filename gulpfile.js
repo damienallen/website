@@ -20,7 +20,7 @@ const documentSrc = staticSrc + '/documents/**';
 const templateSrc = 'base/templates/**/*.html';
 
 // Build directories
-const buildDir = 'static';
+const buildDir = 'dist';
 const cssDir = buildDir + '/css';
 const jsDir = buildDir + '/js';
 const imgDir = buildDir + '/img';

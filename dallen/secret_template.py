@@ -16,3 +16,6 @@ SENDGRID_KEY = '[SENDGRID API KEY]'
 
 # Recaptcha API key
 RECAPTCHA_SECRET = '[RECAPTCHA SECRET CODE]'
+
+# Contact details
+CONTACT_EMAIL = 'contact@example.com'
