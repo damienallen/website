@@ -116,8 +116,8 @@ STATICFILES_DIRS = [
 # Set content security policy
 CSP_DEFAULT_SRC = ("'none'",)
 CSP_CONNECT_SRC = ("'self'",)
-CSP_STYLE_SRC = ("'self'", 'fonts.googleapis.com', "'unsafe-inline'")
-CSP_SCRIPT_SRC = ("'self'", 'www.google.com', 'www.gstatic.com')
-CSP_FONT_SRC = ("'self'", 'fonts.gstatic.com')
-CSP_FRAME_SRC = ("'self'", 'www.google.com',)
+CSP_STYLE_SRC = ("'self'", 'https://fonts.googleapis.com', "'unsafe-inline'")
+CSP_SCRIPT_SRC = ("'self'", 'https://www.google.com/recaptcha/', 'https://www.gstatic.com/recaptcha/')
+CSP_FONT_SRC = ("'self'", 'https://fonts.gstatic.com')
+CSP_FRAME_SRC = ("'self'", 'https://www.google.com/recaptcha/',)
 CSP_IMG_SRC = ("'self'",)
