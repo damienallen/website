@@ -115,8 +115,8 @@ STATICFILES_DIRS = [
 
 # Set content security policy
 # Keep our policy as strict as possible
-CSP_DEFAULT_SRC = ("'none'",)
-CSP_STYLE_SRC = ("'self'", 'nonce-EDNnf03nceIOfn69fn3e9h3sdfa')
-CSP_SCRIPT_SRC = ("'self'", 'nonce-EDNnf03nceIOfn69fn3e9h3sdfa')
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_STYLE_SRC = ("'self'", 'unsafe-inline')
+CSP_SCRIPT_SRC = ("'self'", 'unsafe-inline')
 CSP_FONT_SRC = ("'self'", 'fonts.gstatic.com')
 CSP_IMG_SRC = ("'self'",)
