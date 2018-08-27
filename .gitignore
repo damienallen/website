@@ -3,4 +3,5 @@ dallen/secret.py
 sqlite
 .idea/
 node_modules/
+static/
 venv/
