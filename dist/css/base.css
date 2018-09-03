@@ -3,7 +3,7 @@
 body {
   font-family: 'Open Sans', sans-serif; }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5b {
   font-family: 'Montserrat', sans-serif; }
 
 h1 {
@@ -167,7 +167,7 @@ h4 {
   border-bottom: 1px dotted #999;
   text-decoration: none; }
 
-/*--[ contact form styling  ]--*/
+/*--[ contact form & modal styling  ]--*/
 #contact-form .form-field {
   margin-bottom: 20px; }
 
@@ -176,6 +176,12 @@ h4 {
 
 #contact-form #submit-button {
   margin-top: 20px; }
+
+#contact-modal .contact-modal-dialog {
+  max-width: 400px; }
+
+#contact-modal #contact-modal-body {
+  padding-top: 20px; }
 
 /*--[ footer styling  ]--*/
 #footer {

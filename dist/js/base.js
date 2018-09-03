@@ -1,20 +1,34 @@
 function sendEmail() {
 
+    var form_data = {
+        name : $('#id_name').val(),
+        email : $('#id_email').val(),
+        subject : $('#id_subject').val(),
+        message : $('#message-text').val(),
+        recaptcha: $('#g-recaptcha-response').val()
+    };
+
+    console.log(form_data);
+
     $.ajax({
         url : "/contact/",
         type : "POST",
-        data : {
-            name : $('#id_name').val(),
-            email : $('#id_email').val(),
-            subject : $('#id_subject').val(),
-            message : $('#message-text').val()
+        data : form_data,
+        success : function(data) {
+            // Show status modal
+            $('#contact-modal-title').text('Message sent!');
+            $('#contact-modal-body').text('I will try to return your message promptly.');
+            $('#contact-modal').modal('show');
+
+            // Disable form
+            $('#submit-button').text('Sent!');
+            $('#submit-button').prop('disabled', true);
         },
-        success : function(json) {
-            console.log(json);
-            console.log("success");
-        },
-        error : function(xhr,errmsg,err) {
-            console.log(xhr.status + ": " + xhr.responseText);
+        error : function(data) {
+            // Show status modal
+            $('#contact-modal-title').text('Message not sent!');
+            $('#contact-modal-body').text(data.responseJSON.message);
+            $('#contact-modal').modal('show');
         }
     });
 
@@ -35,6 +49,9 @@ $(document).ready(function () {
             }
         }
     });
+
+    // Hide modal initially
+    $('#contact-modal').modal({ show: false});
 
     // Fade cover background on scroll
     $(window).scroll(function () {
