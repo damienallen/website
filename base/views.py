@@ -102,7 +102,8 @@ def contact(request):
                 {
                     'sent': False,
                     'captcha': None,
-                    'message': 'Invalid form input!'
+                    'message': 'Invalid form input!',
+                    'errors': form.errors
                 },
                 status=400
             )

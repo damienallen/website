@@ -1,17 +1,23 @@
 function sendEmail() {
-    console.log("create post is working!");
+
     $.ajax({
         url : "/contact/",
         type : "POST",
-        data : { the_post : $('#post-text').val() },
+        data : {
+            name : $('#id_name').val(),
+            email : $('#id_email').val(),
+            subject : $('#id_subject').val(),
+            message : $('#message-text').val()
+        },
         success : function(json) {
-            console.log(json); // log the returned json to the console
-            console.log("success"); // another sanity check
+            console.log(json);
+            console.log("success");
         },
         error : function(xhr,errmsg,err) {
             console.log(xhr.status + ": " + xhr.responseText);
         }
     });
+
 }
 
 
@@ -65,7 +71,6 @@ $(document).ready(function () {
     // Initialize contact form
     $('#contact-form').on('submit', function(event){
         event.preventDefault();
-        console.log("form submitted!");
         sendEmail();
     });
 
