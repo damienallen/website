@@ -50,10 +50,13 @@ $(document).ready(function () {
     // Add padding to in-page nav
     var offset = 50;
 
-    $('.navbar li a').click(function(event) {
+    $('#navbar-links a, .down-arrow a').click(function(event) {
         event.preventDefault();
-        $($(this).attr('href'))[0].scrollIntoView();
-        scrollBy(0, -offset);
+
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top - offset
+        }, 800);
+
     });
 
     // Add tooltips

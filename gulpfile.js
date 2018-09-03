@@ -116,6 +116,14 @@ var serve = gulp.series(compile, ()=>{
                 changeOrigin: false
             }
         },
+        rewriteRules: [
+            {
+                match: /Content-Security-Policy/,
+                fn: function (match) {
+                    return "DISABLED-Content-Security-Policy";
+                }
+            }
+        ]
     });
     gulp.watch(styleSrc).on('change', gulp.series(styles, minifycss));
     gulp.watch(scriptSrc).on('change', gulp.series(scripts, minifyjs, browserSync.reload));

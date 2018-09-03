@@ -110,6 +110,8 @@ h4 {
     position: absolute;
     bottom: 0;
     left: 0; }
+    #about .down-arrow a {
+      color: #fff; }
   @media (max-width: 768px) {
     #about .about-content {
       padding: 15vh 20px 0 20px;
