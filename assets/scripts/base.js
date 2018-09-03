@@ -1,17 +1,37 @@
 function sendEmail() {
-    console.log("create post is working!");
+
+    var form_data = {
+        name : $('#id_name').val(),
+        email : $('#id_email').val(),
+        subject : $('#id_subject').val(),
+        message : $('#message-text').val(),
+        recaptcha: $('#g-recaptcha-response').val()
+    };
+
+    console.log(form_data);
+
     $.ajax({
         url : "/contact/",
         type : "POST",
-        data : { the_post : $('#post-text').val() },
-        success : function(json) {
-            console.log(json); // log the returned json to the console
-            console.log("success"); // another sanity check
+        data : form_data,
+        success : function(data) {
+            // Show status modal
+            $('#contact-modal-title').text('Message sent!');
+            $('#contact-modal-body').text('I will try to return your message promptly.');
+            $('#contact-modal').modal('show');
+
+            // Disable form
+            $('#submit-button').text('Sent!');
+            $('#submit-button').prop('disabled', true);
         },
-        error : function(xhr,errmsg,err) {
-            console.log(xhr.status + ": " + xhr.responseText);
+        error : function(data) {
+            // Show status modal
+            $('#contact-modal-title').text('Message not sent!');
+            $('#contact-modal-body').text(data.responseJSON.message);
+            $('#contact-modal').modal('show');
         }
     });
+
 }
 
 
@@ -29,6 +49,9 @@ $(document).ready(function () {
             }
         }
     });
+
+    // Hide modal initially
+    $('#contact-modal').modal({ show: false});
 
     // Fade cover background on scroll
     $(window).scroll(function () {
@@ -50,10 +73,13 @@ $(document).ready(function () {
     // Add padding to in-page nav
     var offset = 50;
 
-    $('.navbar li a').click(function(event) {
+    $('#navbar-links a, .down-arrow a').click(function(event) {
         event.preventDefault();
-        $($(this).attr('href'))[0].scrollIntoView();
-        scrollBy(0, -offset);
+
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top - offset
+        }, 800);
+
     });
 
     // Add tooltips
@@ -62,7 +88,6 @@ $(document).ready(function () {
     // Initialize contact form
     $('#contact-form').on('submit', function(event){
         event.preventDefault();
-        console.log("form submitted!");
         sendEmail();
     });
 

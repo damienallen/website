@@ -48,7 +48,7 @@ def contact(request):
                 'https://www.google.com/recaptcha/api/siteverify',
                 data={
                     'secret': RECAPTCHA_SECRET,
-                    'response': request.POST.get('g-recaptcha-response', None),
+                    'response': request.POST.get('recaptcha', None),
                     'remoteip': ip_address
                 }
             )
@@ -77,7 +77,7 @@ def contact(request):
             print(response.status_code)
             print(response.headers)
 
-            if response.status_code == 200:
+            if response.status_code >= 200 and response.status_code < 300:
                 return JsonResponse(
                     {
                         'sent': True,
@@ -102,7 +102,8 @@ def contact(request):
                 {
                     'sent': False,
                     'captcha': None,
-                    'message': 'Invalid form input!'
+                    'message': 'Invalid form input!',
+                    'errors': form.errors
                 },
                 status=400
             )

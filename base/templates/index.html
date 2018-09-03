@@ -99,7 +99,7 @@
         </div>
 
         <div class="down-arrow">
-            <i class="fas fa-angle-double-down"></i>
+            <a href="#work"><i class="fas fa-angle-double-down"></i></a>
         </div>
     </section>
 
@@ -117,13 +117,13 @@
                 <div class="details">
                     <h4>Responsibilities</h4>
                     <ul>
-                        <li>Leading 3-person development team</li>
+                        <li>Leading team of 4 developers</li>
                         <li>Full-stack development</li>
                         <li>Cross-platform mobile development</li>
                         <li>Technical infrastructure design</li>
-                        <li>APIs for apps & external interfaces</li>
-                        <li>Feature planning & development</li>
-                        <li>Devops & continuous integration</li>
+                        <li>APIs for apps & external services</li>
+                        <li>Planning product roadmaps</li>
+                        <li>DevOps & continuous integration</li>
                         <li>UI/UX design</li>
                     </ul>
                     <h4>Stack</h4>
@@ -165,7 +165,7 @@
                 <img src="{% static 'img/kk-logo.jpg' %}" class="img-fluid" alt="De Koperen Kat">
             </div>
             <div class="col-sm-7">
-                <h2>Brewery Volunteer</h2>
+                <h2>Brewery Volunteer & Bartender</h2>
                 <h3>Stadsbrouwerij De Koperen Kat</h3>
                 <div class="duration">2015 - 2016</div>
                 <div class="details">
@@ -218,7 +218,7 @@
                 <div class="duration">2012-2015</div>
                 <div class="details">
                     Department of Water Management<br>
-                    Specialization in Remote Sensing Hydrology<br><br>
+                    Specialization in Hydrology & Remote Sensing<br><br>
                     <i>Thesis on land use classification</i> <a href="{% static 'doc/damien_allen_msc_thesis_report.pdf' %}"><i class="fas fa-file-download"></i></a>
                 </div>
             </div>
@@ -326,7 +326,7 @@
             </div>
             <div class="row">
                 <div class="col-3">
-                    <button id="submit-button" class="form-control" type="submit">Send</button>
+                    <button id="submit-button" class="btn btn-primary form-control" type="submit">Send</button>
                 </div>
             </div>
         </form>
@@ -337,6 +337,21 @@
 <footer id="footer">
     <img src="{% static 'img/tatra_footer.jpg' %}" alt="Footer graphic: Tatra Mountains, Poland">
 </footer>
+
+<!-- Contact form status modal -->
+<div class="modal fade" id="contact-modal" tabindex="-1" role="dialog" aria-labelledby="contact-modal-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered contact-modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h5 id="contact-modal-title"></h5>
+        <div id="contact-modal-body"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Okay</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Bootstrap and jQuery scripts -->
 <script src="{% static 'js/jquery.min.js' %}"></script>
