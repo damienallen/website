@@ -174,7 +174,6 @@ h4 {
   .down-arrow {
     text-align: center;
     width: 100%;
-    color: #fff;
     font-size: 2em;
     padding-bottom: 20px;
     position: absolute;
@@ -182,7 +181,11 @@ h4 {
     left: 0;
 
     a {
-      color: #fff;
+      color: #fff !important;
+
+      svg {
+        color: #fff;
+      }
     }
 
   }

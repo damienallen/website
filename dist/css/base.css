@@ -104,14 +104,15 @@ h4 {
   #about .down-arrow {
     text-align: center;
     width: 100%;
-    color: #fff;
     font-size: 2em;
     padding-bottom: 20px;
     position: absolute;
     bottom: 0;
     left: 0; }
     #about .down-arrow a {
-      color: #fff; }
+      color: #fff !important; }
+      #about .down-arrow a svg {
+        color: #fff; }
   @media (max-width: 768px) {
     #about .about-content {
       padding: 15vh 20px 0 20px;
