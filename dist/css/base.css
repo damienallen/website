@@ -109,15 +109,8 @@ h4 {
     position: absolute;
     bottom: 0;
     left: 0; }
-<<<<<<< HEAD
-    #about .down-arrow a {
+    #about .down-arrow .fa-angle-double-down {
       color: #fff !important; }
-      #about .down-arrow a svg {
-        color: #fff; }
-=======
-    #about .down-arrow a svg {
-      color: #fff; }
->>>>>>> df8b566a63918784126573aa435803d054aa202a
   @media (max-width: 768px) {
     #about .about-content {
       padding: 15vh 20px 0 20px;
