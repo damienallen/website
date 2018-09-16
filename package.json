@@ -8,11 +8,11 @@
     "jquery": "^3.3.1",
     "js-cookie": "^2.2.0",
     "popper.js": "^1.14.3",
-    "trumbowyg": "^2.10.0"
+    "trumbowyg": "^2.11.0"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.2.0",
-    "browser-sync": "^2.24.5",
+    "@fortawesome/fontawesome-free": "^5.3.1",
+    "browser-sync": "^2.24.7",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
     "gulp-csso": "^3.0.1",
