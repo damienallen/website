@@ -110,7 +110,7 @@ h4 {
     position: absolute;
     bottom: 0;
     left: 0; }
-    #about .down-arrow a {
+    #about .down-arrow a svg {
       color: #fff; }
   @media (max-width: 768px) {
     #about .about-content {
@@ -126,7 +126,7 @@ h4 {
 
 /*--[ work & education styling  ]--*/
 #work {
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0); }
 
 .edu-list, .work-list {
   margin-bottom: 40px; }

@@ -182,7 +182,9 @@ h4 {
     left: 0;
 
     a {
-      color: #fff;
+      svg{
+        color: #fff;
+      }
     }
 
   }
@@ -217,7 +219,7 @@ h4 {
 /*--[ work & education styling  ]--*/
 
 #work {
-  box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 3px 15px rgba(0,0,0,0);
 }
 
 .edu-list, .work-list {
