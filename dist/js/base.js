@@ -53,27 +53,16 @@ $(document).ready(function () {
     // Hide modal initially
     $('#contact-modal').modal({ show: false});
 
-    // Fade cover background on scroll
+    // Set initial background opacity and fade cover background on scroll
+    adjustOpacity();
     $(window).scroll(function () {
-
-        var multiplier = 0.1;
-
-        var coverOpacity = (100 - $(this).scrollTop()*multiplier)/100;
-        if (coverOpacity < 0) {
-            coverOpacity = 0;
-        }
-
-        var boxShadowInitialOpacity = 0.2;
-        var boxShadowOpacity = boxShadowInitialOpacity * coverOpacity;
-        var boxShadowValue = '0 3px 15px rgba(0,0,0,' + boxShadowOpacity + ')';
-        $('.cover').css({opacity: coverOpacity})
-        $('#work').css({boxShadow: boxShadowValue})
+        adjustOpacity();
     });
 
     // Add padding to in-page nav
     var offset = 50;
 
-    $('#navbar-links a, .down-arrow a').click(function(event) {
+    $('#navbar-links #sections a, .down-arrow a').click(function(event) {
         event.preventDefault();
 
         $('html, body').animate({
@@ -106,3 +95,19 @@ $(document).ready(function () {
     });
 
 });
+
+function adjustOpacity() {
+    var windowHeight = window.innerHeight;
+    var paddingOffset = 10;
+
+    var coverOpacity = (windowHeight - paddingOffset - $(this).scrollTop())/windowHeight;
+    if (coverOpacity < 0) {
+        coverOpacity = 0;
+    }
+
+    var boxShadowInitialOpacity = 0.2;
+    var boxShadowOpacity = boxShadowInitialOpacity * coverOpacity;
+    var boxShadowValue = '0 3px 15px rgba(0,0,0,' + boxShadowOpacity + ')';
+    $('.cover').css({opacity: coverOpacity})
+    $('#work').css({boxShadow: boxShadowValue})
+}
