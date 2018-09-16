@@ -12,3 +12,9 @@ $standard-cutoff: 768px;
     padding: 0;
   }
 }
+
+@media (min-width: $standard-cutoff) {
+  .container{
+    max-width: 800px;
+  }
+}
