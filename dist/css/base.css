@@ -109,10 +109,15 @@ h4 {
     position: absolute;
     bottom: 0;
     left: 0; }
+<<<<<<< HEAD
     #about .down-arrow a {
       color: #fff !important; }
       #about .down-arrow a svg {
         color: #fff; }
+=======
+    #about .down-arrow a svg {
+      color: #fff; }
+>>>>>>> df8b566a63918784126573aa435803d054aa202a
   @media (max-width: 768px) {
     #about .about-content {
       padding: 15vh 20px 0 20px;
@@ -127,7 +132,7 @@ h4 {
 
 /*--[ work & education styling  ]--*/
 #work {
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0); }
 
 .edu-list, .work-list {
   margin-bottom: 40px; }
