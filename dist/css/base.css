@@ -8,7 +8,7 @@ h1, h2, h3, h4, h5b {
 
 h1 {
   font-size: 1.8em;
-  font-weight: 200; }
+  font-weight: 300; }
 
 h2 {
   font-size: 1.2em;
@@ -131,6 +131,9 @@ h4 {
   margin-bottom: 40px; }
   .edu-list h2, .work-list h2 {
     margin-top: 15px; }
+  .edu-list a h3, .work-list a h3 {
+    font-weight: 600;
+    color: #212529 !important; }
   .edu-list h4, .work-list h4 {
     margin-top: 15px;
     font-size: 1em; }
@@ -140,7 +143,7 @@ h4 {
     font-style: italic; }
   .edu-list .details, .work-list .details {
     font-size: 0.9em;
-    padding-top: 15px; }
+    padding-top: 10px; }
     .edu-list .details ul, .work-list .details ul {
       margin: 0;
       padding: 0;
