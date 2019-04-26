@@ -1,8 +1,10 @@
 /*--[ variables  ]--*/
 /*--[ fonts & text styling ]--*/
 body {
-  font-family: 'Open Sans', sans-serif;
-  background: #000; }
+  font-family: 'Open Sans', sans-serif; }
+  @media (max-width: 575px) {
+    body {
+      background: #000; } }
 
 h1, h2, h3, h4, h5b {
   font-family: 'Montserrat', sans-serif; }
@@ -38,7 +40,7 @@ h4 {
     color: #f76767;
     padding: 0 24px 0 0;
     cursor: default; }
-    @media (min-width: 767px) {
+    @media (min-width: 768px) {
       .navbar .navbar-brand {
         border-right: 1px solid rgba(255, 255, 255, 0.5); } }
   .navbar .nav-icons a {
