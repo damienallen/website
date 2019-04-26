@@ -2,13 +2,16 @@
 /*--[ fonts & text styling ]--*/
 body {
   font-family: 'Open Sans', sans-serif; }
+  @media (max-width: 575px) {
+    body {
+      background: #000; } }
 
 h1, h2, h3, h4, h5b {
   font-family: 'Montserrat', sans-serif; }
 
 h1 {
   font-size: 1.8em;
-  font-weight: 200; }
+  font-weight: 300; }
 
 h2 {
   font-size: 1.2em;
@@ -31,18 +34,29 @@ h4 {
   background: rgba(255, 255, 255, 0.8);
   z-index: 1000; }
   .navbar .navbar-brand {
-    text-align: center;
+    text-align: right;
     font-size: 1.1em;
     line-height: 1em;
     color: #f76767;
-    padding: 0;
+    padding: 0 24px 0 0;
     cursor: default; }
-  .navbar .nav-icons {
+    @media (min-width: 768px) {
+      .navbar .navbar-brand {
+        border-right: 1px solid rgba(255, 255, 255, 0.5); } }
+  .navbar .nav-icons a {
     font-size: 1.5em; }
-    .navbar .nav-icons .nav-link {
-      margin: 0;
-      padding: 0 10px;
-      color: #d5cfb5; }
+  .navbar .nav-icons .nav-link {
+    margin: 0;
+    padding: 0 10px;
+    color: #d5cfb5; }
+  .navbar .navbar-nav {
+    flex-direction: row !important; }
+  @media (max-width: 767px) {
+    .navbar {
+      padding-top: 0.2em;
+      padding-bottom: 0.2em; }
+      .navbar #navbar-links .nav-item {
+        padding: 0.5em 2vw 0 2vw; } }
 
 /*--[ cover styling  ]--*/
 .cover {
@@ -54,7 +68,8 @@ h4 {
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url("../img/colombia_cover.jpg");
   background-repeat: no-repeat;
   background-position: left;
-  background-size: cover; }
+  background-size: cover;
+  background-color: #000; }
   .cover .cover-fill {
     height: 100%;
     width: 100%;
@@ -89,6 +104,9 @@ h4 {
     font-size: 1.2em;
     text-align: justify;
     padding: 30vh 100px 0 100px; }
+    @media (max-width: 767px) {
+      #about .about-content {
+        padding-top: 130px !important; } }
     #about .about-content .hello {
       display: inline-block;
       margin-bottom: 25px; }
@@ -109,6 +127,9 @@ h4 {
     position: absolute;
     bottom: 0;
     left: 0; }
+    @media (max-width: 767px) {
+      #about .down-arrow {
+        margin-bottom: 50px; } }
     #about .down-arrow .fa-angle-double-down {
       color: #fff !important; }
   @media (max-width: 768px) {
@@ -131,6 +152,9 @@ h4 {
   margin-bottom: 40px; }
   .edu-list h2, .work-list h2 {
     margin-top: 15px; }
+  .edu-list a h3, .work-list a h3 {
+    font-weight: 600;
+    color: #212529 !important; }
   .edu-list h4, .work-list h4 {
     margin-top: 15px;
     font-size: 1em; }
@@ -140,7 +164,7 @@ h4 {
     font-style: italic; }
   .edu-list .details, .work-list .details {
     font-size: 0.9em;
-    padding-top: 15px; }
+    padding-top: 10px; }
     .edu-list .details ul, .work-list .details ul {
       margin: 0;
       padding: 0;
