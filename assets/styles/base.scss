@@ -10,6 +10,7 @@ $logo-width: 200px;
 
 body {
   font-family: 'Open Sans', sans-serif;
+  background: #000;
 }
 
 h1, h2, h3, h4, h5b {
@@ -48,21 +49,47 @@ h4 {
   z-index: 1000;
 
   .navbar-brand {
-    text-align: center;
+    text-align: right;
     font-size: 1.1em;
     line-height: 1em;
     color: #f76767;
-    padding: 0;
+    padding: 0 24px 0 0;
     cursor: default;
+
+    @media (min-width: 767px) {
+      border-right: 1px solid rgba(255,255,255,.5);
+    }
   }
 
   .nav-icons {
-    font-size: 1.5em;
 
+    a {
+      font-size: 1.5em;
+    }
+    
     .nav-link {
       margin: 0;
       padding: 0 10px;
       color: #d5cfb5;
+
+    }
+
+  }
+
+  .navbar-nav {
+    flex-direction: row !important;
+  }
+
+  @media (max-width: 767px) {
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+
+    #navbar-links {
+  
+      .nav-item {
+        padding: 0.5em 2vw 0 2vw;
+      }
+
     }
 
   }
@@ -87,6 +114,7 @@ h4 {
   background-repeat: no-repeat;
   background-position: left;
   background-size: cover;
+  background-color: #000;
 
   .cover-fill {
     height: 100%;
@@ -147,6 +175,10 @@ h4 {
     text-align: justify;
     padding: 30vh 100px 0 100px;
 
+    @media (max-width: 767px) {
+      padding-top: 130px !important;
+    }
+
     .hello {
       display: inline-block;
       margin-bottom: 25px;
@@ -179,6 +211,10 @@ h4 {
     position: absolute;
     bottom: 0;
     left: 0;
+
+    @media (max-width: 767px) {
+      margin-bottom: 50px;
+    }
 
     .fa-angle-double-down {
       color: #fff !important;

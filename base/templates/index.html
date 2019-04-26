@@ -39,13 +39,21 @@
 <body data-spy="scroll" data-target="#navbar-content" data-offset="120">
 
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="navbar-content">
-            <span class="navbar-brand">DAMIEN<br>ALLEN</span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links"
-                aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbar-links">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark d-flex" id="navbar-content">
+            <div class="navbar-brand order-sm-1">DAMIEN<br>ALLEN</div>
+            <div class="nav-icons order-sm-3 ml-auto">
+                <ul class="navbar-nav nav-icons">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.linkedin.com/in/damienaallen/" target="_blank"><i
+                                class="fab fa-linkedin"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/damienallen/" target="_blank"><i
+                                class="fab fa-github-square"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div id="navbar-links" class="order-sm-2">
                 <ul id="sections" class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#about">about</a>
@@ -63,17 +71,9 @@
                         <a class="nav-link" href="#contact">contact</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto nav-icons">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.linkedin.com/in/damienaallen/" target="_blank"><i
-                                class="fab fa-linkedin"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/damienallen/" target="_blank"><i
-                                class="fab fa-github-square"></i></a>
-                    </li>
-                </ul>
+
             </div>
+
         </nav>
     </header>
 
