@@ -39,14 +39,6 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
             {
-                from: 'src/images/animations',
-                to: 'images/animations'
-            },
-            {
-                from: 'src/images/news_thumbs',
-                to: 'images/news_thumbs'
-            },
-            {
                 from: 'src/icons',
                 to: 'icons'
             },
