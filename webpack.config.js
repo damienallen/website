@@ -1,6 +1,7 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ProvidePlugin = require('webpack').ProvidePlugin;
 
 
 const responsiveLoader = {
@@ -46,7 +47,11 @@ module.exports = {
                 from: 'src/files',
                 to: 'files'
             }
-        ])
+        ]),
+        new ProvidePlugin({
+            jQuery: 'jquery',
+            $: 'jquery'
+        })
     ],
 
     module: {
@@ -63,7 +68,15 @@ module.exports = {
             },
             {
                 test: /\.(s*)css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader?url=false', 'sass-loader']
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader'
+                ]
+            },
+            {
+                test: /\.html$/i,
+                loader: 'html-loader',
             },
             responsiveLoader
         ],

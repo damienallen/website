@@ -1,7 +1,17 @@
+// Import dependencies
+import $ from 'jquery'
+import 'bootstrap'
+import 'popper'
+import 'trumbowyg'
+
 // Import stylesheets
+import 'bootstrap/dist/css/bootstrap.css'
+import 'trumbowyg/dist/ui/trumbowyg.css'
 import 'normalize.css'
+
 import './styles/base.scss'
 import './styles/layout.scss'
+
 
 const sendEmail = () => {
 
@@ -56,19 +66,6 @@ const adjustOpacity = () => {
 }
 
 $(document).ready(() => {
-
-    // Get CSRF tokens for AJAX requests
-    const csrfSafeMethod = (method) => {
-        // these HTTP methods do not require CSRF protection
-        return (/^(HEAD|OPTIONS|TRACE)$/.test(method))
-    }
-    $.ajaxSetup({
-        beforeSend: (xhr, settings) => {
-            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                xhr.setRequestHeader("X-CSRFToken", Cookies.get('csrftoken'))
-            }
-        }
-    })
 
     // Hide modal initially
     $('#contact-modal').modal({ show: false})

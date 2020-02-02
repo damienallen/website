@@ -1,39 +1,38 @@
 {
-    "name": "dallen.co",
-    "version": "1.0.0",
-    "description": "Personal website",
-    "main": ".src/index.js",
-    "repository": "git@github.com:damienallen/dallen.git",
-    "author": "Damien Allen <contact@dallen.co>",
-    "license": "UNLICENSED",
-    "scripts": {
-      "start": "env WEBPACK_ENV=dev webpack --progress --colors --watch",
-      "build": "env WEBPACK_ENV=prod webpack --progress --colors --mode=production"
-    },
-    "dependencies": {
-      "@fortawesome/fontawesome-free": "^5.3.1",
-      "bootstrap": "^4.3.1",
-      "jquery": "^3.4.1",
-      "js-cookie": "^2.2.0",
-      "normalize.css": "^8.0.1",
-      "popper.js": "^1.15.0",
-      "trumbowyg": "^2.11.0"
-    },
-    "devDependencies": {
-      "@babel/core": "^7.7.7",
-      "@babel/preset-env": "^7.7.7",
-      "babel-loader": "^8.0.6",
-      "copy-webpack-plugin": "^5.1.1",
-      "css-loader": "^3.3.2",
-      "html-webpack-plugin": "^3.2.0",
-      "mini-css-extract-plugin": "^0.9.0",
-      "node-sass": "^4.13.0",
-      "responsive-loader": "^1.2.0",
-      "sass-loader": "^8.0.0",
-      "sharp": "^0.24.0",
-      "webpack": "^4.41.5",
-      "webpack-cli": "^3.3.10"
-    },
-    "homepage": "https://dallen.co"
-  }
-  
+  "name": "dallen.co",
+  "version": "2.0",
+  "description": "Personal website",
+  "main": ".src/index.js",
+  "repository": "git@github.com:damienallen/dallen.git",
+  "author": "Damien Allen <contact@dallen.co>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "env WEBPACK_ENV=dev webpack --progress --colors --watch",
+    "build": "env WEBPACK_ENV=prod webpack --progress --colors --mode=production"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "normalize.css": "^8.0.1",
+    "popper.js": "^1.15.0",
+    "trumbowyg": "^2.11.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "babel-loader": "^8.0.6",
+    "cache-loader": "^4.1.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.3.2",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.0",
+    "responsive-loader": "^1.2.0",
+    "sass-loader": "^8.0.0",
+    "sharp": "^0.24.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "homepage": "https://dallen.co"
+}

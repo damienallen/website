@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% load static %}
-
 <head>
 
     <meta charset="UTF-8">
@@ -11,14 +9,10 @@
 
     <!-- Fonts & icons -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i|Open+Sans" rel="stylesheet">
-    <!-- <script defer src="{% static 'js/font-awesome.js' %}" nonce="{{ csp_nonce.nonce }}"></script> -->
+    <!-- <script defer src="{% static 'js/font-awesome.js" nonce="{{ csp_nonce.nonce }}"></script> -->
 
     <!-- Stylesheets -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css" />
-    <link rel="stylesheet" href="{% static 'css/trumbowyg.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/layout.min.css' %}" type="text/css" />
-    <link rel="stylesheet" href="{% static 'css/base.min.css' %}" type="text/css" /> -->
 
 
     <!-- Favicon -->
@@ -96,7 +90,7 @@
         <section id="about">
             <div class="about-content">
                 <div class="hello">
-                    <img src="{% static 'img/hello.png' %}" alt="Hello!">
+                    <img src="images/hello.png" alt="Hello!">
                 </div>
                 <p>
                     I am a software developer working on cutting edge robotic 3D metal printing technology in Amsterdam.
@@ -106,7 +100,7 @@
                     In my free time I like to garden, brew beer, and throw pots.
                 </p>
                 <div class="name">
-                    <img src="{% static 'img/damien.png' %}" alt="- Damien">
+                    <img src="images/damien.png" alt="- Damien">
                 </div>
             </div>
 
@@ -120,7 +114,7 @@
             <hr><br>
             <div class="row work-list">
                 <div class="col-sm-5">
-                    <img src="{% static 'img/mx3d-logo.jpg' %}" class="img-fluid" alt="MX3D">
+                    <img src="images/mx3d-logo.jpg" class="img-fluid" alt="MX3D">
                 </div>
                 <div class="col-sm-7">
                     <h2>Software Developer</h2>
@@ -141,7 +135,7 @@
             </div>
             <div class="row work-list">
                 <div class="col-sm-5">
-                    <img src="{% static 'img/mwm-logo.jpg' %}" class="img-fluid" alt="Mobile Water Management">
+                    <img src="images/mwm-logo.jpg" class="img-fluid" alt="Mobile Water Management">
                 </div>
                 <div class="col-sm-7">
                     <h2>Software & Product Developer</h2>
@@ -172,7 +166,7 @@
             </div>
             <div class="row work-list">
                 <div class="col-sm-5">
-                    <img src="{% static 'img/akvo-logo.jpg' %}" class="img-fluid" alt="Akvo">
+                    <img src="images/akvo-logo.jpg" class="img-fluid" alt="Akvo">
                 </div>
                 <div class="col-sm-7">
                     <h2>Django Developer Intern</h2>
@@ -197,7 +191,7 @@
             </div>
             <div class="row work-list">
                 <div class="col-sm-5">
-                    <img src="{% static 'img/kk-logo.jpg' %}" class="img-fluid" alt="De Koperen Kat">
+                    <img src="images/kk-logo.jpg" class="img-fluid" alt="De Koperen Kat">
                 </div>
                 <div class="col-sm-7">
                     <h2>Brewery Volunteer & Bartender</h2>
@@ -217,7 +211,7 @@
             </div>
             <div class="row work-list">
                 <div class="col-sm-5">
-                    <img src="{% static 'img/cu-logo.jpg' %}" class="img-fluid" alt="Akvo">
+                    <img src="images/cu-logo.jpg" class="img-fluid" alt="Akvo">
                 </div>
                 <div class="col-sm-7">
                     <h2>IT Systems Administrator</h2>
@@ -249,7 +243,7 @@
             <hr><br>
             <div class="row edu-list">
                 <div class="col-sm-5">
-                    <img src="{% static 'img/tu-logo.jpg' %}" class="img-fluid" alt="TU Delft">
+                    <img src="images/tu-logo.jpg" class="img-fluid" alt="TU Delft">
                 </div>
                 <div class="col-sm-7">
                     <h2>M.Sc. in Civil Engineering</h2>
@@ -261,14 +255,14 @@
                         Department of Water Management<br>
                         Specialization in Hydrology & Remote Sensing<br><br>
                         <i>Thesis on land use classification</i> <a
-                            href="{% static 'doc/damien_allen_msc_thesis_report.pdf' %}"><i
+                            href="files/damien_allen_msc_thesis_report.pdf"><i
                                 class="fas fa-file-download"></i></a>
                     </div>
                 </div>
             </div>
             <div class="row edu-list">
                 <div class="col-sm-5">
-                    <img src="{% static 'img/cu-logo.jpg' %}" class="img-fluid" alt="CU Boulder">
+                    <img src="images/cu-logo.jpg" class="img-fluid" alt="CU Boulder">
                 </div>
                 <div class="col-sm-7">
                     <h2>B.Sc. in Environmental Engineering</h2>
@@ -283,7 +277,7 @@
             </div>
             <div class="row edu-list">
                 <div class="col-sm-5">
-                    <img src="{% static 'img/sas-logo.jpg' %}" class="img-fluid" alt="Semester at Sea">
+                    <img src="images/sas-logo.jpg" class="img-fluid" alt="Semester at Sea">
                 </div>
                 <div class="col-sm-7">
                     <h2>Study Abroad</h2>
@@ -385,7 +379,7 @@
     </main>
 
     <footer id="footer">
-        <img src="{% static 'img/tatra_footer.jpg' %}" alt="Footer graphic: Tatra Mountains, Poland">
+        <img src="images/tatra_footer.jpg" alt="Footer graphic: Tatra Mountains, Poland">
     </footer>
 
     <!-- Contact form status modal -->
@@ -404,15 +398,7 @@
         </div>
     </div>
 
-    <!-- Bootstrap and jQuery scripts -->
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-
-    <!-- JS dependencies -->
-    <script src="{% static 'js/trumbowyg.min.js' %}"></script>
-    <script src="{% static 'js/js.cookie.min.js' %}"></script>
-    <script src="{% static 'js/base.min.js' %}"></script>
+    <!-- External JS dependencies -->
     <script src="https://www.google.com/recaptcha/api.js"></script>
 
 </body>
