@@ -99,7 +99,7 @@ $(document).ready(() => {
 
     // Add WYSIWYG editor to textarea
     $('#message-text').trumbowyg({
-        svgPath: 'icons/icons/trumbowyg_icons.svg',
+        svgPath: 'icons/trumbowyg_icons.svg',
         btns: [
             ['viewHTML'],
             ['undo', 'redo'], // Only supported in Blink browsers

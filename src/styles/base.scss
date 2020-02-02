@@ -219,8 +219,10 @@ h4 {
       margin-bottom: 50px;
     }
 
-    .fa-angle-double-down {
+    svg {
       color: #fff !important;
+      height: 40px;
+      width: 40px;
     }
 
   }
@@ -304,6 +306,12 @@ h4 {
     width: 250px;
   }
 
+}
+
+.file-download {
+  height: 18px;
+  width: 18px;
+  margin-left: 5px;
 }
 
 

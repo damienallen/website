@@ -44,8 +44,8 @@ module.exports = {
                 to: 'icons'
             },
             {
-                from: 'node_modules/trumbowyg/ui/icons.svg',
-                to: 'icons'
+                from: 'node_modules/trumbowyg/dist/ui/icons.svg',
+                to: 'icons/trumbowyg_icons.svg'
             },
             {
                 from: 'src/files',
