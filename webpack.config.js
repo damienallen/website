@@ -40,7 +40,11 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
             {
-                from: 'src/icons',
+                from: 'src/icons/favicon',
+                to: 'icons'
+            },
+            {
+                from: 'node_modules/trumbowyg/ui/icons.svg',
                 to: 'icons'
             },
             {
@@ -77,6 +81,10 @@ module.exports = {
             {
                 test: /\.html$/i,
                 loader: 'html-loader',
+            },
+            {
+                test: /\.svg$/i,
+                loader: 'file-loader',
             },
             responsiveLoader
         ],

@@ -1,7 +1,7 @@
 // Import dependencies
 import $ from 'jquery'
 import 'bootstrap'
-import 'popper'
+import 'popper.js'
 import 'trumbowyg'
 
 // Import stylesheets
@@ -99,8 +99,7 @@ $(document).ready(() => {
 
     // Add WYSIWYG editor to textarea
     $('#message-text').trumbowyg({
-        // autogrow: true,
-        // autogrowOnEnter: true,
+        svgPath: 'icons/icons/trumbowyg_icons.svg',
         btns: [
             ['viewHTML'],
             ['undo', 'redo'], // Only supported in Blink browsers

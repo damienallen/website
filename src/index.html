@@ -105,7 +105,7 @@
             </div>
 
             <div class="down-arrow">
-                <a href="#work"><i class="fas fa-angle-double-down"></i></a>
+                <a href="#work"><img src="icons/chevrons-down.svg" alt=""></i></a>
             </div>
         </section>
 
@@ -350,18 +350,24 @@
             <h1>contact</h1>
             <hr><br>
             <form id="contact-form" action="/contact/" method="post">
-                {% csrf_token %}
-                {{ form.non_field_errors }}
                 <div class="row">
-                    <div class="form-field col-sm-6">{{ form.name.errors }}{{ form.name }}</div>
-                    <div class="form-field col-sm-6">{{ form.email.errors }}{{ form.email }}</div>
+                    <div class="form-field col-sm-6">
+                        <input type="text" name="name" placeholder="Name" class="form-control" maxlength="25" required="" id="id_name">
+                    </div>
+                    <div class="form-field col-sm-6">
+                        <input type="email" name="email" placeholder="Email" class="form-control" maxlength="254" required="" id="id_email">
+                    </div>
                 </div>
 
                 <div class="row">
-                    <div class="form-field col-12">{{ form.subject.errors }}{{ form.subject }}</div>
+                    <div class="form-field col-12">
+                        <input type="text" name="subject" placeholder="Subject" class="form-control" maxlength="50" required="" id="id_subject">
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="form-field col-12">{{ form.message.errors }}{{ form.message }}</div>
+                    <div class="form-field col-12">
+                        <textarea name="message" cols="40" rows="10" id="message-text" maxlength="5000" required></textarea>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
@@ -399,7 +405,7 @@
     </div>
 
     <!-- External JS dependencies -->
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
 
 </body>
 
