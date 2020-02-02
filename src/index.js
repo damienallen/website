@@ -26,10 +26,10 @@ const sendEmail = () => {
     console.log(formData)
 
     $.ajax({
-        url : "/contact/",
-        type : "POST",
-        data : formData,
-        success : (data) => {
+        url: "/contact/",
+        type: "POST",
+        data: formData,
+        success: (data) => {
             // Show status modal
             $('#contact-modal-title').text('Message sent!')
             $('#contact-modal-body').text('I will try to return your message promptly.')
@@ -39,7 +39,7 @@ const sendEmail = () => {
             $('#submit-button').text('Sent!')
             $('#submit-button').prop('disabled', true)
         },
-        error : (data) => {
+        error: (data) => {
             // Show status modal
             $('#contact-modal-title').text('Message not sent!')
             $('#contact-modal-body').text(data.responseJSON.message)
@@ -53,7 +53,7 @@ const adjustOpacity = () => {
     var windowHeight = window.innerHeight
     var paddingOffset = 10
 
-    var coverOpacity = (windowHeight - paddingOffset - $(this).scrollTop())/windowHeight
+    var coverOpacity = (windowHeight - paddingOffset - $(window).scrollTop())/windowHeight
     if (coverOpacity < 0) {
         coverOpacity = 0
     }
@@ -83,7 +83,7 @@ $(document).ready(() => {
         event.preventDefault()
 
         $('html, body').animate({
-            scrollTop: $($(this).attr('href')).offset().top - offset
+            scrollTop: $($(event.currentTarget).attr('href')).offset().top - offset
         }, 800)
 
     })
