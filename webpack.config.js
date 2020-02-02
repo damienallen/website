@@ -82,10 +82,6 @@ module.exports = {
                 test: /\.html$/i,
                 loader: 'html-loader',
             },
-            {
-                test: /\.svg$/i,
-                loader: 'file-loader',
-            },
             responsiveLoader
         ],
     },
