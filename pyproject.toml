@@ -1,0 +1,14 @@
+[build-system]
+requires = ["poetry>=1.0.0"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "dallen-flask"
+description = "Basic Flask backend for dallen.co"
+repository = "git@github.com:damienallen/dallen.git"
+version = "1.0"
+authors = ["Damien Allen"]
+
+[tool.poetry.dependencies]
+python = "^3.8.1"
+flask = "^1.1.1"

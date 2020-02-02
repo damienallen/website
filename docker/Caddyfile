@@ -1,0 +1,13 @@
+# www.damienallen.com, www.dallen.co {
+#   redir https://damienallen.com{uri}
+# }
+
+master.damienallen.com, master.dallen.co {
+  root * /var/www/master
+  file_server
+}
+
+develop.damienallen.com, develop.dallen.co {
+  root * /var/www/develop
+  file_server
+}
