@@ -1,0 +1,28 @@
+{
+    "name": "dallen.co",
+    "version": "1.0.0",
+    "description": "Personal website",
+    "main": "index.js",
+    "dependencies": {
+      "@fortawesome/fontawesome-free": "^5.3.1",
+      "bootstrap": "^4.3.1",
+      "jquery": "^3.4.0",
+      "js-cookie": "^2.2.0",
+      "popper.js": "^1.15.0",
+      "trumbowyg": "^2.11.0"
+    },
+    "devDependencies": {
+    },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/damienallen/dallen.git"
+    },
+    "keywords": [],
+    "author": "Damien Allen",
+    "license": "ISC",
+    "homepage": "https://dallen.co"
+  }
+  
