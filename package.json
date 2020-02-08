@@ -4,7 +4,7 @@
   "description": "Personal website",
   "main": ".src/index.js",
   "repository": "git@github.com:damienallen/dallen.git",
-  "author": "Damien Allen <contact@dallen.co>",
+  "author": "Damien Allen <dev@dallen.co>",
   "license": "UNLICENSED",
   "scripts": {
     "start": "env WEBPACK_ENV=dev webpack --progress --colors --watch",
