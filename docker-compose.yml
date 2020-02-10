@@ -1,16 +1,17 @@
 ---
 
-version: "3.7"
+version: "3.6"
 services:
 
-  flask:
+  caddy:
+    build:
+      target: development_build
+      context: .
+      dockerfile: ./docker/Dockerfile
     restart: unless-stopped
-    <<: &web
-      build:
-        context: .
-        dockerfile: ./Dockerfile
-        args:
-          FLASK_ENV: development
-      # volumes:
-      #   - .:/code
-        
+    volumes:
+      - ./docker/caddy/certs:/root/.caddy  # saving certificates
+      - ./docker/caddy/Caddyfile:/etc/Caddyfile:ro  # configuration
+    ports:
+      - "80:80"
+      - "443:443"
