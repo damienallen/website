@@ -1,6 +1,10 @@
 # See https://caddyserver.com/docs
 
-{$DOMAIN_NAME} {
+# www.{$DOMAIN_PROD} {
+#   redir https://{$DOMAIN_PROD}{uri}
+# }
+
+{$DOMAIN_MASTER}, {$DOMAIN_DEVELOP} {
   tls {$TLS_EMAIL}
 
   header / Strict-Transport-Security "max-age=31536000;"
