@@ -3,6 +3,7 @@ FROM alpine:3.11 as development_build
 LABEL maintainer="Damien Allen <dev@dallen.co>"
 
 ARG VERSION="1.0.4"
+ENV ACME_AGREE=true
 
 RUN apk update && apk upgrade \
     && apk add --no-cache bash git nodejs npm openssh-client yarn \
