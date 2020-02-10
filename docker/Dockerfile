@@ -3,7 +3,6 @@ FROM alpine:3.11 as development_build
 LABEL maintainer="Damien Allen <dev@dallen.co>"
 
 ARG VERSION="1.0.4"
-ENV ACME_AGREE=true
 
 RUN apk update && apk upgrade \
     && apk add --no-cache bash git nodejs npm openssh-client yarn \
@@ -19,8 +18,6 @@ RUN curl --silent --show-error --fail --location \
 
 EXPOSE 80 443 2020
 VOLUME /root/.caddy
-
-# CMD ["/usr/bin/caddy", "--conf", "/etc/Caddyfile", "--log", "stdout"]
 
 # Use mounted code in development
 WORKDIR /code
