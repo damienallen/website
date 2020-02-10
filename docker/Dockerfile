@@ -28,7 +28,8 @@ WORKDIR /code
 FROM development_build as production_build
 
 COPY docker/caddy/Caddyfile /etc/Caddyfile
-COPY package.json yarn.lock /code/
+COPY package.json yarn.lock webpack.config.js /code/
+RUN ls -lha
 RUN yarn install
 
 COPY ./src /code/src
