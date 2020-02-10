@@ -1,11 +1,11 @@
-FROM alpine:3.7 as development_build
+FROM alpine:3.11 as development_build
 
 LABEL maintainer="Damien Allen <dev@dallen.co>"
 
 ARG VERSION="1.0.4"
 
 RUN apk update && apk upgrade \
-    && apk add --no-cache openssh-client git \
+    && apk add --no-cache bash git nodejs npm openssh-client yarn \
     && apk add --no-cache --virtual .build-dependencies tar curl
 
 RUN curl --silent --show-error --fail --location \
@@ -19,14 +19,17 @@ RUN curl --silent --show-error --fail --location \
 EXPOSE 80 443 2020
 VOLUME /root/.caddy
 
-COPY docker/caddy/Caddyfile /etc/Caddyfile
-
-ENTRYPOINT ["/usr/bin/caddy"]
-CMD ["--conf", "/etc/Caddyfile", "--log", "stdout"]
+CMD ["/usr/bin/caddy", "--conf", "/etc/Caddyfile", "--log", "stdout"]
 
 # Use mounted code in development
 WORKDIR /code
 
 # Copy and build in production
 FROM development_build as production_build
-COPY . /code
+
+COPY docker/caddy/Caddyfile /etc/Caddyfile
+COPY package.json yarn.lock /code/
+RUN yarn install
+
+COPY ./src /code/src
+RUN yarn build

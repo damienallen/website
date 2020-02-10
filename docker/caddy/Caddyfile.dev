@@ -1,6 +1,6 @@
 # See https://caddyserver.com/docs
 
-develop.dallen.co, develop.damienallen.com {
+localhost:80, localhost:2020 {
   tls off
   bind {$ADDRESS}
 
@@ -19,14 +19,4 @@ develop.dallen.co, develop.damienallen.com {
   # Logs:
   log stdout
   errors stdout
-}
-
-izaslodka.com, master.izaslodka.com {
-  root * /var/www/master
-  file_server
-}
-
-develop.izaslodka.com {
-  root * /var/www/develop
-  file_server
 }
