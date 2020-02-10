@@ -1,6 +1,6 @@
 # See https://caddyserver.com/docs
 
-{$DOMAIN_NAME}:80, {$DOMAIN_NAME}:2020 {
+{$DOMAIN_NAME} {
   tls {$TLS_EMAIL}
 
   header / Strict-Transport-Security "max-age=31536000;"
