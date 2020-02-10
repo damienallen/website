@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:3.7 as development_build
 
 LABEL maintainer="Damien Allen <dev@dallen.co>"
 
@@ -19,7 +19,14 @@ RUN curl --silent --show-error --fail --location \
 EXPOSE 80 443 2020
 VOLUME /root/.caddy
 
-COPY Caddyfile /etc/Caddyfile
+COPY docker/caddy/Caddyfile /etc/Caddyfile
 
 ENTRYPOINT ["/usr/bin/caddy"]
 CMD ["--conf", "/etc/Caddyfile", "--log", "stdout"]
+
+# Use mounted code in development
+WORKDIR /code
+
+# Copy and build in production
+FROM development_build as production_build
+COPY . /code
