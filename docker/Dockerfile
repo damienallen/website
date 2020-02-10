@@ -19,7 +19,7 @@ RUN curl --silent --show-error --fail --location \
 EXPOSE 80 443 2020
 VOLUME /root/.caddy
 
-CMD ["/usr/bin/caddy", "--conf", "/etc/Caddyfile", "--log", "stdout"]
+# CMD ["/usr/bin/caddy", "--conf", "/etc/Caddyfile", "--log", "stdout"]
 
 # Use mounted code in development
 WORKDIR /code
