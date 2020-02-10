@@ -1,8 +1,10 @@
 # See https://caddyserver.com/docs
 
-develop.dallen.co, develop.damienallen.com {
-  tls off
-  bind {$ADDRESS}
+{$DOMAIN_NAME} {
+  tls {$TLS_EMAIL}
+
+  header / Strict-Transport-Security "max-age=31536000;"
+  header / -Server
 
   # Serves static files, should be the same as `STATIC_ROOT` setting:
   root /code/dist
