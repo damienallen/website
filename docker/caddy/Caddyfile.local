@@ -7,10 +7,9 @@ localhost:80, localhost:2020 {
   root /code/dist
 
   # Serving dynamic requests:
-  # proxy / web:8000 {
-  #   except /static /media
-  #   transparent
-  # }
+  proxy /api website_flask:8080 {
+    transparent
+  }
 
   # Allows to use `.gz` files when available:
   gzip

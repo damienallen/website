@@ -1,10 +1,11 @@
-import sys
+from flask import Flask, escape, request
+from werkzeug.middleware.proxy_fix import ProxyFix
+
+app = Flask(__name__)
+app.wsgi_app = ProxyFix(app.wsgi_app)
 
 
-def app(env, start_response):
-    version = "{}.{}".format(sys.version_info.major, sys.version_info.minor)
-    start_response("200 OK", [("Content-Type", "text/plain")])
-    message = "Hello World from a default Python {} app in a Docker container, with Meinheld and Gunicorn (default)".format(
-        version
-    )
-    return [message.encode("utf-8")]
+@app.route("/api")
+def hello():
+    name = request.args.get("name", "World")
+    return f"Hello, {escape(name)}!"
