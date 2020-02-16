@@ -15,7 +15,7 @@ jobs:
       CI: true
       IMAGE_NAME: website_flask
       REGISTRY_URL: docker.pkg.github.com/damienallen/website/flask
-      TAG: latest
+      TAG: develop
 
     steps:
 
