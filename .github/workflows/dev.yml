@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    variables:
+    env:
       REGISTRY_URL: docker.pkg.github.com/damienallen/mothership/website_flask
       TAG: latest
 
