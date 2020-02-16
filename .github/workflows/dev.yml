@@ -13,7 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CI: true
-      REGISTRY_URL: docker.pkg.github.com/damienallen/mothership/website_flask
+      IMAGE_NAME: website_flask
+      REGISTRY_URL: docker.pkg.github.com/damienallen/mothership/$IMAGE_NAME
       TAG: latest
 
     steps:
@@ -30,5 +31,6 @@ jobs:
       run: |
         docker login docker.pkg.github.com --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }}
         docker pull $REGISTRY_URL:$TAG || true
-        docker build -t $REGISTRY_URL:$TAG --cache-from $REGISTRY_URL:$TAG --target production_build -f docker/flask/Dockerfile .
+        docker build -t $IMAGE_NAME:$TAG --cache-from $REGISTRY_URL:$TAG --target production_build -f docker/flask/Dockerfile .
+        docker tag $IMAGE_NAME:$TAG $REGISTRY_URL:$TAG
         docker push $REGISTRY_URL:$TAG
