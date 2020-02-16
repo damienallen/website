@@ -14,7 +14,7 @@ jobs:
     env:
       CI: true
       IMAGE_NAME: website_flask
-      REGISTRY_URL: docker.pkg.github.com/damienallen/mothership/website_flask
+      REGISTRY_URL: docker.pkg.github.com/damienallen/website/flask
       TAG: latest
 
     steps:
