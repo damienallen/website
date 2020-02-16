@@ -1,0 +1,32 @@
+name: Production build
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v2
+    - name: Checkout repo with submodules
+      shell: bash
+      run: |
+        # auth_header="$(git config --local --get http.https://github.com/.extraheader)"
+        git submodule sync --recursive
+        git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
+
+    - name: Build docker container
+      run: |
+        docker login docker.pkg.github.com --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }}
+        docker pull docker.pkg.github.com/damienallen/mothership/website_caddy:master || true
+        docker-compose -f docker-compose.yml -f docker-compose.prod.yml build
+        docker-compose -f docker-compose.yml -f docker-compose.prod.yml push
+
+    env:
+        CI: true

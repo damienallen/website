@@ -24,4 +24,4 @@ WORKDIR /code
 
 # Copy Caddyfile in production
 FROM development_build as production_build
-COPY docker/caddy/Caddyfile.local /etc/Caddyfile
+COPY docker/caddy/Caddyfile /etc/Caddyfile

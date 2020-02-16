@@ -11,13 +11,12 @@
   header / -Server
 
   # Serves static files, should be the same as `STATIC_ROOT` setting:
-  root /code/dist
+  root /dist
 
   # Serving dynamic requests:
-  # proxy / web:8000 {
-  #   except /static /media
-  #   transparent
-  # }
+  proxy / website_flask:8080 {
+    transparent
+  }
 
   # Allows to use `.gz` files when available:
   gzip
