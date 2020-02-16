@@ -1,8 +1,5 @@
-*.pyc
-dallen/secret.py
-sqlite
-.idea/
 .vscode
+*.pyc
+__pycache__/
+dist/
 node_modules/
-static/
-venv/
