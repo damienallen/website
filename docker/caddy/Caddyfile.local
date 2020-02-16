@@ -3,8 +3,8 @@
 localhost:80, localhost:2020 {
   tls off
 
-  # Serves static files, should be the same as `STATIC_ROOT` setting:
-  root /code/dist
+  # Serve static files
+  root /dist
 
   # Serving dynamic requests:
   proxy /api website_flask:8080 {

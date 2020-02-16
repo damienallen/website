@@ -22,12 +22,6 @@ VOLUME /root/.caddy
 # Use mounted code in development
 WORKDIR /code
 
-# Copy and build in production
+# Copy Caddyfile in production
 FROM development_build as production_build
-
-COPY docker/caddy/Caddyfile /etc/Caddyfile
-COPY package.json yarn.lock webpack.config.js /code/
-RUN yarn install
-
-COPY ./src /code/src
-RUN yarn build
+COPY docker/caddy/Caddyfile.local /etc/Caddyfile

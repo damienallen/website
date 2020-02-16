@@ -3,9 +3,13 @@
 set -o errexit
 set -o nounset
 
-# Start gunicorn with 4 workers:
+echo 'Copying static assets...'
+rm -rf /dist/*
+cp -r /code/dist/* /dist/
+
+# Start gunicorn with workers:
 /usr/local/bin/gunicorn main:app \
-  --workers 4 \
+  --workers 2 \
   --bind 0.0.0.0:8080 \
   --chdir=/code/app \
   --log-file=- \

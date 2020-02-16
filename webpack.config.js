@@ -1,8 +1,36 @@
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ProvidePlugin = require('webpack').ProvidePlugin;
+const { ProvidePlugin } = require('webpack');
 
+
+const pluginsList = [
+    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
+        hash: true,
+        filename: 'index.html',
+        template: './src/index.html',
+    }),
+    new CopyWebpackPlugin([
+        {
+            from: 'src/icons/favicon',
+            to: 'icons'
+        },
+        {
+            from: 'node_modules/trumbowyg/dist/ui/icons.svg',
+            to: 'icons/trumbowyg_icons.svg'
+        },
+        {
+            from: 'src/files',
+            to: 'files'
+        }
+    ]),
+    new ProvidePlugin({
+        jQuery: 'jquery',
+        $: 'jquery'
+    })
+]
 
 const responsiveLoader = {
     test: /\.(jpe?g|png)$/i,
@@ -22,6 +50,8 @@ const responsiveLoader = {
 if (process.env.WEBPACK_ENV === 'dev') {
     console.log('Development mode: using responsive image cache.')
     responsiveLoader.use.unshift('cache-loader')
+} else {
+    pluginsList.unshift(new CleanWebpackPlugin())
 }
 
 module.exports = {
@@ -31,32 +61,7 @@ module.exports = {
         filename: "bundle.js"
     },
 
-    plugins: [
-        new MiniCssExtractPlugin(),
-        new HtmlWebpackPlugin({
-            hash: true,
-            filename: 'index.html',
-            template: './src/index.html',
-        }),
-        new CopyWebpackPlugin([
-            {
-                from: 'src/icons/favicon',
-                to: 'icons'
-            },
-            {
-                from: 'node_modules/trumbowyg/dist/ui/icons.svg',
-                to: 'icons/trumbowyg_icons.svg'
-            },
-            {
-                from: 'src/files',
-                to: 'files'
-            }
-        ]),
-        new ProvidePlugin({
-            jQuery: 'jquery',
-            $: 'jquery'
-        })
-    ],
+    plugins: pluginsList,
 
     module: {
         rules: [
