@@ -8,13 +8,12 @@ on:
     paths-ignore:
       - '**.md'
 
-variables:
-  REGISTRY_URL: docker.pkg.github.com/damienallen/mothership/website_flask
-  TAG: latest
-
 jobs:
   build:
     runs-on: ubuntu-latest
+    variables:
+      REGISTRY_URL: docker.pkg.github.com/damienallen/mothership/website_flask
+      TAG: latest
 
     steps:
 
