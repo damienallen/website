@@ -12,6 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
+      CI: true
       REGISTRY_URL: docker.pkg.github.com/damienallen/mothership/website_flask
       TAG: latest
 
@@ -35,6 +36,3 @@ jobs:
           --target production_build
           -f docker/flask/Dockerfile .
         - docker push $REGISTRY_URL:$TAG
-
-    env:
-        CI: true
