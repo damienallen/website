@@ -30,9 +30,5 @@ jobs:
       run: |
         docker login docker.pkg.github.com --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }}
         docker pull $REGISTRY_URL:$TAG || true
-        docker build -t $REGISTRY_URL:$TAG
-          --cache-from $REGISTRY_URL:$TAG
-          --build-arg DJANGO_ENV=production
-          --target production_build
-          -f docker/flask/Dockerfile .
-        - docker push $REGISTRY_URL:$TAG
+        docker build -t $REGISTRY_URL:$TAG --cache-from $REGISTRY_URL:$TAG --target production_build -f docker/flask/Dockerfile .
+        docker push $REGISTRY_URL:$TAG
