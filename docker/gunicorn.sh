@@ -3,9 +3,12 @@
 set -o errexit
 set -o nounset
 
-echo 'Copying static assets...'
-rm -rf /dist/*
-cp -r /code/dist/* /dist/
+if [ "$FLASK_ENV" = "deploy" ]
+then
+  echo 'Copying static assets...'
+  rm -rf /dist/*
+  cp -r /code/dist/* /dist/
+fi
 
 # Start gunicorn with workers:
 /usr/local/bin/gunicorn main:app \
