@@ -21,6 +21,7 @@ def submit():
     contact_form = ContactForm(request.form)
 
     is_valid = contact_form.validate()
+    status_code = 200 if is_valid else 400
     validation_errors = [str(e) for e in contact_form.errors.items()]
 
     if request.method == "POST" and is_valid:
@@ -50,4 +51,4 @@ def submit():
         except Exception as e:
             print(str(e))
 
-    return jsonify(request=request.form, errors=validation_errors)
+    return jsonify(request=request.form, errors=validation_errors), status_code
