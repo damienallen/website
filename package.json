@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "jquery": "3.3.1",
+    "jquery": "3.5.0",
     "normalize.css": "^8.0.1",
     "popper.js": "^1.15.0",
     "trumbowyg": "^2.21.0"
