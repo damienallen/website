@@ -16,12 +16,12 @@ app.logger.handlers.extend(gunicorn_error_logger.handlers)
 app.logger.setLevel(logging.INFO)
 
 
-@app.route("/api")
+@app.route("/api/")
 def hello():
     return "Why, hello there kind stranger."
 
 
-@app.route("/api/submit", methods=["POST"])
+@app.route("/api/submit/", methods=["POST"])
 def submit():
 
     # Run validation
