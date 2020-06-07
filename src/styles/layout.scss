@@ -1,4 +1,4 @@
-$standard-cutoff: 768px;
+$mobile-breakpoint: 768px;
 
 /* Override bootstrap container cutoffs */
 @media (min-width: 992px) {
@@ -7,13 +7,13 @@ $standard-cutoff: 768px;
   }
 }
 
-@media (max-width: $standard-cutoff) {
+@media (max-width: $mobile-breakpoint) {
   .container{
     padding: 0;
   }
 }
 
-@media (min-width: $standard-cutoff) {
+@media (min-width: $mobile-breakpoint) {
   .container{
     max-width: 800px;
   }

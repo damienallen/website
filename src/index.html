@@ -92,7 +92,7 @@
         <section id="about">
             <div class="about-content">
                 <div class="hello">
-                    <img src="images/hello.png" alt="Hello!">
+                    <img src="${require('./images/hello.png').src}" alt="Hello!">
                 </div>
                 <p>
                     I am a software developer working on cutting edge robotic 3D metal printing technology in Amsterdam.
@@ -102,7 +102,7 @@
                     In my free time I like to garden, brew beer, and throw pots.
                 </p>
                 <div class="name">
-                    <img src="images/damien.png" alt="- Damien">
+                    <img src="${require('./images/damien.png').src}" alt="- Damien">
                 </div>
             </div>
 
@@ -122,7 +122,7 @@
             <hr><br>
             <div class="row work-list">
                 <div class="col-sm-5">
-                    <img src="images/mx3d-logo.jpg" class="img-fluid" alt="MX3D">
+                    <img src="${require('./images/mx3d-logo.jpg').src}" class="img-fluid" alt="MX3D">
                 </div>
                 <div class="col-sm-7">
                     <h2>Software Developer</h2>
@@ -143,7 +143,7 @@
             </div>
             <div class="row work-list">
                 <div class="col-sm-5">
-                    <img src="images/mwm-logo.jpg" class="img-fluid" alt="Mobile Water Management">
+                    <img src="${require('./images/mwm-logo.jpg').src}" class="img-fluid" alt="Mobile Water Management">
                 </div>
                 <div class="col-sm-7">
                     <h2>Software & Product Developer</h2>
@@ -174,7 +174,7 @@
             </div>
             <div class="row work-list">
                 <div class="col-sm-5">
-                    <img src="images/akvo-logo.jpg" class="img-fluid" alt="Akvo">
+                    <img src="${require('./images/akvo-logo.jpg').src}" class="img-fluid" alt="Akvo">
                 </div>
                 <div class="col-sm-7">
                     <h2>Django Developer Intern</h2>
@@ -199,7 +199,7 @@
             </div>
             <div class="row work-list">
                 <div class="col-sm-5">
-                    <img src="images/kk-logo.jpg" class="img-fluid" alt="De Koperen Kat">
+                    <img src="${require('./images/kk-logo.jpg').src}" class="img-fluid" alt="De Koperen Kat">
                 </div>
                 <div class="col-sm-7">
                     <h2>Brewery Volunteer & Bartender</h2>
@@ -219,7 +219,7 @@
             </div>
             <div class="row work-list">
                 <div class="col-sm-5">
-                    <img src="images/cu-logo.jpg" class="img-fluid" alt="Akvo">
+                    <img src="${require('./images/cu-logo.jpg').src}" class="img-fluid" alt="Akvo">
                 </div>
                 <div class="col-sm-7">
                     <h2>IT Systems Administrator</h2>
@@ -251,7 +251,7 @@
             <hr><br>
             <div class="row edu-list">
                 <div class="col-sm-5">
-                    <img src="images/tu-logo.jpg" class="img-fluid" alt="TU Delft">
+                    <img src="${require('./images/tu-logo.jpg').src}" class="img-fluid" alt="TU Delft">
                 </div>
                 <div class="col-sm-7">
                     <h2>M.Sc. in Civil Engineering</h2>
@@ -277,7 +277,7 @@
             </div>
             <div class="row edu-list">
                 <div class="col-sm-5">
-                    <img src="images/cu-logo.jpg" class="img-fluid" alt="CU Boulder">
+                    <img src="${require('./images/cu-logo.jpg').src}" class="img-fluid" alt="CU Boulder">
                 </div>
                 <div class="col-sm-7">
                     <h2>B.Sc. in Environmental Engineering</h2>
@@ -292,7 +292,7 @@
             </div>
             <div class="row edu-list">
                 <div class="col-sm-5">
-                    <img src="images/sas-logo.jpg" class="img-fluid" alt="Semester at Sea">
+                    <img src="${require('./images/sas-logo.jpg').src}" class="img-fluid" alt="Semester at Sea">
                 </div>
                 <div class="col-sm-7">
                     <h2>Study Abroad</h2>
@@ -405,7 +405,8 @@
     </main>
 
     <footer id="footer">
-        <img src="images/tatra_footer.jpg" alt="Footer graphic: Tatra Mountains, Poland">
+        <img src="${require('./images/tatra_footer.jpg').src}" srcset="${require('./images/tatra_footer.jpg').srcSet}"
+            alt="Footer graphic: Tatra Mountains, Poland">
     </footer>
 
     <!-- Contact form status modal -->

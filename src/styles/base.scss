@@ -1,8 +1,9 @@
 /*--[ variables  ]--*/
 
-$standard-cutoff: 768px;
-$cover-url: url('../images/colombia_cover.jpg?size=1200');
-$footer-url: url('../images/tatra_footer.jpg?size=1200');
+$mobile-breakpoint: 768px;
+$cover-url-2400: url('../images/colombia_cover.jpg?size=2400');
+$cover-url-1200: url('../images/colombia_cover.jpg?size=1200');
+$cover-url-860: url('../images/colombia_cover.jpg?size=860');
 $logo-width: 200px;
 
 
@@ -10,10 +11,6 @@ $logo-width: 200px;
 
 body {
   font-family: 'Open Sans', sans-serif;
-
-  @media (max-width: 575px) {
-    background: #000;
-  }
 }
 
 h1, h2, h3, h4, h5b {
@@ -109,16 +106,6 @@ h4 {
   height: 100%;
   width: 100%;
 
-  background-image: linear-gradient(
-                  to bottom,
-                  rgba(0, 0, 0, 0.2),
-                  rgba(0, 0, 0, 0.4)
-  ), $cover-url;
-  background-repeat: no-repeat;
-  background-position: left;
-  background-size: cover;
-  background-color: #000;
-
   .cover-fill {
     height: 100%;
     width: 100%;
@@ -132,12 +119,30 @@ h4 {
     animation-fill-mode: forwards;
   }
 
-  @media (max-width: $standard-cutoff) {
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+  background-color: #000;
+  background-image: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.4),
+                    rgba(0, 0, 0, 0.4)
+    ), $cover-url-860;
+
+  @media (min-width: $mobile-breakpoint) {
     background-image: linear-gradient(
                     to bottom,
                     rgba(0, 0, 0, 0.4),
                     rgba(0, 0, 0, 0.4)
-    ), $cover-url;
+    ), $cover-url-1200;
+  }
+
+  @media (min-width: 1200px) {
+    background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.2),
+                  rgba(0, 0, 0, 0.4)
+    ), $cover-url-2400;
   }
 
 }
@@ -227,7 +232,7 @@ h4 {
 
   }
 
-  @media (max-width: $standard-cutoff) {
+  @media (max-width: $mobile-breakpoint) {
 
     .about-content {
       padding: 15vh 20px 0 20px;
