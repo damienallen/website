@@ -29,16 +29,15 @@ def submit():
     contact_form = ContactForm(request.form)
     is_valid = contact_form.validate()
     status_code = 200 if is_valid else 400
-    errors = [str(e) for e in contact_form.errors.items()]
+    form_errors = [e for e in contact_form.errors.items()]
+
+    # Response
+    status = {
+        "sent": False,
+        "message": "Invalid request"
+    }
 
     if request.method == "POST" and is_valid:
-
-        # Extract request data
-        name = request.form.get("name")
-        from_email = request.form.get("email")
-        subject = request.form.get("subject")
-        message = request.form.get("message")
-        app.logger.info(request.form)
 
         # Captcha check
         r = requests.post(
@@ -49,10 +48,16 @@ def submit():
                 "remoteip": request.remote_addr
             }
         )
-        print(r.status_code, r.json()["success"])
+
         if not r.json()["success"]:
-            errors.append("Captcha check failed!")
-            return jsonify(request=request.form, errors=errors), 400
+            status["message"] = "Captcha check failed!"
+            return jsonify(status=status, form_errors=form_errors), 400
+
+        # Extract request data
+        name = request.form.get("name")
+        from_email = request.form.get("email")
+        subject = request.form.get("subject")
+        message = request.form.get("message")
 
         # Get contact email from environment
         to_email = os.environ.get("CONTACT_EMAIL")
@@ -70,14 +75,15 @@ def submit():
             response = sg.send(message)
             
             if response.status_code == 202:
-                app.logger.debug("Message sent sucessfully.")
+                status["sent"] = True
+                status["message"] = "Message sent sucessfully."
             else:
-                errors.append("Sendgrid failed to send message.")
+                status["message"] = "Sendgrid failed to send message."
                 status_code = 500
 
         except Exception as e:
             app.logger.error(e)
-            errors.append("Failed to connect to sendgrid.")
+            status["message"] = "Failed to connect to sendgrid."
             status_code = 500
 
-    return jsonify(request=request.form, errors=errors), status_code
+    return jsonify(status=status, form_errors=form_errors), status_code
