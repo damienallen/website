@@ -1,11 +1,9 @@
 // Import dependencies
 import $ from 'jquery'
-import 'bootstrap'
-import 'popper.js'
+// import { createPopper } from '@popperjs/core'
 import 'trumbowyg'
 
 // Import stylesheets
-import 'bootstrap/dist/css/bootstrap.css'
 import 'trumbowyg/dist/ui/trumbowyg.css'
 import 'normalize.css'
 
@@ -13,6 +11,7 @@ import './styles/base.scss'
 import './styles/layout.scss'
 
 
+// Handle form submission
 const sendEmail = () => {
 
     const formData = {
@@ -23,8 +22,6 @@ const sendEmail = () => {
         recaptcha: $('#g-recaptcha-response').val()
     }
 
-    console.log(formData)
-
     $.ajax({
         url: "/api/submit",
         type: "POST",
@@ -33,34 +30,34 @@ const sendEmail = () => {
             $('#submit-button').text('Sent!')
             $('#submit-button').prop('disabled', true)
             $('#form-errors').text('')
+            console.log(data.responseJSON.status.message)
         },
         error: (data) => {
             $('#form-errors').text(data.responseJSON.status.message)
+            console.error(data.responseJSON)
         }
     })
 
 }
 
+// Fade cover on scroll
 const adjustOpacity = () => {
-    var windowHeight = window.innerHeight
-    var paddingOffset = 10
+    const windowHeight = window.innerHeight
+    const paddingOffset = 10
 
-    var coverOpacity = (windowHeight - paddingOffset - $(window).scrollTop()) / windowHeight
+    let coverOpacity = (windowHeight - paddingOffset - $(window).scrollTop()) / windowHeight
     if (coverOpacity < 0) {
         coverOpacity = 0
     }
 
-    var boxShadowInitialOpacity = 0.2
-    var boxShadowOpacity = boxShadowInitialOpacity * coverOpacity
-    var boxShadowValue = '0 3px 15px rgba(0,0,0,' + boxShadowOpacity + ')'
+    const boxShadowInitialOpacity = 0.2
+    const boxShadowOpacity = boxShadowInitialOpacity * coverOpacity
+    const boxShadowValue = '0 3px 15px rgba(0,0,0,' + boxShadowOpacity + ')'
     $('.cover').css({ opacity: coverOpacity })
     $('#work').css({ boxShadow: boxShadowValue })
 }
 
 $(document).ready(() => {
-
-    // Hide modal initially
-    $('#contact-modal').modal({ show: false })
 
     // Set initial background opacity and fade cover background on scroll
     adjustOpacity()
@@ -69,19 +66,18 @@ $(document).ready(() => {
     })
 
     // Add padding to in-page nav
-    var offset = 50
-
-    $('#navbar-links #sections a, .down-arrow a').click((event) => {
+    const offset = 50
+    $('#navbar-links a, .down-arrow a').click((event) => {
         event.preventDefault()
-
         $('html, body').animate({
             scrollTop: $($(event.currentTarget).attr('href')).offset().top - offset
         }, 800)
-
     })
 
     // Add tooltips
-    $('[data-toggle="tooltip"]').tooltip()
+    // createPopper($('[data-toggle="tooltip"]'), {
+    //     placement: 'top',
+    // })
 
     // Initialize contact form
     $('#contact-form').on('submit', (event) => {
@@ -101,8 +97,5 @@ $(document).ready(() => {
             ['fullscreen']
         ]
     })
-
-    const now = new Date()
-    console.log(`Loaded at ${now.toLocaleTimeString()} on ${now.toLocaleDateString()}`)
 
 })
