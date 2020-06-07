@@ -354,23 +354,20 @@ h4 {
   }
 
   #submit-button {
-    margin-top: 20px;
+    height: 38px;
+  }
+
+  #form-errors {
+    line-height: 38px;
+    font-size: 0.9em;
+    color: #C90610;
+  }
+
+  .captcha {
+    margin-bottom: 20px;
   }
 
 }
-
-#contact-modal {
-
-  .contact-modal-dialog {
-    max-width: 400px;
-  }
-
-  #contact-modal-body {
-    padding-top: 20px;
-  }
-
-}
-
 
 /*--[ footer styling  ]--*/
 

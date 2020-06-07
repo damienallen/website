@@ -30,15 +30,12 @@ const sendEmail = () => {
         type: "POST",
         data: formData,
         success: (data) => {
-            // Disable form
             $('#submit-button').text('Sent!')
-            // $('#submit-button').prop('disabled', true)
+            $('#submit-button').prop('disabled', true)
+            $('#form-errors').text('')
         },
         error: (data) => {
-            // Show status modal
-            $('#contact-modal-title').text('Message not sent!')
-            $('#contact-modal-body').text(data.responseJSON.message)
-            $('#contact-modal').modal('show')
+            $('#form-errors').text(data.responseJSON.status.message)
         }
     })
 
