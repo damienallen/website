@@ -11,9 +11,13 @@ authors = ["Damien Allen <dev@dallen.co>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-flask = "^1.1.1"
+flask = "^1.1.2"
+flask-wtf = "^0.14.3"
 gunicorn = "^20.0.4"
+sendgrid = "^6.3.1"
+email_validator = "^1.1.1"
+requests = "^2.23.0"
 
 [tool.poetry.dev-dependencies]
-flake8 = "^3.7.9"
+flake8 = "^3.8.2"
 black = "^19.10b0"

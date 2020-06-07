@@ -16,34 +16,26 @@ import './styles/layout.scss'
 const sendEmail = () => {
 
     const formData = {
-        name : $('#id_name').val(),
-        email : $('#id_email').val(),
-        subject : $('#id_subject').val(),
-        message : $('#message-text').val(),
+        name: $('#id_name').val(),
+        email: $('#id_email').val(),
+        subject: $('#id_subject').val(),
+        message: $('#message-text').val(),
         recaptcha: $('#g-recaptcha-response').val()
     }
 
     console.log(formData)
 
     $.ajax({
-        url: "/contact/",
+        url: "/api/submit",
         type: "POST",
         data: formData,
         success: (data) => {
-            // Show status modal
-            $('#contact-modal-title').text('Message sent!')
-            $('#contact-modal-body').text('I will try to return your message promptly.')
-            $('#contact-modal').modal('show')
-
-            // Disable form
             $('#submit-button').text('Sent!')
             $('#submit-button').prop('disabled', true)
+            $('#form-errors').text('')
         },
         error: (data) => {
-            // Show status modal
-            $('#contact-modal-title').text('Message not sent!')
-            $('#contact-modal-body').text(data.responseJSON.message)
-            $('#contact-modal').modal('show')
+            $('#form-errors').text(data.responseJSON.status.message)
         }
     })
 
@@ -53,7 +45,7 @@ const adjustOpacity = () => {
     var windowHeight = window.innerHeight
     var paddingOffset = 10
 
-    var coverOpacity = (windowHeight - paddingOffset - $(window).scrollTop())/windowHeight
+    var coverOpacity = (windowHeight - paddingOffset - $(window).scrollTop()) / windowHeight
     if (coverOpacity < 0) {
         coverOpacity = 0
     }
@@ -61,14 +53,14 @@ const adjustOpacity = () => {
     var boxShadowInitialOpacity = 0.2
     var boxShadowOpacity = boxShadowInitialOpacity * coverOpacity
     var boxShadowValue = '0 3px 15px rgba(0,0,0,' + boxShadowOpacity + ')'
-    $('.cover').css({opacity: coverOpacity})
-    $('#work').css({boxShadow: boxShadowValue})
+    $('.cover').css({ opacity: coverOpacity })
+    $('#work').css({ boxShadow: boxShadowValue })
 }
 
 $(document).ready(() => {
 
     // Hide modal initially
-    $('#contact-modal').modal({ show: false})
+    $('#contact-modal').modal({ show: false })
 
     // Set initial background opacity and fade cover background on scroll
     adjustOpacity()
