@@ -1,10 +1,12 @@
 /*--[ variables  ]--*/
 
 $mobile-breakpoint: 768px;
+$logo-width: 200px;
+$navbar-height: 50px;
+
 $cover-url-2400: url('../images/colombia_cover.jpg?size=2400');
 $cover-url-1200: url('../images/colombia_cover.jpg?size=1200');
 $cover-url-860: url('../images/colombia_cover.jpg?size=860');
-$logo-width: 200px;
 
 
 /*--[ fonts & text styling ]--*/
@@ -20,11 +22,14 @@ h1, h2, h3, h4, h5b {
 h1 {
   font-size: 1.8em;
   font-weight: 300;
+  margin: 10px 0;
+  color: #707579;
 }
 
 h2 {
   font-size: 1.2em;
   margin-bottom: 20px;
+  font-weight: 400;
 }
 
 h3 {
@@ -35,61 +40,165 @@ h3 {
 h4 {
   font-size: 0.8em;
   line-height: 24px;
-  color: #5f5f5f;
+  color: #999c9f;
   font-style: italic;
+  margin: 0 0 10px 0;
+  font-weight: 300;
 }
 
 
+hr {
+  margin-top: 10px 0;
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,0.2);
+}
+
 /*--[ navigation styling  ]--*/
 
-.navbar {
+#navbar {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
-  background: rgba(255,255,255,0.8);
-  z-index: 1000;
+  background: #343a40;
+  z-index: 100;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  user-select: none;
 
-  .navbar-brand {
-    text-align: right;
+  &.open {
+    #navbar-links {
+      display: block !important;
+    }
+  }
+
+  #navbar-links {
+    flex: 1 1;
+    padding-left: 15px;
+    line-height: $navbar-height;
+
+    @media (max-width: $mobile-breakpoint) {
+      width: 100vw;
+      height: 100%;
+      z-index: 50;
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: $navbar-height 0 0 0;
+      font-size: 1.4em;
+
+      .links-container {
+        background: #484d53;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      ul {
+        flex-direction: column;
+        padding-bottom: $navbar-height;
+
+        li {
+          margin: 10px 0;
+        }
+      }
+
+    }
+
+    ul {
+      margin: 0;
+    }
+
+  }
+
+  .nav-item {
+    text-align: center;
+    flex: 0 1;
+    padding: 0 15px;
+
+    a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+
+    &.active {
+            color: #fff;
+        }
+    }
+
+    a:hover, a:active {
+      color: #fff;
+    }
+  }
+
+  .nav-name {
+    flex: 1;
     font-size: 1.1em;
-    line-height: 1em;
+    line-height: $navbar-height;
     color: #fff;
-    padding: 0 24px 0 0;
+    padding: 0 0 0 15px;
     cursor: default;
 
-    @media (min-width: 768px) {
-      border-right: 1px solid rgba(255,255,255,.5);
+    @media (min-width: $mobile-breakpoint) {
+      padding: 0 24px 0 0;
+      text-align: right;
+      border-right: 1px solid rgba(255,255,255,.1);
     }
   }
 
   .nav-icons {
+    flex: 0 1;
+    margin: 0;
+    padding: 0 14px;
+
+    @media (max-width: $mobile-breakpoint) {
+      margin-right: 30px;
+    }
 
     a {
-      font-size: 1.5em;
+      font-size: 1.2em;
+      color: rgba(255,255,255,0.5);
+      line-height: $navbar-height;
+    }
+
+    a:hover, a:active {
+      color: #fff;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
     }
     
     .nav-link {
       margin: 0;
       padding: 0 10px;
-      color: #d5cfb5;
+    }
+  }
 
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+  }
+
+  #nav-toggle {
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    z-index: 100;
+    display: none;
+    cursor: pointer;
+    color: #fff;
+
+    #nav-close {
+        display: none;
     }
 
-  }
-
-  .navbar-nav {
-    flex-direction: row !important;
-  }
-
-  @media (max-width: 767px) {
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
-
-    #navbar-links {
-  
-      .nav-item {
-        padding: 0.5em 2vw 0 2vw;
-      }
-
+    @media (max-width: $mobile-breakpoint) {
+      display: block;
     }
 
   }
@@ -163,10 +272,9 @@ h4 {
 
 /*--[ section styling  ]--*/
 
-.generic-section {
+.section {
   background: #fff;
-  padding: 20px;
-
+  padding: 10px 20px 20px 20px;
 }
 
 
@@ -179,7 +287,7 @@ h4 {
 
   .about-content {
     color: #fff;
-    font-size: 1.2em;
+    line-height: 1.8em;
     text-align: justify;
     padding: 30vh 100px 0 100px;
 
@@ -189,7 +297,7 @@ h4 {
 
     .hello {
       display: inline-block;
-      margin-bottom: 25px;
+      margin-bottom: 10px;
 
       img {
         width: 100px;
@@ -272,16 +380,28 @@ h4 {
     margin-top: 15px;
   }
 
+  h4 {
+    margin-top: 15px;
+    font-size: 1em;
+  }
+
   a {
+    text-decoration: none;
+
     h3 {
       font-weight: 600;
       color: #212529 !important;
     }
+
   }
 
-  h4 {
-    margin-top: 15px;
-    font-size: 1em;
+  a:active, a:hover {
+    text-decoration: underline;
+    text-decoration-color: #212529;
+  }
+
+  .col {
+    flex: 1 1 320px;
   }
 
   .duration {
@@ -298,6 +418,7 @@ h4 {
       margin: 0;
       padding: 0;
       list-style-type: none;
+      line-height: 1.4em;
 
       li:before {
         content: "- ";
@@ -323,6 +444,7 @@ h4 {
 /*--[ skills styling  ]--*/
 
 .skills-list {
+  flex-wrap: wrap;
 
   h4 {
     margin-bottom: 20px;
@@ -332,10 +454,20 @@ h4 {
     margin-bottom: 20px;
   }
 
+  @media (max-width: $mobile-breakpoint) {
+    .skill-col {
+      flex-basis: 50%;
+    }
+  }
+
   ul {
     padding: 0;
     list-style: none;
     font-size: 0.9em;
+
+    li {
+      margin-bottom: 5px;
+    }
   }
 
 }
@@ -346,7 +478,7 @@ h4 {
 }
 
 
-/*--[ contact form & modal styling  ]--*/
+/*--[ contact form styling  ]--*/
 
 #contact-form {
 
@@ -358,8 +490,23 @@ h4 {
     margin: 0 auto !important;
   }
 
+  button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disabled), [type="submit"]:not(:disabled) {
+    cursor: pointer;
+  }
+
   #submit-button {
     height: 38px;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 0.25rem;
+    width: 100%;
+    max-width: 302px;
+
+    &:disabled {
+      background-color: #c2c3c5;
+      border-color: #c2c3c5;
+    }
   }
 
   #form-errors {
@@ -369,7 +516,7 @@ h4 {
   }
 
   .captcha {
-    margin-bottom: 20px;
+    margin: 20px 0;
   }
 
 }
@@ -382,5 +529,7 @@ h4 {
 
   img {
     width: 100%;
+    margin-bottom: -4px;
   }
+
 }

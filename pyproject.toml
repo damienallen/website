@@ -6,7 +6,7 @@ build-backend = "poetry.masonry.api"
 name = "dallen-flask"
 description = "Basic Flask backend for dallen.co"
 repository = "git@github.com:damienallen/dallen.git"
-version = "1.0"
+version = "2.1"
 authors = ["Damien Allen <dev@dallen.co>"]
 
 [tool.poetry.dependencies]

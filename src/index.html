@@ -14,7 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="damien allen, mx3d, python, django, react, typescript">
 
-
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
@@ -22,62 +21,82 @@
     <link rel="manifest" href="icons/site.webmanifest">
     <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#f76767">
     <link rel="shortcut icon" href="icons/favicon.ico">
-    <meta name="theme-color" content="#343a40">
+    <meta name="theme-color" content="#2e3439">
 
 </head>
 
-<body data-spy="scroll" data-target="#navbar-content" data-offset="120">
+<body data-spy="scroll" data-target="#navbar" data-offset="120">
 
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark d-flex" id="navbar-content">
-            <div class="navbar-brand order-sm-1">DAMIEN<br>ALLEN</div>
-            <div class="nav-icons order-sm-3 ml-auto">
-                <ul class="navbar-nav nav-icons">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.linkedin.com/in/damienaallen/" target="_blank">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                </path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/damienallen/" target="_blank">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path
-                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                </path>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div id="navbar-links" class="order-sm-2">
-                <ul id="sections" class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">about</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#work">work</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#education">education</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills">skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">contact</a>
-                    </li>
-                </ul>
+        <nav id="navbar">
 
+            <div id="navbar-links">
+                <div class="links-container">
+                    <ul>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#about">about</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#work">work</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#education">education</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#skills">skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="nav-name">DAMIEN ALLEN</div>
+
+            <ul class="nav-icons">
+                <li>
+                    <a class="nav-link" href="https://www.linkedin.com/in/damienaallen/" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="https://github.com/damienallen/" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                            </path>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+
+            <div id="nav-toggle">
+                <div id="nav-open">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-menu">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6">
+                        </line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </div>
+                <div id="nav-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-x">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </div>
             </div>
 
         </nav>
@@ -95,11 +114,11 @@
                     <img src="${require('./images/hello.png').src}" alt="Hello!">
                 </div>
                 <p>
-                    I am a software developer working on cutting edge robotic 3D metal printing technology in Amsterdam.
-                    My background is in water resources, hydrology and remote sensing.
+                    I am currently working on building software for metal 3D printing with MX3D in Amsterdam.
+                    My educational background is in civil/environmental engineering, water resources and remote sensing.
                 </p>
                 <p>
-                    In my free time I like to garden, brew beer, and throw pots.
+                    In my free time I enjoy gardening, throwing pots and coding personal projects.
                 </p>
                 <div class="name">
                     <img src="${require('./images/damien.png').src}" alt="- Damien">
@@ -117,15 +136,15 @@
             </div>
         </section>
 
-        <section id="work" class="generic-section">
+        <section id="work" class="section">
             <h1>work</h1>
             <hr><br>
             <div class="row work-list">
-                <div class="col-sm-5">
+                <div class="col">
                     <img src="${require('./images/mx3d-logo.jpg').src}" class="img-fluid" alt="MX3D">
                 </div>
-                <div class="col-sm-7">
-                    <h2>Software Developer</h2>
+                <div class="col">
+                    <h2>Lead Software Developer</h2>
                     <a href="https://mx3d.com/">
                         <h3>MX3D</h3>
                     </a>
@@ -133,19 +152,26 @@
                     <div class="details">
                         <h4>Responsibilities</h4>
                         <ul>
-                            <li>Developing first external release</li>
-                            <li>Geometry analysis and processing</li>
-                            <li>UI/UX design</li>
+                            <li>Leading the software development effort</li>
+                            <li>System architecture & API development</li>
+                            <li>Guiding UI/UX design & principles</li>
+                            <li>Mentoring junior developers</li>
+                        </ul>
+                        <h4>Stack</h4>
+                        <ul>
+                            <li>Django (Python)</li>
+                            <li>PostgreSQL</li>
+                            <li>React (Mobx, Typescript)</li>
+                            <li>Electron</li>
                         </ul>
                     </div>
-
                 </div>
             </div>
             <div class="row work-list">
-                <div class="col-sm-5">
+                <div class="col">
                     <img src="${require('./images/mwm-logo.jpg').src}" class="img-fluid" alt="Mobile Water Management">
                 </div>
-                <div class="col-sm-7">
+                <div class="col">
                     <h2>Software & Product Developer</h2>
                     <a href="https://www.mobilewatermanagement.nl/">
                         <h3>Mobile Water Management BV</h3>
@@ -157,7 +183,6 @@
                             <li>Lead development effort</li>
                             <li>Full-stack development</li>
                             <li>Cross-platform mobile development</li>
-                            <li>Technical infrastructure design</li>
                             <li>APIs for apps & external services</li>
                             <li>Planned product roadmaps</li>
                             <li>UI/UX design</li>
@@ -166,17 +191,17 @@
                         <ul>
                             <li>Django (Python)</li>
                             <li>PostgreSQL</li>
-                            <li>Ionic (Angular/Javascript)</li>
+                            <li>Ionic (Angular)</li>
                         </ul>
                     </div>
 
                 </div>
             </div>
             <div class="row work-list">
-                <div class="col-sm-5">
+                <div class="col">
                     <img src="${require('./images/akvo-logo.jpg').src}" class="img-fluid" alt="Akvo">
                 </div>
-                <div class="col-sm-7">
+                <div class="col">
                     <h2>Django Developer Intern</h2>
                     <a href="https://akvo.org/">
                         <h3>Akvo Foundation</h3>
@@ -198,10 +223,10 @@
                 </div>
             </div>
             <div class="row work-list">
-                <div class="col-sm-5">
+                <div class="col">
                     <img src="${require('./images/kk-logo.jpg').src}" class="img-fluid" alt="De Koperen Kat">
                 </div>
-                <div class="col-sm-7">
+                <div class="col">
                     <h2>Brewery Volunteer & Bartender</h2>
                     <a href="https://www.koperenkat.nl/">
                         <h3>Stadsbrouwerij De Koperen Kat</h3>
@@ -218,10 +243,10 @@
                 </div>
             </div>
             <div class="row work-list">
-                <div class="col-sm-5">
+                <div class="col">
                     <img src="${require('./images/cu-logo.jpg').src}" class="img-fluid" alt="Akvo">
                 </div>
-                <div class="col-sm-7">
+                <div class="col">
                     <h2>IT Systems Administrator</h2>
                     <a href="https://www.colorado.edu/">
                         <h3>University of Colorado at Boulder</h3>
@@ -246,14 +271,14 @@
             </div>
         </section>
 
-        <section id="education" class="generic-section">
+        <section id="education" class="section">
             <h1>education</h1>
             <hr><br>
             <div class="row edu-list">
-                <div class="col-sm-5">
+                <div class="col">
                     <img src="${require('./images/tu-logo.jpg').src}" class="img-fluid" alt="TU Delft">
                 </div>
-                <div class="col-sm-7">
+                <div class="col">
                     <h2>M.Sc. in Civil Engineering</h2>
                     <a href="https://www.tudelft.nl/en/">
                         <h3>Delft University of Technology</h3>
@@ -276,10 +301,10 @@
                 </div>
             </div>
             <div class="row edu-list">
-                <div class="col-sm-5">
+                <div class="col">
                     <img src="${require('./images/cu-logo.jpg').src}" class="img-fluid" alt="CU Boulder">
                 </div>
-                <div class="col-sm-7">
+                <div class="col">
                     <h2>B.Sc. in Environmental Engineering</h2>
                     <a href="https://www.colorado.edu/">
                         <h3>University of Colorado at Boulder</h3>
@@ -291,66 +316,56 @@
                 </div>
             </div>
             <div class="row edu-list">
-                <div class="col-sm-5">
+                <div class="col">
                     <img src="${require('./images/sas-logo.jpg').src}" class="img-fluid" alt="Semester at Sea">
                 </div>
-                <div class="col-sm-7">
+                <div class="col">
                     <h2>Study Abroad</h2>
                     <a href="https://www.semesteratsea.org/">
                         <h3>Semester at Sea</h3>
                     </a>
                     <div class="duration">Fall 2010</div>
                     <div class="details">
-                        Non-conventional study-abroad program across 12 countries in
-                        <span class="dotted" data-toggle="tooltip" data-placement="top"
-                            title="Canada & United States">N. America</span>,
-                        <span class="dotted" data-toggle="tooltip" data-placement="top" title="Spain">Europe</span>,
-                        <span class="dotted" data-toggle="tooltip" data-placement="top"
-                            title="Morocco, Ghana, South Africa & Mauritius">Africa</span> &
-                        <span class="dotted" data-toggle="tooltip" data-placement="top"
-                            title="India, Singapore, Vietnam, China & Japan">Asia</span>
+                        Non-conventional study-abroad voyage through
+                        Canada, Spain, Morocco, Ghana, South Africa, Mauritius,
+                        India, Singapore, Vietnam, China, Japan & Hawaii.
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="skills" class="generic-section">
+        <section id="skills" class="section">
             <h1>skills</h1>
             <hr><br>
             <div class="row skills-list">
-                <div class="col-lg-3 col-sm-6">
+                <div class="skill-col col">
                     <h4>Programming</h4>
                     <ul>
-                        <li>Python</li>
-                        <li>Javascript</li>
+                        <li>Python (Django)</li>
+                        <li>Javascript (React)</li>
+                        <li>RAPID</li>
                         <li>MATLAB</li>
-                        <li>C++</li>
-                        <li>Git</li>
-                        <li>Agile</li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-sm-6">
+                <div class="skill-col col">
+                    <h4>Frontend</h4>
+                    <ul>
+                        <li>UI/UX design</li>
+                        <li>HTML & CSS</li>
+                        <li>Photoshop</li>
+                        <li>Illustrator</li>
+                    </ul>
+                </div>
+                <div class="skill-col col">
                     <h4>Hydrology & GIS</h4>
                     <ul>
-                        <li>Hydrological modeling</li>
                         <li>GRASS GIS</li>
                         <li>QGIS</li>
                         <li>Sobek (2D)</li>
                         <li>EPANET</li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <h4>Web & Publishing</h4>
-                    <ul>
-                        <li>HTML5 & (S)CSS</li>
-                        <li>Django (Python)</li>
-                        <li>Angular (JS)</li>
-                        <li>Adobe Photoshop</li>
-                        <li>Adobe Illustrator</li>
-                        <li>Adobe InDesign</li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-sm-6">
+                <div class="skill-col col">
                     <h4>Language</h4>
                     <ul>
                         <li>English (native)</li>
@@ -361,43 +376,43 @@
             </div>
         </section>
 
-        <section id="contact" class="generic-section">
+        <section id="contact" class="section">
             <h1>contact</h1>
             <hr><br>
             <form id="contact-form" action="/api/submit/" method="post">
-                <div class="row">
-                    <div class="form-field col-sm-6">
-                        <input type="text" name="name" placeholder="Name" class="form-control" maxlength="30" required
+                <div class="form-row row">
+                    <div class="form-field col">
+                        <input type="text" name="name" placeholder="Name" class="form-input" maxlength="30" required
                             id="id_name">
                     </div>
-                    <div class="form-field col-sm-6">
-                        <input type="email" name="email" placeholder="Email" class="form-control" minlength="6"
+                    <div class="form-field col">
+                        <input type="email" name="email" placeholder="Email" class="form-input" minlength="6"
                             maxlength="30" required id="id_email">
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="form-field col-12">
-                        <input type="text" name="subject" placeholder="Subject" class="form-control" maxlength="100"
+                <div class="form-row row">
+                    <div class="form-field col">
+                        <input type="text" name="subject" placeholder="Subject" class="form-input" maxlength="100"
                             required id="id_subject">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="form-field col-12">
+                <div class="form-row row">
+                    <div class="form-textarea col">
                         <textarea name="message" cols="40" rows="10" id="message-text" maxlength="2000"
                             required></textarea>
                     </div>
                 </div>
                 <div class="row captcha">
-                    <div class="col-12">
+                    <div class="col">
                         <div class="g-recaptcha" data-sitekey="6LdSAwoUAAAAANSnCwZTzzntVxH3NuN_XqGDpaZn"></div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-3">
-                        <button id="submit-button" class="btn btn-primary form-control" type="submit">Send</button>
+                    <div class="col">
+                        <button id="submit-button" type="submit">Send</button>
                     </div>
-                    <div id="form-errors" class="col-9"></div>
+                    <div id="form-errors" class="col"></div>
                 </div>
             </form>
         </section>
@@ -408,22 +423,6 @@
         <img src="${require('./images/tatra_footer.jpg').src}" srcset="${require('./images/tatra_footer.jpg').srcSet}"
             alt="Footer graphic: Tatra Mountains, Poland">
     </footer>
-
-    <!-- Contact form status modal -->
-    <div class="modal fade" id="contact-modal" tabindex="-1" role="dialog" aria-labelledby="contact-modal-title"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered contact-modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <h5 id="contact-modal-title"></h5>
-                    <div id="contact-modal-body"></div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Okay</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- External JS dependencies -->
     <script src="https://www.google.com/recaptcha/api.js"></script>

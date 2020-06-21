@@ -85,8 +85,6 @@ module.exports = {
             },
             responsiveLoader
         ],
-    },
-
-    devtool: 'source-map'
+    }
 
 }
