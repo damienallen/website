@@ -6,7 +6,7 @@ $cover-url-1200: url('../images/colombia_cover.jpg?size=1200');
 $cover-url-860: url('../images/colombia_cover.jpg?size=860');
 
 $logo-width: 200px;
-$navbar-height: 60px;
+$navbar-height: 50px;
 
 
 /*--[ fonts & text styling ]--*/
@@ -52,6 +52,21 @@ h4 {
   width: 100%;
   position: fixed;
   display: flex;
+  user-select: none;
+
+  &.open {
+    display: block;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+      width: 100vw;
+      height: 100%;
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-top: 80px;
+  }
 
   #navbar-links {
     flex: 1 1;
@@ -110,17 +125,27 @@ h4 {
 
   .nav-icons {
     flex: 0 1;
+    margin: 0;
     padding: 0 14px;
 
     a {
-      font-size: 1.5em;
+      font-size: 1.2em;
+      color: rgba(255,255,255,0.5);
+      line-height: $navbar-height;
+    }
+
+    a:hover, a:active {
+      color: #fff;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
     }
     
     .nav-link {
       margin: 0;
       padding: 0 10px;
-      color: #d5cfb5;
-
     }
   }
 
@@ -222,6 +247,7 @@ h4 {
   .about-content {
     color: #fff;
     font-size: 1.2em;
+    line-height: 1.4em;
     text-align: justify;
     padding: 30vh 100px 0 100px;
 
@@ -231,7 +257,7 @@ h4 {
 
     .hello {
       display: inline-block;
-      margin-bottom: 25px;
+      margin-bottom: 10px;
 
       img {
         width: 100px;
@@ -400,8 +426,17 @@ h4 {
     margin: 0 auto !important;
   }
 
+  button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disabled), [type="submit"]:not(:disabled) {
+    cursor: pointer;
+  }
+
   #submit-button {
     height: 38px;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 0.25rem;
+    padding: 0 60px;
   }
 
   #form-errors {
@@ -424,5 +459,6 @@ h4 {
 
   img {
     width: 100%;
+    margin-bottom: -4px;
   }
 }

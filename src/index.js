@@ -1,6 +1,6 @@
 // Import dependencies
 import $ from 'jquery'
-// import { createPopper } from '@popperjs/core'
+import { createPopper } from '@popperjs/core'
 import 'trumbowyg'
 
 // Import stylesheets
