@@ -29,6 +29,7 @@ h1 {
 h2 {
   font-size: 1.2em;
   margin-bottom: 20px;
+  font-weight: 400;
 }
 
 h3 {
@@ -42,6 +43,7 @@ h4 {
   color: #999c9f;
   font-style: italic;
   margin: 0 0 10px 0;
+  font-weight: 300;
 }
 
 
@@ -379,12 +381,18 @@ hr {
   }
 
   a {
+    text-decoration: none;
 
     h3 {
       font-weight: 600;
       color: #212529 !important;
     }
 
+  }
+
+  a:active, a:hover {
+    text-decoration: underline;
+    text-decoration-color: #212529;
   }
 
   h4 {
@@ -487,9 +495,13 @@ hr {
     background-color: #007bff;
     border-color: #007bff;
     border-radius: 0.25rem;
-    // padding: 0 60px;
     width: 100%;
     max-width: 302px;
+
+    &:disabled {
+      background-color: #c2c3c5;
+      border-color: #c2c3c5;
+    }
   }
 
   #form-errors {
