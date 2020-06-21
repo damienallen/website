@@ -22,6 +22,8 @@ h1, h2, h3, h4, h5b {
 h1 {
   font-size: 1.8em;
   font-weight: 300;
+  margin: 10px 0;
+  color: #707579;
 }
 
 h2 {
@@ -37,10 +39,17 @@ h3 {
 h4 {
   font-size: 0.8em;
   line-height: 24px;
-  color: #5f5f5f;
+  color: #999c9f;
   font-style: italic;
+  margin: 0 0 10px 0;
 }
 
+
+hr {
+  margin-top: 10px 0;
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,0.2);
+}
 
 /*--[ navigation styling  ]--*/
 
@@ -261,10 +270,9 @@ h4 {
 
 /*--[ section styling  ]--*/
 
-.generic-section {
+.section {
   background: #fff;
-  padding: 20px;
-
+  padding: 10px 20px 20px 20px;
 }
 
 
@@ -423,6 +431,7 @@ h4 {
 /*--[ skills styling  ]--*/
 
 .skills-list {
+  flex-wrap: wrap;
 
   h4 {
     margin-bottom: 20px;
@@ -432,10 +441,20 @@ h4 {
     margin-bottom: 20px;
   }
 
+  @media (max-width: $mobile-breakpoint) {
+    .skill-col {
+      flex-basis: 50%;
+    }
+  }
+
   ul {
     padding: 0;
     list-style: none;
     font-size: 0.9em;
+
+    li {
+      margin-bottom: 5px;
+    }
   }
 
 }
