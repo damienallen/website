@@ -4,7 +4,9 @@ $mobile-breakpoint: 768px;
 $cover-url-2400: url('../images/colombia_cover.jpg?size=2400');
 $cover-url-1200: url('../images/colombia_cover.jpg?size=1200');
 $cover-url-860: url('../images/colombia_cover.jpg?size=860');
+
 $logo-width: 200px;
+$navbar-height: 60px;
 
 
 /*--[ fonts & text styling ]--*/
@@ -53,6 +55,12 @@ h4 {
 
   #navbar-links {
     flex: 1 1;
+    padding-left: 20px;
+    line-height: $navbar-height;
+
+    ul {
+      margin: 0;
+    }
 
     // #sections {
     // }
@@ -68,7 +76,9 @@ h4 {
   }
 
   .nav-item {
-    flex: 1;
+    text-align: center;
+    flex: 0 1;
+    padding: 0 20px;
 
     a {
       color: rgba(255,255,255,0.5);
@@ -77,16 +87,16 @@ h4 {
   }
 
   .nav-name {
-    flex: 0 1;
+    flex: 1;
     text-align: right;
     font-size: 1.1em;
-    line-height: 1em;
+    line-height: $navbar-height;
     color: #fff;
-    padding: 0 24px 0 0;
+    padding: 0 24px 0 50px;
     cursor: default;
 
     @media (min-width: 768px) {
-      border-right: 1px solid rgba(255,255,255,.5);
+      border-right: 1px solid rgba(255,255,255,.1);
     }
   }
 
