@@ -1,12 +1,12 @@
 /*--[ variables  ]--*/
 
 $mobile-breakpoint: 768px;
+$logo-width: 200px;
+$navbar-height: 50px;
+
 $cover-url-2400: url('../images/colombia_cover.jpg?size=2400');
 $cover-url-1200: url('../images/colombia_cover.jpg?size=1200');
 $cover-url-860: url('../images/colombia_cover.jpg?size=860');
-
-$logo-width: 200px;
-$navbar-height: 50px;
 
 
 /*--[ fonts & text styling ]--*/
@@ -48,7 +48,7 @@ h4 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   background: #343a40;
-  z-index: 1000;
+  z-index: 100;
   width: 100%;
   position: fixed;
   display: flex;
@@ -58,42 +58,52 @@ h4 {
     display: block;
   }
 
-  @media (max-width: $mobile-breakpoint) {
+  #navbar-links {
+    flex: 1 1;
+    padding-left: 15px;
+    line-height: $navbar-height;
+
+    @media (max-width: $mobile-breakpoint) {
       width: 100vw;
       height: 100%;
-      display: none;
+      z-index: 50;
+      // display: none;
       position: fixed;
       top: 0;
       left: 0;
-      padding-top: 80px;
-  }
+      padding: $navbar-height 0 0 0;
+      font-size: 1.4em;
 
-  #navbar-links {
-    flex: 1 1;
-    padding-left: 20px;
-    line-height: $navbar-height;
+      .links-container {
+        background: #484d53;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      ul {
+        flex-direction: column;
+        padding-bottom: $navbar-height;
+
+        li {
+          margin: 10px 0;
+        }
+      }
+
+    }
 
     ul {
       margin: 0;
     }
 
-    // #sections {
-    // }
-
-    // .nav-item {
-    //   flex: 1;
-    //   padding: 0.5em 2vw 0 2vw;
-
-    //   @media (max-width: 767px) {
-    //     padding: 0.5em 2vw 0 2vw;
-    //   }
-    // }
   }
 
   .nav-item {
     text-align: center;
     flex: 0 1;
-    padding: 0 20px;
+    padding: 0 15px;
 
     a {
       color: rgba(255,255,255,0.5);
@@ -111,14 +121,15 @@ h4 {
 
   .nav-name {
     flex: 1;
-    text-align: right;
     font-size: 1.1em;
     line-height: $navbar-height;
     color: #fff;
-    padding: 0 24px 0 50px;
+    padding: 0 0 0 24px;
     cursor: default;
 
     @media (min-width: 768px) {
+      padding: 0 24px 0 0;
+      text-align: right;
       border-right: 1px solid rgba(255,255,255,.1);
     }
   }
