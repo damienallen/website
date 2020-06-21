@@ -57,6 +57,41 @@ const adjustOpacity = () => {
     $('#work').css({ boxShadow: boxShadowValue })
 }
 
+// Scroll spy navigation
+const offset = 50
+let lastId = null
+let menuItems = $('#navbar-links a')
+let scrollItems = menuItems.map((ind, element) => {
+    let item = $($(element).attr('href'))
+    if (item.length) { return item }
+})
+
+const adjustScrollSpy = (scrollTop) => {
+
+    // Get container scroll position
+    const fromTop = scrollTop + offset + 50
+
+    // Get id of current section
+    let current = scrollItems.map((ind, element) => {
+        if ($(element).offset().top < fromTop)
+            return element
+    })
+    current = current[current.length - 1]
+    const currentId = current && current.length ? current[0].id : ''
+
+    // Set active class
+    if (lastId !== currentId) {
+        lastId = currentId
+        menuItems.removeClass('active')
+        menuItems.filter(`[href='#${currentId}']`).addClass('active')
+    }
+}
+
+$(window).scroll((e) => {
+    const scrollTop = $(e.currentTarget).scrollTop()
+    adjustScrollSpy(scrollTop)
+})
+
 $(document).ready(() => {
 
     // Set initial background opacity and fade cover background on scroll
@@ -66,7 +101,6 @@ $(document).ready(() => {
     })
 
     // Add padding to in-page nav
-    const offset = 50
     $('#navbar-links a, .down-arrow a').click((event) => {
         event.preventDefault()
         $('html, body').animate({
