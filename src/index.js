@@ -1,6 +1,5 @@
 // Import dependencies
 import $ from 'jquery'
-import { createPopper } from '@popperjs/core'
 import 'trumbowyg'
 
 // Import stylesheets
@@ -107,11 +106,6 @@ $(document).ready(() => {
             scrollTop: $($(event.currentTarget).attr('href')).offset().top - offset
         }, 800)
     })
-
-    // Add tooltips
-    // createPopper($('[data-toggle="tooltip"]'), {
-    //     placement: 'top',
-    // })
 
     // Initialize contact form
     $('#contact-form').on('submit', (event) => {
