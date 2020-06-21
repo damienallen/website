@@ -105,6 +105,7 @@ $(document).ready(() => {
         $('html, body').animate({
             scrollTop: $($(event.currentTarget).attr('href')).offset().top - offset
         }, 800)
+        closeNav()
     })
 
     // Initialize contact form
@@ -127,3 +128,21 @@ $(document).ready(() => {
     })
 
 })
+
+// Open mobile navigation overlay
+const openNav = () => {
+    $('#nav-open').hide()
+    $('#nav-close').show()
+    $('#navbar').addClass('open')
+}
+
+// Close navigation overlay
+const closeNav = () => {
+    $('#nav-open').show()
+    $('#nav-close').hide()
+    $('#navbar').removeClass('open')
+}
+
+// Set up navigation onclicks
+$('#nav-open').click(openNav)
+$('#nav-close').click(closeNav)

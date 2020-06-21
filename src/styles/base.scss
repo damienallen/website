@@ -55,7 +55,9 @@ h4 {
   user-select: none;
 
   &.open {
-    display: block;
+    #navbar-links {
+      display: block !important;
+    }
   }
 
   #navbar-links {
@@ -67,7 +69,7 @@ h4 {
       width: 100vw;
       height: 100%;
       z-index: 50;
-      // display: none;
+      display: none;
       position: fixed;
       top: 0;
       left: 0;
@@ -124,10 +126,10 @@ h4 {
     font-size: 1.1em;
     line-height: $navbar-height;
     color: #fff;
-    padding: 0 0 0 24px;
+    padding: 0 0 0 15px;
     cursor: default;
 
-    @media (min-width: 768px) {
+    @media (min-width: $mobile-breakpoint) {
       padding: 0 24px 0 0;
       text-align: right;
       border-right: 1px solid rgba(255,255,255,.1);
@@ -138,6 +140,10 @@ h4 {
     flex: 0 1;
     margin: 0;
     padding: 0 14px;
+
+    @media (max-width: $mobile-breakpoint) {
+      margin-right: 30px;
+    }
 
     a {
       font-size: 1.2em;
@@ -160,16 +166,30 @@ h4 {
     }
   }
 
-  // @media (max-width: 767px) {
-  //   padding-top: 0.2em;
-  //   padding-bottom: 0.2em;
-  // }
-
   ul {
     list-style-type: none;
     display: flex;
     flex-direction: row;
     padding: 0;
+  }
+
+  #nav-toggle {
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    z-index: 100;
+    display: none;
+    cursor: pointer;
+    color: #fff;
+
+    #nav-close {
+        display: none;
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      display: block;
+    }
+
   }
 
 }
