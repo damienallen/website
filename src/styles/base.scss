@@ -216,6 +216,10 @@ hr {
   height: 100%;
   width: 100%;
 
+  @media (max-width: $mobile-breakpoint) {
+    padding-bottom: 100px;
+  }
+
   .cover-fill {
     height: 100%;
     width: 100%;
