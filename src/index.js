@@ -39,7 +39,7 @@ const sendEmail = () => {
 
 }
 
-// Fade cover on scroll
+// Fade opacity on scroll
 const adjustOpacity = () => {
     const windowHeight = window.innerHeight
     const paddingOffset = 10
@@ -51,9 +51,14 @@ const adjustOpacity = () => {
 
     const boxShadowInitialOpacity = 0.2
     const boxShadowOpacity = boxShadowInitialOpacity * coverOpacity
-    const boxShadowValue = '0 3px 15px rgba(0,0,0,' + boxShadowOpacity + ')'
+    const boxShadowValue = `0 3px 15px rgba(0,0,0,${boxShadowOpacity})`
+
+    const navbarBackgroundOpacity = 1 - coverOpacity
+    const navbarBackground = `rgba(52,58,64,${navbarBackgroundOpacity})`
+
     $('.cover').css({ opacity: coverOpacity })
     $('#work').css({ boxShadow: boxShadowValue })
+    $('#navbar').css({ background: navbarBackground })
 }
 
 // Scroll spy navigation
