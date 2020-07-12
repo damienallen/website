@@ -22,13 +22,14 @@ h1, h2, h3, h4, h5b {
 h1 {
   font-size: 1.8em;
   font-weight: 300;
-  margin: 10px 0;
+  text-align: center;
+  margin: 0 0 10px 0;
   color: #707579;
 }
 
 h2 {
   font-size: 1.2em;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   font-weight: 400;
 }
 
@@ -48,7 +49,7 @@ h4 {
 
 
 hr {
-  margin-top: 10px 0;
+  margin: 20px 0;
   border: 0;
   border-top: 1px solid rgba(0,0,0,0.2);
 }
@@ -58,9 +59,10 @@ hr {
 #navbar {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
-  background: #343a40;
+  background: rgba(52, 58, 64, 0);
   z-index: 100;
   width: 100%;
+  height: 50px;
   position: fixed;
   display: flex;
   user-select: none;
@@ -215,6 +217,10 @@ hr {
   height: 100%;
   width: 100%;
 
+  @media (max-width: $mobile-breakpoint) {
+    padding-bottom: 100px;
+  }
+
   .cover-fill {
     height: 100%;
     width: 100%;
@@ -274,7 +280,11 @@ hr {
 
 .section {
   background: #fff;
-  padding: 10px 20px 20px 20px;
+  padding: 20px 70px 80px 70px;
+
+  @media (max-width: $mobile-breakpoint) {
+    padding: 20px 20px 80px 20px;
+  }
 }
 
 
@@ -291,8 +301,8 @@ hr {
     text-align: justify;
     padding: 30vh 100px 0 100px;
 
-    @media (max-width: 767px) {
-      padding-top: 130px !important;
+    @media (max-width: $mobile-breakpoint) {
+      padding-top: 80px !important;
     }
 
     .hello {
@@ -328,8 +338,8 @@ hr {
     bottom: 0;
     left: 0;
 
-    @media (max-width: 767px) {
-      margin-bottom: 50px;
+    @media (max-width: ($mobile-breakpoint - 1)) {
+      display: none;
     }
 
     svg {
@@ -374,14 +384,14 @@ hr {
 }
 
 .edu-list, .work-list {
-  margin-bottom: 40px;
 
   h2 {
     margin-top: 15px;
   }
 
   h4 {
-    margin-top: 15px;
+    margin-top: 0;
+    margin-bottom: 5px;
     font-size: 1em;
   }
 
@@ -400,8 +410,53 @@ hr {
     text-decoration-color: #212529;
   }
 
-  .col {
+  .col-timeline {
+    flex: 1 1 180px;
+    text-align: right;
+
+    @media (max-width: $mobile-breakpoint) {
+      display: none;
+    }
+  }
+
+  .timeline-border {
+    height: 100%;
+    margin-top: -10px;
+    margin-right: 47px;
+    border-right: 2px solid #ddd;
+
+    &.no-logo {
+      margin-top: 50px;
+    }
+  }
+
+  .timeline-dot {
+    margin-top: 80px;
+    margin-right: 40px;
+    height: 16px;
+    width: 16px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: inline-block;
+
+    &.no-logo {
+      margin-top: 20px;
+    }
+  }
+
+  .col-content {
     flex: 1 1 320px;
+    padding-bottom: 80px;
+
+    &.no-logo {
+      padding-bottom: 20px;
+    }
+  }
+
+  
+  .logo {
+    width: $logo-width;
+    margin-left: -5px;
   }
 
   .duration {
@@ -412,7 +467,7 @@ hr {
 
   .details {
     font-size: 0.9em;
-    padding-top: 10px;
+    padding-top: 25px;
 
     ul {
       margin: 0;
@@ -426,10 +481,6 @@ hr {
 
     }
 
-  }
-
-  img {
-    width: 250px;
   }
 
 }
