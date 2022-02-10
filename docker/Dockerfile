@@ -4,7 +4,7 @@ LABEL maintainer="Damien Allen <dev@dallen.co>"
 
 # Install node & yarn
 RUN apt-get update && apt-get install -y -q curl nano
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get install nodejs && npm install -g yarn
 
 # Install Poetry
