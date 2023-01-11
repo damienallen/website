@@ -7,13 +7,13 @@
   "author": "Damien Allen <dev@dallen.co>",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "env WEBPACK_ENV=dev webpack --progress --colors --watch",
+    "start": "env WEBPACK_ENV=dev webpack serve --open",
     "build": "env WEBPACK_ENV=prod webpack --progress --colors --mode=production"
   },
   "dependencies": {
-    "jquery": "^3.5.1",
-    "normalize.css": "^8.0.1",
-    "trumbowyg": "^2.21.0"
+    "jquery": "^3.6",
+    "normalize.css": "^8.0",
+    "trumbowyg": "^2.26"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
@@ -29,8 +29,9 @@
     "responsive-loader": "^1.2.0",
     "sass-loader": "^10",
     "sharp": "^0.30.5",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "webpack": "~4",
+    "webpack-cli": "~4",
+    "webpack-dev-server": "^4.11.1"
   },
   "homepage": "https://dallen.co"
 }

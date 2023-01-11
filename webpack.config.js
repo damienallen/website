@@ -1,9 +1,9 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { ProvidePlugin } = require('webpack');
-
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { ProvidePlugin } = require('webpack')
+const path = require('path')
 
 const pluginsList = [
     new MiniCssExtractPlugin(),
@@ -15,21 +15,21 @@ const pluginsList = [
     new CopyWebpackPlugin([
         {
             from: 'src/icons/favicon',
-            to: 'icons'
+            to: 'icons',
         },
         {
             from: 'node_modules/trumbowyg/dist/ui/icons.svg',
-            to: 'icons/trumbowyg_icons.svg'
+            to: 'icons/trumbowyg_icons.svg',
         },
         {
             from: 'src/files',
-            to: 'files'
-        }
+            to: 'files',
+        },
     ]),
     new ProvidePlugin({
         jQuery: 'jquery',
-        $: 'jquery'
-    })
+        $: 'jquery',
+    }),
 ]
 
 const responsiveLoader = {
@@ -40,10 +40,10 @@ const responsiveLoader = {
             options: {
                 sizes: [420, 860, 1200, 2400],
                 adapter: require('responsive-loader/sharp'),
-                name: 'images/responsive/[hash]_[width].[ext]'
-            }
-        }
-    ]
+                name: 'images/responsive/[hash]_[width].[ext]',
+            },
+        },
+    ],
 }
 
 // Cache responsive images in dev mode
@@ -55,14 +55,6 @@ if (process.env.WEBPACK_ENV === 'dev') {
 }
 
 module.exports = {
-
-    entry: "./src/index.js",
-    output: {
-        filename: "bundle.js"
-    },
-
-    plugins: pluginsList,
-
     module: {
         rules: [
             {
@@ -71,20 +63,31 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env']
-                    }
-                }
+                        presets: ['@babel/preset-env'],
+                    },
+                },
             },
             {
                 test: /\.(s*)css$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'sass-loader'
-                ]
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
             },
-            responsiveLoader
+            responsiveLoader,
         ],
-    }
+    },
 
+    entry: './src/index.js',
+    plugins: pluginsList,
+    output: {
+        filename: 'bundle.js',
+    },
+
+    devServer: {
+        static: {
+            directory: path.join(__dirname, 'dist'),
+        },
+        compress: true,
+        port: 9000,
+    },
+
+    mode: process.env.WEBPACK_ENV === 'dev' ? 'development' : 'production',
 }
