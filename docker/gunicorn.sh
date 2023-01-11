@@ -4,7 +4,7 @@ set -o errexit
 set -o nounset
 
 # Start gunicorn with workers:
-if [ "$FLASK_ENV" = "development" ]
+if [ "$FLASK_DEBUG" = "1" ]
 then
   /usr/local/bin/gunicorn main:app --reload \
     --workers 2 \
