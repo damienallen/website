@@ -1,14 +1,18 @@
-# Personal Webiste
+# website
 
 Source code of my personal website.
 
 ### Requirements
 
-- node & npm
-- yarn (optional)
+- node v18+
+- yarn
 
 ### Dev environment
 
-After cloning the repository, install depenencies using `yarn install`.
+After cloning the repository, install dependencies using `yarn install`.
 
-Webpack is used to optimize and package static resources. It should be used either in watch mode (`yarn start`) or a manual build using `yarn build`.
+Webpack watch mode using `yarn start` allows for live development.
+
+### Distribution
+
+A build using `yarn build` will output web assets to the _dist/_ directory.
