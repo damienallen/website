@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "jquery": "^3.6",
-    "normalize.css": "^8.0",
+    "modern-normalize": "^1.1",
     "trumbowyg": "^2.26"
   },
   "devDependencies": {

@@ -4,26 +4,24 @@ import 'trumbowyg'
 
 // Import stylesheets
 import 'trumbowyg/dist/ui/trumbowyg.css'
-import 'normalize.css'
+import 'modern-normalize/modern-normalize.css'
 
 import './styles/base.scss'
 import './styles/layout.scss'
 
-
 // Handle form submission
 const sendEmail = () => {
-
     const formData = {
         name: $('#id_name').val(),
         email: $('#id_email').val(),
         subject: $('#id_subject').val(),
         message: $('#message-text').val(),
-        recaptcha: $('#g-recaptcha-response').val()
+        recaptcha: $('#g-recaptcha-response').val(),
     }
 
     $.ajax({
-        url: "/api/submit",
-        type: "POST",
+        url: '/api/submit',
+        type: 'POST',
         data: formData,
         success: (data) => {
             $('#submit-button').text('Sent!')
@@ -34,9 +32,8 @@ const sendEmail = () => {
         error: (data) => {
             $('#form-errors').text(data.responseJSON.status.message)
             console.error(data.responseJSON)
-        }
+        },
     })
-
 }
 
 // Fade opacity on scroll
@@ -67,18 +64,18 @@ let lastId = null
 let menuItems = $('#navbar-links a')
 let scrollItems = menuItems.map((ind, element) => {
     let item = $($(element).attr('href'))
-    if (item.length) { return item }
+    if (item.length) {
+        return item
+    }
 })
 
 const adjustScrollSpy = (scrollTop) => {
-
     // Get container scroll position
     const fromTop = scrollTop + offset + 50
 
     // Get id of current section
     let current = scrollItems.map((ind, element) => {
-        if ($(element).offset().top < fromTop)
-            return element
+        if ($(element).offset().top < fromTop) return element
     })
     current = current[current.length - 1]
     const currentId = current && current.length ? current[0].id : ''
@@ -97,7 +94,6 @@ $(window).scroll((e) => {
 })
 
 $(document).ready(() => {
-
     // Set initial background opacity and fade cover background on scroll
     adjustOpacity()
     $(window).scroll(() => {
@@ -107,9 +103,12 @@ $(document).ready(() => {
     // Add padding to in-page nav
     $('#navbar-links a, .down-arrow a').click((event) => {
         event.preventDefault()
-        $('html, body').animate({
-            scrollTop: $($(event.currentTarget).attr('href')).offset().top - offset
-        }, 800)
+        $('html, body').animate(
+            {
+                scrollTop: $($(event.currentTarget).attr('href')).offset().top - offset,
+            },
+            800
+        )
         closeNav()
     })
 
@@ -128,10 +127,9 @@ $(document).ready(() => {
             ['formatting'],
             ['strong', 'em'],
             ['unorderedList', 'orderedList'],
-            ['fullscreen']
-        ]
+            ['fullscreen'],
+        ],
     })
-
 })
 
 // Open mobile navigation overlay
