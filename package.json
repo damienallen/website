@@ -1,5 +1,5 @@
 {
-  "name": "dallen.-website",
+  "name": "dallen-website",
   "version": "3.0",
   "description": "Personal website",
   "main": ".src/index.js",
@@ -7,8 +7,8 @@
   "author": "Damien Allen <dev@dallen.co>",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "env WEBPACK_ENV=dev webpack serve --open",
-    "build": "env WEBPACK_ENV=prod webpack --progress --colors --mode=production"
+    "start": "env WEBPACK_ENV=dev webpack serve",
+    "build": "env WEBPACK_ENV=prod webpack --progress"
   },
   "dependencies": {
     "jquery": "^3.6",
@@ -16,23 +16,23 @@
     "trumbowyg": "^2.26"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "babel-loader": "^8.0.6",
-    "cache-loader": "^4.1.0",
-    "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.1.1",
-    "css-loader": "^3.3.2",
-    "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "~6",
-    "prettier": "^2.8.2",
-    "responsive-loader": "^1.2.0",
+    "@babel/core": "^7.20",
+    "@babel/preset-env": "^7.20",
+    "babel-loader": "^8.2",
+    "cache-loader": "^4.1",
+    "clean-webpack-plugin": "^4.0",
+    "copy-webpack-plugin": "^6.4",
+    "css-loader": "^5.2",
+    "html-webpack-plugin": "^3.2",
+    "prettier": "^2.8",
+    "responsive-loader": "^2.3",
+    "sass": "^1.57",
     "sass-loader": "^10",
-    "sharp": "^0.30.5",
+    "sharp": "^0.31",
+    "style-loader": "^2.0",
     "webpack": "~4",
     "webpack-cli": "~4",
-    "webpack-dev-server": "^4.11.1"
+    "webpack-dev-server": "^4.11"
   },
   "homepage": "https://dallen.co"
 }

@@ -1,53 +1,55 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { ProvidePlugin } = require('webpack')
+const CopyPlugin = require('copy-webpack-plugin')
+const HtmlPlugin = require('html-webpack-plugin')
 const path = require('path')
 
 const pluginsList = [
-    new MiniCssExtractPlugin(),
-    new HtmlWebpackPlugin({
+    new HtmlPlugin({
         hash: true,
         filename: 'index.html',
         template: './src/index.html',
     }),
-    new CopyWebpackPlugin([
-        {
-            from: 'src/icons/favicon',
-            to: 'icons',
-        },
-        {
-            from: 'node_modules/trumbowyg/dist/ui/icons.svg',
-            to: 'icons/trumbowyg_icons.svg',
-        },
-        {
-            from: 'src/files',
-            to: 'files',
-        },
-    ]),
+    new CopyPlugin({
+        patterns: [
+            {
+                from: 'src/icons/favicon',
+                to: 'icons',
+            },
+            {
+                from: 'node_modules/trumbowyg/dist/ui/icons.svg',
+                to: 'icons/trumbowyg_icons.svg',
+            },
+            {
+                from: 'src/files',
+                to: 'files',
+            },
+        ],
+    }),
     new ProvidePlugin({
         jQuery: 'jquery',
         $: 'jquery',
     }),
 ]
 
+// Configure response image support
 const responsiveLoader = {
-    test: /\.(jpe?g|png)$/i,
+    test: /\.(png|jpe?g)$/,
     use: [
         {
             loader: 'responsive-loader',
             options: {
-                sizes: [420, 860, 1200, 2400],
                 adapter: require('responsive-loader/sharp'),
                 name: 'images/responsive/[hash]_[width].[ext]',
+                sizes: [420, 860, 1200, 2400],
             },
         },
     ],
 }
 
 // Cache responsive images in dev mode
-if (process.env.WEBPACK_ENV === 'dev') {
+const isDev = process.env.WEBPACK_ENV === 'dev'
+if (isDev) {
     console.log('Development mode: using responsive image cache.')
     responsiveLoader.use.unshift('cache-loader')
 } else {
@@ -55,6 +57,8 @@ if (process.env.WEBPACK_ENV === 'dev') {
 }
 
 module.exports = {
+    entry: './src/index.js',
+    plugins: pluginsList,
     module: {
         rules: [
             {
@@ -69,14 +73,13 @@ module.exports = {
             },
             {
                 test: /\.(s*)css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
             responsiveLoader,
         ],
     },
 
-    entry: './src/index.js',
-    plugins: pluginsList,
+    node: false,
     output: {
         filename: 'bundle.js',
     },
@@ -86,8 +89,10 @@ module.exports = {
             directory: path.join(__dirname, 'dist'),
         },
         compress: true,
+        open: false,
         port: 9000,
     },
 
-    mode: process.env.WEBPACK_ENV === 'dev' ? 'development' : 'production',
+    devtool: isDev ? 'eval-cheap-source-map' : undefined,
+    mode: isDev ? 'development' : 'production',
 }
