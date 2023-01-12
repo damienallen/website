@@ -1,7 +1,7 @@
 /*--[ variables  ]--*/
 
 $font-color: #fff;
-$background-color: #000;
+$background-color: rgb(48, 48, 56);
 $mobile-breakpoint: 768px;
 $logo-width: 200px;
 $navbar-height: 50px;
@@ -28,7 +28,8 @@ h1 {
   font-weight: 300;
   text-align: center;
   margin: 0 0 10px 0;
-  color: #707579;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 24px;
 }
 
 h2 {
@@ -45,7 +46,7 @@ h3 {
 h4 {
   font-size: 0.8em;
   line-height: 24px;
-  color: #999c9f;
+  color: rgba(255,255,255,0.6);
   font-style: italic;
   margin: 0 0 10px 0;
   font-weight: 300;
@@ -80,7 +81,6 @@ hr {
 
   .nav-name {
     flex: 0 0 auto;
-    font-family: 'Montserrat', sans-serif;
     font-size: 1.2em;
     font-weight: 400;
     line-height: $navbar-height;
