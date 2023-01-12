@@ -4,15 +4,13 @@ Source code of my personal website.
 
 ### Requirements
 
-- node v18+
-- yarn
+- [node](https://nodejs.org/) (v16+)
+- [yarn](https://yarnpkg.com/getting-started/install)
 
-### Dev environment
+### Setup
 
-After cloning the repository, install dependencies using `yarn install`.
+1. Install dependencies using `yarn install`.
 
-Webpack watch mode using `yarn start` allows for live development.
+2. Run `yarn start` to get started with a live development server.
 
-### Distribution
-
-A build using `yarn build` will output web assets to the _dist/_ directory.
+3. A build using `yarn build` will output web assets to the _dist/_ directory.
