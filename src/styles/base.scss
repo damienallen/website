@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5b {
 h1 {
   font-size: 1.6em;
   font-weight: 300;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
   color: rgba(255,255,255,0.6);
   text-align: center;
 
@@ -378,7 +378,10 @@ hr {
 
 #work, #education {
   h1 {
-    margin-bottom: -56px !important;
+    @media (min-width: $mobile-breakpoint) {
+      margin-top: 96px;
+      margin-bottom: -96px;
+    }
   }
 }
 
@@ -412,7 +415,7 @@ hr {
   }
 
   .col-timeline {
-    flex: 1 1 180px;
+    flex: 1 1 128px;
     text-align: right;
 
     @media (max-width: $mobile-breakpoint) {
@@ -462,7 +465,7 @@ hr {
 
   .duration {
     font-size: 0.8em;
-    color: #d05;
+    color: rgb(141, 168, 119);
     font-style: italic;
   }
 
@@ -491,6 +494,13 @@ hr {
   height: 18px;
   width: 18px;
   margin-left: 5px;
+}
+
+.download-button {
+  color: #fff;
+  a:hover, a:active {
+    color: #fff;
+  }
 }
 
 
@@ -532,11 +542,12 @@ hr {
 
 
 /*--[ contact form styling  ]--*/
+$form-spacing: 24px;
 
 #contact-form {
 
   .form-field {
-    margin-bottom: 20px;
+    margin-bottom: $form-spacing;
   }
 
   .trumbowyg-box {
@@ -572,8 +583,57 @@ hr {
     margin: 20px 0;
   }
 
+  .trumbowyg-box {
+    border-radius: 0.25rem;
+    background: rgba(255,255,255,0.7);
+  }
+  
+  .trumbowyg-editor {
+    color: #000;
+    padding: 16px;
+  }
+  
+  .form-textarea {
+    margin-bottom: $form-spacing;
+    padding: 0 calc($form-spacing / 2);
+  }
+
 }
 
-.trumbowyg-editor { 
-  background: rgba(255,255,255,0.8);
+.form-row {
+  margin: 0 calc($form-spacing / -2);
 }
+
+.form-input {
+  display: block;
+  width: 100%;
+  padding: 0 10px;
+  line-height: 2.5em;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border-radius: 0.25rem;
+}
+
+.form-field {
+  margin: 0 calc($form-spacing / 2);
+
+  input {
+    -webkit-transition: all 0.15s ease-in-out;
+    -moz-transition: all 0.15s ease-in-out;
+    -ms-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    outline: none;
+    border: 1px solid #ced4da;
+  }
+   
+  input:focus {
+    border: 1px solid rgba(0,0,0,0.5);
+  }
+}
+
+.form-textarea {
+  padding-right: 5px;
+  padding-left: 25px;
+}
+
