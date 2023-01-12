@@ -24,12 +24,16 @@ h1, h2, h3, h4, h5b {
 }
 
 h1 {
-  font-size: 1.8em;
+  font-size: 1.6em;
   font-weight: 300;
+  margin-bottom: 48px;
+  color: rgba(255,255,255,0.6);
   text-align: center;
-  margin: 0 0 10px 0;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 24px;
+
+  @media (min-width: $mobile-breakpoint) {
+    text-align: left;
+    margin-bottom: 0;
+  }
 }
 
 h2 {
@@ -276,7 +280,6 @@ hr {
 /*--[ section styling  ]--*/
 
 .section {
-  background: $background-color;
   padding: 20px 70px 80px 70px;
 
   @media (max-width: $mobile-breakpoint) {
@@ -375,10 +378,6 @@ hr {
 
 
 /*--[ work & education styling  ]--*/
-
-#work {
-  box-shadow: 0 3px 15px rgba(0,0,0,0);
-}
 
 .edu-list, .work-list {
 

@@ -40,21 +40,17 @@ const sendEmail = () => {
 const adjustOpacity = () => {
     const windowHeight = window.innerHeight
     const paddingOffset = 10
+    const baseOpacity = 0.2
 
     let coverOpacity = (windowHeight - paddingOffset - $(window).scrollTop()) / windowHeight
-    if (coverOpacity < 0) {
-        coverOpacity = 0
+    if (coverOpacity < baseOpacity) {
+        coverOpacity = baseOpacity
     }
-
-    const boxShadowInitialOpacity = 0.2
-    const boxShadowOpacity = boxShadowInitialOpacity * coverOpacity
-    const boxShadowValue = `0 3px 15px rgba(0,0,0,${boxShadowOpacity})`
 
     const navbarBackgroundOpacity = 1 - coverOpacity
     const navbarBackground = `rgba(23,23,32,${navbarBackgroundOpacity})`
 
     $('.cover').css({ opacity: coverOpacity })
-    $('#work').css({ boxShadow: boxShadowValue })
     $('#navbar').css({ background: navbarBackground })
 }
 
