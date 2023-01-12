@@ -7,6 +7,10 @@
 
     <title>Damien Allen</title>
 
+    <!-- CSP -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' tele.dallen.dev">
+    <meta http-equiv="Content-Security-Policy" content="style-src 'unsafe-inline' fonts.googleapis.com">
+
     <!-- Fonts & icons -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i|Open+Sans" rel="stylesheet">
 
@@ -411,6 +415,9 @@
                         <div class="g-recaptcha" data-sitekey="6LdSAwoUAAAAANSnCwZTzzntVxH3NuN_XqGDpaZn"></div>
                     </div>
                 </div>
+                
+                <input type="text" name="required" style="display:none !important" tabindex="-1" autocomplete="off">
+
                 <div class="row">
                     <div class="col">
                         <button id="submit-button" type="submit">Send</button>
@@ -426,9 +433,6 @@
         <img src="${require('./images/tatra_footer.jpg').src}" srcset="${require('./images/tatra_footer.jpg').srcSet}"
             alt="Footer graphic: Tatra Mountains, Poland">
     </footer>
-
-    <!-- External JS dependencies -->
-    <script src="https://www.google.com/recaptcha/api.js"></script>
 
 </body>
 
