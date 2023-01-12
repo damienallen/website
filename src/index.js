@@ -27,11 +27,11 @@ const sendEmail = () => {
             $('#submit-button').text('Sent!')
             $('#submit-button').prop('disabled', true)
             $('#form-errors').text('')
-            console.log(data.responseJSON.status.message)
+            console.debug(data.status)
         },
         error: (data) => {
-            $('#form-errors').text(data.responseJSON.status.message)
-            console.error(data.responseJSON)
+            $('#form-errors').text(data.status.message)
+            console.error(data)
         },
     })
 }

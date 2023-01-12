@@ -1,6 +1,7 @@
 import os
 import smtplib
-from email.message import EmailMessage
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 from flask import Flask, jsonify, request
 from models import ContactForm
@@ -36,39 +37,61 @@ def submit():
         name = contact_form.data.get("name")
         from_email = contact_form.data.get("email")
         subject = contact_form.data.get("subject")
-        message = contact_form.data.get("message")
+        form_message = contact_form.data.get("message")
+
+        message = MIMEText(
+            f"""
+        From: {name} <{from_email}>
+        <br>
+        Subject: {subject}
+        <br><br><br>
+        {form_message}
+        <br><br><br>
+        Sent from my website.
+        """,
+            "html",
+        )
 
         # Honeypot check
         honeypot_text = contact_form.data.get("check")
         honeypot_failed = honeypot_text != ""
         if honeypot_failed:
-            app.logger.warning("Bot check failed!")
+            status["sent"] = False
+            status["message"] = "Bot check failed!"
+            app.logger.warning(status["message"])
             return jsonify(status=status, form_errors=form_errors), 403
 
         # Get contact email from environment
         to_email = os.environ.get("CONTACT_EMAIL")
 
         # Build email object
-        email = EmailMessage()
-        email.set_content(message)
-        email["Subject"] = f"[Form: {name}] {subject}"
+        email = MIMEMultipart("alternative")
+        email["Subject"] = f"[Form] {name} <{from_email}> -> {subject}"
         email["From"] = from_email
         email["To"] = to_email
+        email.attach(message)
 
-        smtp_server = smtplib.SMTP(os.environ.get("SMTP_SERVER"), 587)
+        # Send via SMTP
+        smtp_host = os.environ.get("SMTP_SERVER")
+        smtp_user = os.environ.get("SMTP_USER")
+        smtp_pass = os.environ.get("SMTP_PASS")
+        smtp_server = smtplib.SMTP(smtp_host, 587)
+
         try:
             smtp_server.ehlo()
             smtp_server.starttls()
             smtp_server.ehlo()
-            smtp_server.login(os.environ.get("SMTP_USER"), os.environ.get("SMTP_PASS"))
-            smtp_server.send_message(message)
+            smtp_server.login(smtp_user, smtp_pass)
+            app.logger.info(f"{smtp_host} ")
+            smtp_server.sendmail(from_email, to_email, message.as_string())
+            smtp_server.send_message(email)
 
             status["sent"] = True
             status["message"] = "Message sent sucessfully."
 
         except Exception as e:
-            status["message"] = f"Failed to send message: {e}"
-            app.logger.error(status["message"])
+            status["message"] = "Failed to send message."
+            app.logger.error(e)
             status_code = 500
 
         finally:
