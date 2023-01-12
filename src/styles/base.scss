@@ -293,7 +293,8 @@ hr {
     color: #fff;
     line-height: 1.8em;
     text-align: justify;
-    padding: 30vh 100px 0 100px;
+    padding: 25vh 150px 0 150px;
+    max-width: 800px;
 
     @media (max-width: $mobile-breakpoint) {
       padding-top: 80px !important;
