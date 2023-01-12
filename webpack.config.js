@@ -31,21 +31,6 @@ const plugins = [
     }),
 ]
 
-// Configure response image support
-// const responsiveLoader = {
-//     test: /\.(png|jpe?g)$/,
-//     use: [
-//         {
-//             loader: 'responsive-loader',
-//             options: {
-//                 adapter: require('responsive-loader/sharp'),
-//                 name: 'images/responsive/[contenthash]_[width].[ext]',
-//                 sizes: [420, 860, 1200, 2400],
-//             },
-//         },
-//     ],
-// }
-
 // Clean builds for production
 if (!isDev) {
     plugins.unshift(new CleanWebpackPlugin())
@@ -96,9 +81,6 @@ module.exports = {
             fs: false,
         },
     },
-    // output: {
-    //     filename: 'bundle.js',
-    // },
 
     devServer: {
         static: {
