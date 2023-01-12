@@ -65,6 +65,7 @@ hr {
   height: 50px;
   position: fixed;
   display: flex;
+  align-items: center;
   user-select: none;
 
   &.open {
@@ -73,10 +74,48 @@ hr {
     }
   }
 
-  #navbar-links {
-    flex: 1 1;
-    padding-left: 15px;
+  .nav-name {
+    flex: 0 0 auto;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+    font-weight: 400;
     line-height: $navbar-height;
+    color: #fff;
+    padding-left: 16px;
+    cursor: default;
+  }
+
+  .nav-icons {
+    flex: 1 0;
+    margin: 0;
+    padding: 0 8px;
+
+    a {
+      font-size: 1.2em;
+      color: rgba(255,255,255,0.8);
+      line-height: $navbar-height;
+    }
+
+    a:hover, a:active {
+      color: #fff;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      margin-bottom: -1px;
+    }
+    
+    .nav-link {
+      margin: 0;
+      padding: 0 4px;
+    }
+  }
+
+  #navbar-links {
+    flex: 0;
+    line-height: $navbar-height;
+    padding-right: 8px;
 
     @media (max-width: $mobile-breakpoint) {
       width: 100vw;
@@ -131,51 +170,6 @@ hr {
 
     a:hover, a:active {
       color: #fff;
-    }
-  }
-
-  .nav-name {
-    flex: 1;
-    font-size: 1.1em;
-    line-height: $navbar-height;
-    color: #fff;
-    padding: 0 0 0 15px;
-    cursor: default;
-
-    @media (min-width: $mobile-breakpoint) {
-      padding: 0 24px 0 0;
-      text-align: right;
-      border-right: 1px solid rgba(255,255,255,.1);
-    }
-  }
-
-  .nav-icons {
-    flex: 0 1;
-    margin: 0;
-    padding: 0 14px;
-
-    @media (max-width: $mobile-breakpoint) {
-      margin-right: 30px;
-    }
-
-    a {
-      font-size: 1.2em;
-      color: rgba(255,255,255,0.5);
-      line-height: $navbar-height;
-    }
-
-    a:hover, a:active {
-      color: #fff;
-    }
-
-    svg {
-      width: 18px;
-      height: 18px;
-    }
-    
-    .nav-link {
-      margin: 0;
-      padding: 0 10px;
     }
   }
 
