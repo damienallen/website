@@ -28,11 +28,6 @@ h1 {
   font-weight: 300;
   margin-bottom: 48px;
   color: rgba(255,255,255,0.6);
-  text-align: center;
-
-  @media (min-width: $mobile-breakpoint) {
-    text-align: left;
-  }
 }
 
 h2 {
