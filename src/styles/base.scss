@@ -26,13 +26,12 @@ h1, h2, h3, h4, h5b {
 h1 {
   font-size: 1.6em;
   font-weight: 300;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
   color: rgba(255,255,255,0.6);
   text-align: center;
 
   @media (min-width: $mobile-breakpoint) {
     text-align: left;
-    margin-bottom: 0;
   }
 }
 
@@ -344,6 +343,7 @@ hr {
 
     svg {
       color: #fff !important;
+      opacity: 0.3;
       height: 40px;
       width: 40px;
     }
@@ -376,6 +376,11 @@ hr {
 
 }
 
+#work, #education {
+  h1 {
+    margin-bottom: -56px !important;
+  }
+}
 
 /*--[ work & education styling  ]--*/
 
@@ -418,7 +423,7 @@ hr {
   .timeline-border {
     height: 100%;
     margin-top: -10px;
-    margin-right: 47px;
+    margin-right: 45px;
     border-right: 2px solid #ddd;
 
     &.no-logo {
@@ -429,8 +434,8 @@ hr {
   .timeline-dot {
     margin-top: 80px;
     margin-right: 40px;
-    height: 16px;
-    width: 16px;
+    height: 11px;
+    width: 11px;
     background-color: #ddd;
     border-radius: 50%;
     display: inline-block;
@@ -464,6 +469,7 @@ hr {
   .details {
     font-size: 0.9em;
     padding-top: 25px;
+    line-height: 1.5em;
 
     ul {
       margin: 0;
@@ -566,4 +572,8 @@ hr {
     margin: 20px 0;
   }
 
+}
+
+.trumbowyg-editor { 
+  background: rgba(255,255,255,0.8);
 }
