@@ -559,13 +559,13 @@ $form-spacing: 24px;
   }
 
   #submit-button {
-    height: 38px;
+    height: 64px;
     color: $font-color;
     background-color: #007bff;
     border-color: #007bff;
     border-radius: 0.25rem;
     width: 100%;
-    max-width: 250px;
+    max-width: 128px;
 
     &:disabled {
       background-color: #c2c3c5;
