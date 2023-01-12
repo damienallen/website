@@ -51,7 +51,7 @@ const adjustOpacity = () => {
     const boxShadowValue = `0 3px 15px rgba(0,0,0,${boxShadowOpacity})`
 
     const navbarBackgroundOpacity = 1 - coverOpacity
-    const navbarBackground = `rgba(52,58,64,${navbarBackgroundOpacity})`
+    const navbarBackground = `rgba(23,23,32,${navbarBackgroundOpacity})`
 
     $('.cover').css({ opacity: coverOpacity })
     $('#work').css({ boxShadow: boxShadowValue })
