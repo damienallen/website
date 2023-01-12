@@ -465,7 +465,7 @@ hr {
 
   .duration {
     font-size: 0.8em;
-    color: rgb(141, 168, 119);
+    color: rgb(122, 155, 96);
     font-style: italic;
   }
 
@@ -584,6 +584,7 @@ $form-spacing: 24px;
   }
 
   .trumbowyg-box {
+    border: 2px solid #fff;
     border-radius: 0.25rem;
     background: rgba(255,255,255,0.7);
   }
