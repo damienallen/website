@@ -1,5 +1,7 @@
 /*--[ variables  ]--*/
 
+$font-color: #fff;
+$background-color: #000;
 $mobile-breakpoint: 768px;
 $logo-width: 200px;
 $navbar-height: 50px;
@@ -12,7 +14,9 @@ $cover-url-860: url('../images/colombia_cover.jpg?h=860');
 /*--[ fonts & text styling ]--*/
 
 body {
+  color: $font-color;
   font-family: 'Open Sans', sans-serif;
+  background: $background-color;
 }
 
 h1, h2, h3, h4, h5b {
@@ -80,7 +84,6 @@ hr {
     font-size: 1.2em;
     font-weight: 400;
     line-height: $navbar-height;
-    color: #fff;
     padding-left: 16px;
     cursor: default;
   }
@@ -97,7 +100,7 @@ hr {
     }
 
     a:hover, a:active {
-      color: #fff;
+      color: $font-color;
     }
 
     svg {
@@ -219,7 +222,7 @@ hr {
     height: 100%;
     width: 100%;
 
-    background-color: #fff;
+    background-color: $background-color;
 
     animation-name: fadeOut;
     animation-iteration-count: 1;
@@ -273,7 +276,7 @@ hr {
 /*--[ section styling  ]--*/
 
 .section {
-  background: #fff;
+  background: $background-color;
   padding: 20px 70px 80px 70px;
 
   @media (max-width: $mobile-breakpoint) {
@@ -290,7 +293,6 @@ hr {
   margin-bottom: 40px;
 
   .about-content {
-    color: #fff;
     line-height: 1.8em;
     text-align: justify;
     padding: 25vh 150px 0 150px;
@@ -542,12 +544,12 @@ hr {
 
   #submit-button {
     height: 38px;
-    color: #fff;
+    color: $font-color;
     background-color: #007bff;
     border-color: #007bff;
     border-radius: 0.25rem;
     width: 100%;
-    max-width: 302px;
+    max-width: 250px;
 
     &:disabled {
       background-color: #c2c3c5;
