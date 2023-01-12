@@ -12,11 +12,11 @@ import './styles/layout.scss'
 // Handle form submission
 const sendEmail = () => {
     const formData = {
-        name: $('#id_name').val(),
-        email: $('#id_email').val(),
-        subject: $('#id_subject').val(),
-        message: $('#message-text').val(),
-        recaptcha: $('#g-recaptcha-response').val(),
+        name: $('#form-name').val(),
+        email: $('#form-email').val(),
+        subject: $('#form-subject').val(),
+        message: $('#form-message').val(),
+        check: $('#form-check').val(),
     }
 
     $.ajax({
@@ -115,7 +115,7 @@ $(document).ready(() => {
     })
 
     // Add WYSIWYG editor to textarea
-    $('#message-text').trumbowyg({
+    $('#form-message').trumbowyg({
         svgPath: 'icons/trumbowyg_icons.svg',
         btns: [
             ['viewHTML'],

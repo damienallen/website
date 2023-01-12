@@ -6,6 +6,7 @@ set -o nounset
 # Start gunicorn with workers:
 if [ "$FLASK_DEBUG" = "1" ]
 then
+  echo 'Running in development mode...'
   /usr/local/bin/gunicorn main:app --reload \
     --workers 2 \
     --bind 0.0.0.0:8080 \

@@ -375,30 +375,30 @@
                 <div class="form-row row">
                     <div class="form-field col">
                         <input type="text" name="name" placeholder="Name" class="form-input" maxlength="30" required
-                            id="id_name">
+                            id="form-name">
                     </div>
                     <div class="form-field col">
                         <input type="email" name="email" placeholder="Email" class="form-input" minlength="6"
-                            maxlength="30" required id="id_email">
+                            maxlength="30" required id="form-email">
                     </div>
                 </div>
 
                 <div class="form-row row">
                     <div class="form-field col">
                         <input type="text" name="subject" placeholder="Subject" class="form-input" maxlength="100"
-                            required id="id_subject">
+                            required id="form-subject">
                     </div>
                 </div>
                 <div class="form-row row">
                     <div class="form-textarea col">
-                        <textarea name="message" cols="40" rows="10" id="message-text" maxlength="2000"
+                        <textarea name="message" cols="40" rows="10" id="form-message" maxlength="2000"
                             required></textarea>
                     </div>
                 </div>
 
-                <input type="text" name="required" style="display:none !important" tabindex="-1" autocomplete="off">
 
                 <div class="row">
+                    <input type="text" name="check" id="form-check" style="display:none !important" tabindex="-1" autocomplete="off">
                     <div class="col">
                         <button id="submit-button" type="submit">Send</button>
                     </div>
