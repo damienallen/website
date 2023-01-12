@@ -1,10 +1,13 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { ProvidePlugin } = require('webpack')
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
 const path = require('path')
 
-const pluginsList = [
+const isDev = process.env.WEBPACK_ENV === 'dev'
+
+const plugins = [
     new HtmlPlugin({
         hash: true,
         filename: 'index.html',
@@ -12,10 +15,6 @@ const pluginsList = [
     }),
     new CopyPlugin({
         patterns: [
-            {
-                from: 'src/icons/favicon',
-                to: 'icons',
-            },
             {
                 from: 'node_modules/trumbowyg/dist/ui/icons.svg',
                 to: 'icons/trumbowyg_icons.svg',
@@ -33,32 +32,38 @@ const pluginsList = [
 ]
 
 // Configure response image support
-const responsiveLoader = {
-    test: /\.(png|jpe?g)$/,
-    use: [
-        {
-            loader: 'responsive-loader',
-            options: {
-                adapter: require('responsive-loader/sharp'),
-                name: 'images/responsive/[hash]_[width].[ext]',
-                sizes: [420, 860, 1200, 2400],
+// const responsiveLoader = {
+//     test: /\.(png|jpe?g)$/,
+//     use: [
+//         {
+//             loader: 'responsive-loader',
+//             options: {
+//                 adapter: require('responsive-loader/sharp'),
+//                 name: 'images/responsive/[contenthash]_[width].[ext]',
+//                 sizes: [420, 860, 1200, 2400],
+//             },
+//         },
+//     ],
+// }
+
+// Clean builds for production
+if (!isDev) {
+    plugins.unshift(new CleanWebpackPlugin())
+}
+
+const optimization = {
+    minimizer: [
+        new ImageMinimizerPlugin({
+            minimizer: {
+                implementation: ImageMinimizerPlugin.sharpMinify,
             },
-        },
+        }),
     ],
 }
 
-// Cache responsive images in dev mode
-const isDev = process.env.WEBPACK_ENV === 'dev'
-if (isDev) {
-    console.log('Development mode: using responsive image cache.')
-    responsiveLoader.use.unshift('cache-loader')
-} else {
-    pluginsList.unshift(new CleanWebpackPlugin())
-}
-
 module.exports = {
-    entry: './src/index.js',
-    plugins: pluginsList,
+    plugins: plugins,
+    optimization: optimization,
     module: {
         rules: [
             {
@@ -72,17 +77,28 @@ module.exports = {
                 },
             },
             {
+                test: /\.html$/i,
+                loader: 'html-loader',
+            },
+            {
                 test: /\.(s*)css$/,
                 use: ['style-loader', 'css-loader', 'sass-loader'],
             },
-            responsiveLoader,
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                type: 'asset',
+            },
         ],
     },
 
-    node: false,
-    output: {
-        filename: 'bundle.js',
+    resolve: {
+        fallback: {
+            fs: false,
+        },
     },
+    // output: {
+    //     filename: 'bundle.js',
+    // },
 
     devServer: {
         static: {
