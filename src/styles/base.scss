@@ -539,6 +539,10 @@ hr {
 /*--[ contact form styling  ]--*/
 $form-spacing: 24px;
 
+#contact {
+  margin-top: 48px;
+}
+
 #contact-form {
 
   .form-field {
@@ -556,8 +560,8 @@ $form-spacing: 24px;
   #submit-button {
     height: 64px;
     color: $font-color;
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #426625;
+    border-color: #7a9b60;
     border-radius: 0.25rem;
     width: 100%;
     max-width: 128px;
