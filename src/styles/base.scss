@@ -1,18 +1,22 @@
 /*--[ variables  ]--*/
 
+$font-color: #fff;
+$background-color: rgb(48, 48, 56);
 $mobile-breakpoint: 768px;
 $logo-width: 200px;
 $navbar-height: 50px;
 
-$cover-url-2400: url('../images/colombia_cover.jpg?size=2400');
-$cover-url-1200: url('../images/colombia_cover.jpg?size=1200');
-$cover-url-860: url('../images/colombia_cover.jpg?size=860');
+$cover-url-2400: url('../images/colombia_cover.jpg?h=2400');
+$cover-url-1200: url('../images/colombia_cover.jpg?h=1200');
+$cover-url-860: url('../images/colombia_cover.jpg?h=860');
 
 
 /*--[ fonts & text styling ]--*/
 
 body {
+  color: $font-color;
   font-family: 'Open Sans', sans-serif;
+  background: $background-color;
 }
 
 h1, h2, h3, h4, h5b {
@@ -20,11 +24,10 @@ h1, h2, h3, h4, h5b {
 }
 
 h1 {
-  font-size: 1.8em;
+  font-size: 1.6em;
   font-weight: 300;
-  text-align: center;
-  margin: 0 0 10px 0;
-  color: #707579;
+  margin-bottom: 48px;
+  color: rgba(255,255,255,0.6);
 }
 
 h2 {
@@ -41,7 +44,7 @@ h3 {
 h4 {
   font-size: 0.8em;
   line-height: 24px;
-  color: #999c9f;
+  color: rgba(255,255,255,0.6);
   font-style: italic;
   margin: 0 0 10px 0;
   font-weight: 300;
@@ -59,12 +62,13 @@ hr {
 #navbar {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
-  background: rgba(52, 58, 64, 0);
+  background: rgba(23,23,32, 0);
   z-index: 100;
   width: 100%;
   height: 50px;
   position: fixed;
   display: flex;
+  align-items: center;
   user-select: none;
 
   &.open {
@@ -73,10 +77,46 @@ hr {
     }
   }
 
-  #navbar-links {
-    flex: 1 1;
-    padding-left: 15px;
+  .nav-name {
+    flex: 0 0 auto;
+    font-size: 1.2em;
+    font-weight: 400;
     line-height: $navbar-height;
+    padding-left: 16px;
+    cursor: default;
+  }
+
+  .nav-icons {
+    flex: 1 0;
+    margin: 0;
+    padding: 0 8px;
+
+    a {
+      font-size: 1.2em;
+      color: rgba(255,255,255,0.8);
+      line-height: $navbar-height;
+    }
+
+    a:hover, a:active {
+      color: $font-color;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      margin-bottom: -1px;
+    }
+    
+    .nav-link {
+      margin: 0;
+      padding: 0 4px;
+    }
+  }
+
+  #navbar-links {
+    flex: 0;
+    line-height: $navbar-height;
+    padding-right: 8px;
 
     @media (max-width: $mobile-breakpoint) {
       width: 100vw;
@@ -134,51 +174,6 @@ hr {
     }
   }
 
-  .nav-name {
-    flex: 1;
-    font-size: 1.1em;
-    line-height: $navbar-height;
-    color: #fff;
-    padding: 0 0 0 15px;
-    cursor: default;
-
-    @media (min-width: $mobile-breakpoint) {
-      padding: 0 24px 0 0;
-      text-align: right;
-      border-right: 1px solid rgba(255,255,255,.1);
-    }
-  }
-
-  .nav-icons {
-    flex: 0 1;
-    margin: 0;
-    padding: 0 14px;
-
-    @media (max-width: $mobile-breakpoint) {
-      margin-right: 30px;
-    }
-
-    a {
-      font-size: 1.2em;
-      color: rgba(255,255,255,0.5);
-      line-height: $navbar-height;
-    }
-
-    a:hover, a:active {
-      color: #fff;
-    }
-
-    svg {
-      width: 18px;
-      height: 18px;
-    }
-    
-    .nav-link {
-      margin: 0;
-      padding: 0 10px;
-    }
-  }
-
   ul {
     list-style-type: none;
     display: flex;
@@ -225,7 +220,7 @@ hr {
     height: 100%;
     width: 100%;
 
-    background-color: #fff;
+    background-color: $background-color;
 
     animation-name: fadeOut;
     animation-iteration-count: 1;
@@ -279,7 +274,6 @@ hr {
 /*--[ section styling  ]--*/
 
 .section {
-  background: #fff;
   padding: 20px 70px 80px 70px;
 
   @media (max-width: $mobile-breakpoint) {
@@ -296,10 +290,10 @@ hr {
   margin-bottom: 40px;
 
   .about-content {
-    color: #fff;
     line-height: 1.8em;
     text-align: justify;
-    padding: 30vh 100px 0 100px;
+    padding: 25vh 150px 0 150px;
+    max-width: 800px;
 
     @media (max-width: $mobile-breakpoint) {
       padding-top: 80px !important;
@@ -344,6 +338,7 @@ hr {
 
     svg {
       color: #fff !important;
+      opacity: 0.3;
       height: 40px;
       width: 40px;
     }
@@ -376,12 +371,16 @@ hr {
 
 }
 
+#work, #education {
+  h1 {
+    @media (min-width: $mobile-breakpoint) {
+      margin-top: 96px;
+      margin-bottom: -96px;
+    }
+  }
+}
 
 /*--[ work & education styling  ]--*/
-
-#work {
-  box-shadow: 0 3px 15px rgba(0,0,0,0);
-}
 
 .edu-list, .work-list {
 
@@ -411,7 +410,7 @@ hr {
   }
 
   .col-timeline {
-    flex: 1 1 180px;
+    flex: 1 1 128px;
     text-align: right;
 
     @media (max-width: $mobile-breakpoint) {
@@ -422,7 +421,7 @@ hr {
   .timeline-border {
     height: 100%;
     margin-top: -10px;
-    margin-right: 47px;
+    margin-right: 45px;
     border-right: 2px solid #ddd;
 
     &.no-logo {
@@ -433,8 +432,8 @@ hr {
   .timeline-dot {
     margin-top: 80px;
     margin-right: 40px;
-    height: 16px;
-    width: 16px;
+    height: 11px;
+    width: 11px;
     background-color: #ddd;
     border-radius: 50%;
     display: inline-block;
@@ -461,13 +460,14 @@ hr {
 
   .duration {
     font-size: 0.8em;
-    color: #d05;
+    color: rgb(122, 155, 96);
     font-style: italic;
   }
 
   .details {
     font-size: 0.9em;
     padding-top: 25px;
+    line-height: 1.5em;
 
     ul {
       margin: 0;
@@ -489,6 +489,13 @@ hr {
   height: 18px;
   width: 18px;
   margin-left: 5px;
+}
+
+.download-button {
+  color: #fff;
+  a:hover, a:active {
+    color: #fff;
+  }
 }
 
 
@@ -530,11 +537,16 @@ hr {
 
 
 /*--[ contact form styling  ]--*/
+$form-spacing: 24px;
+
+#contact {
+  margin-top: 48px;
+}
 
 #contact-form {
 
   .form-field {
-    margin-bottom: 20px;
+    margin-bottom: $form-spacing;
   }
 
   .trumbowyg-box {
@@ -546,13 +558,13 @@ hr {
   }
 
   #submit-button {
-    height: 38px;
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+    height: 64px;
+    color: $font-color;
+    background-color: #426625;
+    border-color: #7a9b60;
     border-radius: 0.25rem;
     width: 100%;
-    max-width: 302px;
+    max-width: 128px;
 
     &:disabled {
       background-color: #c2c3c5;
@@ -570,17 +582,62 @@ hr {
     margin: 20px 0;
   }
 
-}
+  .trumbowyg-box {
+    border: 2px solid #fff;
+    border-radius: 0.25rem;
+    background: rgba(255,255,255,0.7);
+  }
 
-/*--[ footer styling  ]--*/
-
-#footer {
-  margin: 20px 0 0 0;
-  width: 100%;
-
-  img {
-    width: 100%;
-    margin-bottom: -4px;
+  .trumbowyg-fullscreen {
+    background: #fff !important;
+  }
+  
+  .trumbowyg-editor {
+    color: #000;
+    padding: 16px;
+  }
+  
+  .form-textarea {
+    margin-bottom: $form-spacing;
+    padding: 0 calc($form-spacing / 2);
   }
 
 }
+
+.form-row {
+  margin: 0 calc($form-spacing / -2);
+}
+
+.form-input {
+  display: block;
+  width: 100%;
+  padding: 0 10px;
+  line-height: 2.5em;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border-radius: 0.25rem;
+}
+
+.form-field {
+  margin: 0 calc($form-spacing / 2);
+
+  input {
+    -webkit-transition: all 0.15s ease-in-out;
+    -moz-transition: all 0.15s ease-in-out;
+    -ms-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    outline: none;
+    border: 1px solid #ced4da;
+  }
+   
+  input:focus {
+    border: 1px solid rgba(0,0,0,0.5);
+  }
+}
+
+.form-textarea {
+  padding-right: 5px;
+  padding-left: 25px;
+}
+

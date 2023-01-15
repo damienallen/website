@@ -1,20 +1,15 @@
-from flask import Flask, request, jsonify
-from werkzeug.middleware.proxy_fix import ProxyFix
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail, From
-import logging
 import os
-import requests
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
-from form import ContactForm
+from flask import Flask, jsonify, request
+from models import ContactForm
+from werkzeug.middleware.proxy_fix import ProxyFix
 
+# Init flask app
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app)
-
-# Forward logs to gunicorn
-gunicorn_error_logger = logging.getLogger("gunicorn.error")
-app.logger.handlers.extend(gunicorn_error_logger.handlers)
-app.logger.setLevel(logging.INFO)
 
 
 @app.route("/api")
@@ -26,64 +21,81 @@ def hello():
 def submit():
 
     # Run validation
+    app.logger.info(request.form)
     contact_form = ContactForm(request.form)
     is_valid = contact_form.validate()
     status_code = 200 if is_valid else 400
     form_errors = [e for e in contact_form.errors.items()]
 
     # Response
-    status = {
-        "sent": False,
-        "message": "Invalid request"
-    }
+    status = {}
+    if not request.method == "POST" or not is_valid:
+        status = {"sent": False, "message": "Invalid request"}
 
-    if request.method == "POST" and is_valid:
+    else:
+        # Extract request data
+        name = contact_form.data.get("name")
+        from_email = contact_form.data.get("email")
+        subject = contact_form.data.get("subject")
+        form_message = contact_form.data.get("message")
 
-        # Captcha check
-        r = requests.post(
-            "https://www.google.com/recaptcha/api/siteverify",
-            data={
-                "secret": os.environ.get("RECAPTCHA_SECRET"),
-                "response": request.form.get("recaptcha", None),
-                "remoteip": request.remote_addr
-            }
+        message = MIMEText(
+            f"""
+        From: {name} <{from_email}>
+        <br>
+        Subject: {subject}
+        <br><br><br>
+        {form_message}
+        <br><br><br>
+        Sent from my website.
+        """,
+            "html",
         )
 
-        if not r.json()["success"]:
-            status["message"] = "Captcha check failed!"
-            return jsonify(status=status, form_errors=form_errors), 400
-
-        # Extract request data
-        name = request.form.get("name")
-        from_email = request.form.get("email")
-        subject = request.form.get("subject")
-        message = request.form.get("message")
+        # Honeypot check
+        honeypot_text = contact_form.data.get("check")
+        honeypot_failed = honeypot_text != ""
+        if honeypot_failed:
+            status["sent"] = False
+            status["message"] = "Bot check failed!"
+            app.logger.warning(status["message"])
+            return jsonify(status=status, form_errors=form_errors), 403
 
         # Get contact email from environment
         to_email = os.environ.get("CONTACT_EMAIL")
 
-        # Build sendgrid mail object
-        message = Mail(
-            from_email=From(from_email, name),
-            to_emails=to_email,
-            subject=f"[Contact Form] {subject}",
-            html_content=message,
-        )
+        # Build email object
+        email = MIMEMultipart("alternative")
+        email["Subject"] = f"[Form] {name} <{from_email}> -> {subject}"
+        email["From"] = from_email
+        email["To"] = to_email
+        email.attach(message)
+
+        # Send via SMTP
+        smtp_host = os.environ.get("SMTP_SERVER")
+        smtp_user = os.environ.get("SMTP_USER")
+        smtp_pass = os.environ.get("SMTP_PASS")
+        smtp_server = smtplib.SMTP(smtp_host, 587)
 
         try:
-            sg = SendGridAPIClient(os.environ.get("SENDGRID_KEY"))
-            response = sg.send(message)
-            
-            if response.status_code == 202:
-                status["sent"] = True
-                status["message"] = "Message sent sucessfully."
-            else:
-                status["message"] = "Sendgrid failed to send message."
-                status_code = 500
+            smtp_server.ehlo()
+            smtp_server.starttls()
+            smtp_server.ehlo()
+            smtp_server.login(smtp_user, smtp_pass)
+            app.logger.info(f"{smtp_host} ")
+            smtp_server.sendmail(from_email, to_email, message.as_string())
+            smtp_server.send_message(email)
+
+            status["sent"] = True
+            status["message"] = "Message sent sucessfully."
 
         except Exception as e:
+            status["message"] = "Failed to send message."
             app.logger.error(e)
-            status["message"] = "Failed to connect to sendgrid."
             status_code = 500
+
+        finally:
+            if smtp_server is not None:
+                smtp_server.quit()
 
     return jsonify(status=status, form_errors=form_errors), status_code

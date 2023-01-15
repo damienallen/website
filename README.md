@@ -1,14 +1,16 @@
-# Personal Webiste
+# website
 
 Source code of my personal website.
 
 ### Requirements
 
-- node & npm
-- yarn (optional)
+- [node](https://nodejs.org/) (v16+)
+- [yarn](https://yarnpkg.com/getting-started/install)
 
-### Dev environment
+### Setup
 
-After cloning the repository, install depenencies using `yarn install`.
+1. Install dependencies using `yarn install`.
 
-Webpack is used to optimize and package static resources. It should be used either in watch mode (`yarn start`) or a manual build using `yarn build`.
+2. Run `yarn start` to get started with a live development server.
+
+3. A build using `yarn build` will output web assets to the _dist/_ directory.

@@ -7,6 +7,10 @@
 
     <title>Damien Allen</title>
 
+    <!-- CSP -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' tele.dallen.dev">
+    <meta http-equiv="Content-Security-Policy" content="style-src 'unsafe-inline' fonts.googleapis.com">
+
     <!-- Fonts & icons -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i|Open+Sans" rel="stylesheet">
 
@@ -15,12 +19,12 @@
     <meta name="keywords" content="damien allen, mx3d, python, django, react, typescript">
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-    <link rel="manifest" href="icons/site.webmanifest">
-    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#f76767">
-    <link rel="shortcut icon" href="icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
+    <link rel="manifest" href="./icons/site.webmanifest">
+    <link rel="mask-icon" href="./icons/safari-pinned-tab.svg" color="#f76767">
+    <link rel="shortcut icon" href="./icons/favicon.ico">
     <meta name="theme-color" content="#2e3439">
 
     <script defer data-domain="dallen.co" src="https://tele.dallen.dev/js/script.js"></script>
@@ -32,12 +36,35 @@
     <header>
         <nav id="navbar">
 
+            <div class="nav-name">DAMIEN ALLEN</div>
+
+            <ul class="nav-icons">
+                <li>
+                    <a class="nav-link" href="https://github.com/damienallen/" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                            </path>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="https://www.linkedin.com/in/damienaallen/" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+
             <div id="navbar-links">
                 <div class="links-container">
                     <ul>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#about">about</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#work">work</a>
                         </li>
@@ -53,32 +80,6 @@
                     </ul>
                 </div>
             </div>
-
-            <div class="nav-name">DAMIEN ALLEN</div>
-
-            <ul class="nav-icons">
-                <li>
-                    <a class="nav-link" href="https://www.linkedin.com/in/damienaallen/" target="_blank">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                            </path>
-                            <rect x="2" y="9" width="4" height="12"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="https://github.com/damienallen/" target="_blank">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                            </path>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
 
             <div id="nav-toggle">
                 <div id="nav-open">
@@ -113,17 +114,20 @@
         <section id="about">
             <div class="about-content">
                 <div class="hello">
-                    <img src="${require('./images/hello.png').src}" alt="Hello!">
+                    <img src="./images/hello.png" alt="Hello!">
                 </div>
                 <p>
-                    I am currently working on building software for metal 3D printing with MX3D in Amsterdam.
-                    My educational background is in civil/environmental engineering, water resources and remote sensing.
+                    I am a software developer based out of Rotterdam, NL.
                 </p>
                 <p>
-                    In my free time I enjoy gardening, throwing pots and coding personal projects.
+                    Currently, I work at Aurea Imaging making geospatial analyses tools in Python.
+                    My educational background is in environmental engineering, water resources and remote sensing.
+                </p>
+                <p>
+                    I enjoy gardening, throwing pots and 3D printing in my free time.
                 </p>
                 <div class="name">
-                    <img src="${require('./images/damien.png').src}" alt="- Damien">
+                    <img src="./images/damien.png" alt="- Damien">
                 </div>
             </div>
 
@@ -140,7 +144,22 @@
 
         <section id="work" class="section">
             <h1>work</h1>
-            <hr><br>
+            <div class="row work-list">
+                <div class="col-timeline">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-border"></div>
+                </div>
+                <div class="col-content">
+
+                    <a href="https://aureaimaging.com/">
+                        <img src="./images/aurea-logo.png" class="logo" alt="MX3D">
+                    </a>
+
+                    <h2>Geospatial Software Developer</h2>
+                    <div class="duration">Jan 2023 - Present</div>
+                </div>
+            </div>
+
             <div class="row work-list">
                 <div class="col-timeline">
                     <div class="timeline-dot"></div>
@@ -149,13 +168,14 @@
                 <div class="col-content no-logo">
 
                     <a href="https://mx3d.com/">
-                        <img src="${require('./images/mx3d-logo.jpg').src}" class="logo" alt="MX3D">
+                        <img src="./images/mx3d-logo.png" class="logo" alt="MX3D">
                     </a>
 
                     <h2>Lead Software Developer</h2>
-                    <div class="duration">Sept. 2019 - present</div>
+                    <div class="duration">Sept 2019 - Dec 2022</div>
                 </div>
             </div>
+
             <div class="row work-list">
                 <div class="col-timeline">
                     <div class="timeline-dot no-logo"></div>
@@ -164,16 +184,7 @@
                 <div class="col-content">
 
                     <h2>Software Developer</h2>
-                    <div class="duration">Apr. 2019 - Sept. 2019</div>
-                    <div class="details">
-                        <h4>Stack</h4>
-                        <ul>
-                            <li>Django (Python)</li>
-                            <li>PostgreSQL</li>
-                            <li>React (Typescript)</li>
-                            <li>Electron</li>
-                        </ul>
-                    </div>
+                    <div class="duration">Apr 2019 - Sept 2019</div>
 
                 </div>
             </div>
@@ -185,19 +196,11 @@
                 <div class="col-content">
 
                     <a href="https://www.mobilewatermanagement.nl/">
-                        <img src="${require('./images/mwm-logo.jpg').src}" class="logo" alt="Mobile Water Management">
+                        <img src="./images/mwm-logo.png" class="logo" alt="Mobile Water Management">
                     </a>
 
                     <h2>Software & Product Developer</h2>
-                    <div class="duration">Aug. 2016 - Mar. 2019</div>
-                    <div class="details">
-                        <h4>Stack</h4>
-                        <ul>
-                            <li>Django (Python)</li>
-                            <li>PostgreSQL</li>
-                            <li>Ionic (Angular)</li>
-                        </ul>
-                    </div>
+                    <div class="duration">Aug 2016 - Mar 2019</div>
 
                 </div>
             </div>
@@ -210,19 +213,11 @@
 
 
                     <a href="https://akvo.org/">
-                        <img src="${require('./images/akvo-logo.jpg').src}" class="logo" alt="Akvo Foundation">
+                        <img src="./images/akvo-logo.png" class="logo" alt="Akvo Foundation">
                     </a>
 
                     <h2>Django Developer Intern</h2>
-                    <div class="duration">Apr. 2016 - Jul. 2016</div>
-                    <div class="details">
-                        <h4>Stack</h4>
-                        <ul>
-                            <li>Django (Python)</li>
-                            <li>PostgreSQL</li>
-                            <li>Javascript</li>
-                        </ul>
-                    </div>
+                    <div class="duration">Apr 2016 - Jul 2016</div>
 
                 </div>
             </div>
@@ -234,7 +229,7 @@
                 <div class="col-content">
 
                     <a href="https://www.koperenkat.nl/">
-                        <img src="${require('./images/kk-logo.jpg').src}" class="logo"
+                        <img src="./images/kk-logo.png" class="logo"
                             alt="Stadsbrouwerij De Koperen Kat">
                     </a>
 
@@ -250,12 +245,12 @@
                 <div class="col-content">
 
                     <a href="https://www.colorado.edu/">
-                        <img src="${require('./images/cu-logo.jpg').src}" class="logo"
+                        <img src="./images/cu-logo.png" class="logo"
                             alt="University of Colorado at Boulder">
                     </a>
 
                     <h2>Computer Lab Systems Administrator</h2>
-                    <div class="duration">Feb. 2009 - Mar. 2012</div>
+                    <div class="duration">Feb 2009 - Mar 2012</div>
 
                 </div>
             </div>
@@ -263,7 +258,6 @@
 
         <section id="education" class="section">
             <h1>education</h1>
-            <hr><br>
             <div class="row edu-list">
                 <div class="col-timeline">
                     <div class="timeline-dot"></div>
@@ -272,17 +266,17 @@
                 <div class="col-content">
 
                     <a href="https://www.tudelft.nl/en/">
-                        <img src="${require('./images/tu-logo.jpg').src}" class="logo"
+                        <img src="./images/tu-logo.png" class="logo"
                             alt="Delft University of Technology">
                     </a>
 
                     <h2>M.Sc. in Civil Engineering</h2>
-                    <div class="duration">2012-2015</div>
+                    <div class="duration">2012 - 2015</div>
                     <div class="details">
                         Department of Water Management<br>
                         Specialization in Hydrology & Remote Sensing<br><br>
-                        <i>Thesis on land use classification</i>
-                        <a href="files/damien_allen_msc_thesis_report.pdf">
+                        <a class="download-button" href="files/damien_allen_msc_thesis_report.pdf">
+                            <i>Thesis on land use classification</i>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="file-download">
@@ -303,12 +297,12 @@
                 <div class="col-content">
 
                     <a href="https://www.colorado.edu/">
-                        <img src="${require('./images/cu-logo.jpg').src}" class="logo"
+                        <img src="./images/cu-logo.png" class="logo"
                             alt="University of Colorado at Boulder">
                     </a>
 
                     <h2>B.Sc. in Environmental Engineering</h2>
-                    <div class="duration">2008-2012</div>
+                    <div class="duration">2008 - 2012</div>
                     <div class="details">
                         Specialization in Water Resources
                     </div>
@@ -322,7 +316,7 @@
                 <div class="col-content">
 
                     <a href="https://www.semesteratsea.org/">
-                        <img src="${require('./images/sas-logo.jpg').src}" class="logo" alt="Semester at Sea">
+                        <img src="./images/sas-logo.png" class="logo" alt="Semester at Sea">
                     </a>
 
                     <h2>Study Abroad</h2>
@@ -339,7 +333,6 @@
 
         <section id="skills" class="section">
             <h1>skills</h1>
-            <hr><br>
             <div class="row skills-list">
                 <div class="skill-col col">
                     <h4>Programming</h4>
@@ -347,15 +340,13 @@
                         <li>Python</li>
                         <li>Javascript</li>
                         <li>Docker</li>
-                        <li>CI/CD</li>
                     </ul>
                 </div>
                 <div class="skill-col col">
                     <h4>Design</h4>
                     <ul>
                         <li>Photoshop</li>
-                        <li>Illustrator</li>
-                        <li>HTML & CSS</li>
+                        <li>HTML/CSS</li>
                         <li>UI/UX</li>
                     </ul>
                 </div>
@@ -363,7 +354,6 @@
                     <h4>GIS & CAD</h4>
                     <ul>
                         <li>QGIS</li>
-                        <li>GRASS GIS</li>
                         <li>Rhino</li>
                         <li>Grasshopper</li>
                     </ul>
@@ -381,37 +371,33 @@
 
         <section id="contact" class="section">
             <h1>contact</h1>
-            <hr><br>
             <form id="contact-form" action="/api/submit/" method="post">
                 <div class="form-row row">
                     <div class="form-field col">
                         <input type="text" name="name" placeholder="Name" class="form-input" maxlength="30" required
-                            id="id_name">
+                            id="form-name">
                     </div>
                     <div class="form-field col">
                         <input type="email" name="email" placeholder="Email" class="form-input" minlength="6"
-                            maxlength="30" required id="id_email">
+                            maxlength="30" required id="form-email">
                     </div>
                 </div>
 
                 <div class="form-row row">
                     <div class="form-field col">
                         <input type="text" name="subject" placeholder="Subject" class="form-input" maxlength="100"
-                            required id="id_subject">
+                            required id="form-subject">
                     </div>
                 </div>
                 <div class="form-row row">
                     <div class="form-textarea col">
-                        <textarea name="message" cols="40" rows="10" id="message-text" maxlength="2000"
+                        <textarea name="message" cols="40" rows="10" id="form-message" maxlength="2000"
                             required></textarea>
                     </div>
                 </div>
-                <div class="row captcha">
-                    <div class="col">
-                        <div class="g-recaptcha" data-sitekey="6LdSAwoUAAAAANSnCwZTzzntVxH3NuN_XqGDpaZn"></div>
-                    </div>
-                </div>
+
                 <div class="row">
+                    <input type="text" name="check" id="form-check" style="display:none !important" tabindex="-1" autocomplete="off">
                     <div class="col">
                         <button id="submit-button" type="submit">Send</button>
                     </div>
@@ -421,14 +407,6 @@
         </section>
 
     </main>
-
-    <footer id="footer">
-        <img src="${require('./images/tatra_footer.jpg').src}" srcset="${require('./images/tatra_footer.jpg').srcSet}"
-            alt="Footer graphic: Tatra Mountains, Poland">
-    </footer>
-
-    <!-- External JS dependencies -->
-    <script src="https://www.google.com/recaptcha/api.js"></script>
 
 </body>
 

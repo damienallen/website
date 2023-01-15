@@ -4,60 +4,53 @@ import 'trumbowyg'
 
 // Import stylesheets
 import 'trumbowyg/dist/ui/trumbowyg.css'
-import 'normalize.css'
+import 'modern-normalize/modern-normalize.css'
 
 import './styles/base.scss'
 import './styles/layout.scss'
 
-
 // Handle form submission
 const sendEmail = () => {
-
     const formData = {
-        name: $('#id_name').val(),
-        email: $('#id_email').val(),
-        subject: $('#id_subject').val(),
-        message: $('#message-text').val(),
-        recaptcha: $('#g-recaptcha-response').val()
+        name: $('#form-name').val(),
+        email: $('#form-email').val(),
+        subject: $('#form-subject').val(),
+        message: $('#form-message').val(),
+        check: $('#form-check').val(),
     }
 
     $.ajax({
-        url: "/api/submit",
-        type: "POST",
+        url: '/api/submit',
+        type: 'POST',
         data: formData,
         success: (data) => {
             $('#submit-button').text('Sent!')
             $('#submit-button').prop('disabled', true)
             $('#form-errors').text('')
-            console.log(data.responseJSON.status.message)
+            console.debug(data.status)
         },
         error: (data) => {
-            $('#form-errors').text(data.responseJSON.status.message)
-            console.error(data.responseJSON)
-        }
+            $('#form-errors').text(data.status.message)
+            console.error(data)
+        },
     })
-
 }
 
 // Fade opacity on scroll
 const adjustOpacity = () => {
     const windowHeight = window.innerHeight
     const paddingOffset = 10
+    const baseOpacity = 0.2
 
     let coverOpacity = (windowHeight - paddingOffset - $(window).scrollTop()) / windowHeight
-    if (coverOpacity < 0) {
-        coverOpacity = 0
+    if (coverOpacity < baseOpacity) {
+        coverOpacity = baseOpacity
     }
 
-    const boxShadowInitialOpacity = 0.2
-    const boxShadowOpacity = boxShadowInitialOpacity * coverOpacity
-    const boxShadowValue = `0 3px 15px rgba(0,0,0,${boxShadowOpacity})`
-
     const navbarBackgroundOpacity = 1 - coverOpacity
-    const navbarBackground = `rgba(52,58,64,${navbarBackgroundOpacity})`
+    const navbarBackground = `rgba(23,23,32,${navbarBackgroundOpacity})`
 
     $('.cover').css({ opacity: coverOpacity })
-    $('#work').css({ boxShadow: boxShadowValue })
     $('#navbar').css({ background: navbarBackground })
 }
 
@@ -67,18 +60,18 @@ let lastId = null
 let menuItems = $('#navbar-links a')
 let scrollItems = menuItems.map((ind, element) => {
     let item = $($(element).attr('href'))
-    if (item.length) { return item }
+    if (item.length) {
+        return item
+    }
 })
 
 const adjustScrollSpy = (scrollTop) => {
-
     // Get container scroll position
     const fromTop = scrollTop + offset + 50
 
     // Get id of current section
     let current = scrollItems.map((ind, element) => {
-        if ($(element).offset().top < fromTop)
-            return element
+        if ($(element).offset().top < fromTop) return element
     })
     current = current[current.length - 1]
     const currentId = current && current.length ? current[0].id : ''
@@ -97,7 +90,6 @@ $(window).scroll((e) => {
 })
 
 $(document).ready(() => {
-
     // Set initial background opacity and fade cover background on scroll
     adjustOpacity()
     $(window).scroll(() => {
@@ -107,9 +99,12 @@ $(document).ready(() => {
     // Add padding to in-page nav
     $('#navbar-links a, .down-arrow a').click((event) => {
         event.preventDefault()
-        $('html, body').animate({
-            scrollTop: $($(event.currentTarget).attr('href')).offset().top - offset
-        }, 800)
+        $('html, body').animate(
+            {
+                scrollTop: $($(event.currentTarget).attr('href')).offset().top - offset,
+            },
+            800
+        )
         closeNav()
     })
 
@@ -120,7 +115,7 @@ $(document).ready(() => {
     })
 
     // Add WYSIWYG editor to textarea
-    $('#message-text').trumbowyg({
+    $('#form-message').trumbowyg({
         svgPath: 'icons/trumbowyg_icons.svg',
         btns: [
             ['viewHTML'],
@@ -128,10 +123,9 @@ $(document).ready(() => {
             ['formatting'],
             ['strong', 'em'],
             ['unorderedList', 'orderedList'],
-            ['fullscreen']
-        ]
+            ['fullscreen'],
+        ],
     })
-
 })
 
 // Open mobile navigation overlay
