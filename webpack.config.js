@@ -3,11 +3,13 @@ const { ProvidePlugin } = require('webpack')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 
 const isDev = process.env.WEBPACK_ENV === 'dev'
 
 const plugins = [
+    new MiniCssExtractPlugin(),
     new HtmlPlugin({
         hash: true,
         filename: 'index.html',
@@ -67,7 +69,7 @@ module.exports = {
             },
             {
                 test: /\.(s*)css$/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
