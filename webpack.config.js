@@ -1,68 +1,56 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { ProvidePlugin } = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const { ProvidePlugin } = require('webpack')
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
+const HtmlPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path')
 
+const isDev = process.env.WEBPACK_ENV === 'dev'
 
-const pluginsList = [
+const plugins = [
     new MiniCssExtractPlugin(),
-    new HtmlWebpackPlugin({
+    new HtmlPlugin({
         hash: true,
         filename: 'index.html',
         template: './src/index.html',
     }),
-    new CopyWebpackPlugin([
-        {
-            from: 'src/icons/favicon',
-            to: 'icons'
-        },
-        {
-            from: 'node_modules/trumbowyg/dist/ui/icons.svg',
-            to: 'icons/trumbowyg_icons.svg'
-        },
-        {
-            from: 'src/files',
-            to: 'files'
-        }
-    ]),
+    new CopyPlugin({
+        patterns: [
+            {
+                from: 'node_modules/trumbowyg/dist/ui/icons.svg',
+                to: 'icons/trumbowyg_icons.svg',
+            },
+            {
+                from: 'src/files',
+                to: 'files',
+            },
+        ],
+    }),
     new ProvidePlugin({
         jQuery: 'jquery',
-        $: 'jquery'
-    })
+        $: 'jquery',
+    }),
 ]
 
-const responsiveLoader = {
-    test: /\.(jpe?g|png)$/i,
-    use: [
-        {
-            loader: 'responsive-loader',
-            options: {
-                sizes: [420, 860, 1200, 2400],
-                adapter: require('responsive-loader/sharp'),
-                name: 'images/responsive/[hash]_[width].[ext]'
-            }
-        }
-    ]
+// Clean builds for production
+if (!isDev) {
+    plugins.unshift(new CleanWebpackPlugin())
 }
 
-// Cache responsive images in dev mode
-if (process.env.WEBPACK_ENV === 'dev') {
-    console.log('Development mode: using responsive image cache.')
-    responsiveLoader.use.unshift('cache-loader')
-} else {
-    pluginsList.unshift(new CleanWebpackPlugin())
+const optimization = {
+    minimizer: [
+        new ImageMinimizerPlugin({
+            minimizer: {
+                implementation: ImageMinimizerPlugin.sharpMinify,
+            },
+        }),
+    ],
 }
 
 module.exports = {
-
-    entry: "./src/index.js",
-    output: {
-        filename: "bundle.js"
-    },
-
-    plugins: pluginsList,
-
+    plugins: plugins,
+    optimization: optimization,
     module: {
         rules: [
             {
@@ -71,20 +59,40 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env']
-                    }
-                }
+                        presets: ['@babel/preset-env'],
+                    },
+                },
+            },
+            {
+                test: /\.html$/i,
+                loader: 'html-loader',
             },
             {
                 test: /\.(s*)css$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'sass-loader'
-                ]
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
             },
-            responsiveLoader
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                type: 'asset',
+            },
         ],
-    }
+    },
 
+    resolve: {
+        fallback: {
+            fs: false,
+        },
+    },
+
+    devServer: {
+        static: {
+            directory: path.join(__dirname, 'dist'),
+        },
+        compress: true,
+        open: false,
+        port: 9000,
+    },
+
+    devtool: isDev ? 'eval-cheap-source-map' : undefined,
+    mode: isDev ? 'development' : 'production',
 }
