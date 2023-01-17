@@ -3,6 +3,7 @@
 $font-color: #fff;
 $background-color: rgb(48, 48, 56);
 $mobile-breakpoint: 768px;
+$current-logo-width: 260px;
 $logo-width: 200px;
 $navbar-height: 50px;
 
@@ -452,6 +453,9 @@ hr {
     }
   }
 
+  .current-logo {
+    width: $current-logo-width !important;
+  }
   
   .logo {
     width: $logo-width;
@@ -459,7 +463,7 @@ hr {
   }
 
   .duration {
-    font-size: 0.8em;
+    font-size: 0.9em;
     color: rgb(122, 155, 96);
     font-style: italic;
   }
