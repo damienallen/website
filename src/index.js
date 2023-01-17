@@ -11,6 +11,9 @@ import './styles/layout.scss'
 
 // Handle form submission
 const sendEmail = () => {
+    $('#submit-button').text('Sending...')
+    $('#submit-button').prop('disabled', true)
+
     const formData = {
         name: $('#form-name').val(),
         email: $('#form-email').val(),
@@ -25,11 +28,12 @@ const sendEmail = () => {
         data: formData,
         success: (data) => {
             $('#submit-button').text('Sent!')
-            $('#submit-button').prop('disabled', true)
             $('#form-errors').text('')
             console.debug(data.status)
         },
         error: (data) => {
+            $('#submit-button').text('Send')
+            $('#submit-button').prop('disabled', false)
             $('#form-errors').text(data.status.message)
             console.error(data)
         },

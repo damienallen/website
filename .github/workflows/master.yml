@@ -18,7 +18,7 @@ jobs:
       TAG: master
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Checkout repo with submodules
         shell: bash
         run: |

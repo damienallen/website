@@ -12,11 +12,6 @@ app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app)
 
 
-@app.route("/api")
-def hello():
-    return "Why, hello there kind stranger."
-
-
 @app.route("/api/submit", methods=["POST"])
 def submit():
 
@@ -39,18 +34,15 @@ def submit():
         subject = contact_form.data.get("subject")
         form_message = contact_form.data.get("message")
 
-        message = MIMEText(
-            f"""
-        From: {name} <{from_email}>
+        message = f"""
+        From: {name} ({from_email})
         <br>
         Subject: {subject}
         <br><br><br>
         {form_message}
         <br><br><br>
         Sent from my website.
-        """,
-            "html",
-        )
+        """
 
         # Honeypot check
         honeypot_text = contact_form.data.get("check")
@@ -66,10 +58,10 @@ def submit():
 
         # Build email object
         email = MIMEMultipart("alternative")
-        email["Subject"] = f"[Form] {name} <{from_email}> -> {subject}"
+        email["Subject"] = f"[{from_email}] {name}: {subject}"
         email["From"] = from_email
         email["To"] = to_email
-        email.attach(message)
+        email.attach(MIMEText(message, "html"))
 
         # Send via SMTP
         smtp_host = os.environ.get("SMTP_SERVER")
@@ -83,7 +75,6 @@ def submit():
             smtp_server.ehlo()
             smtp_server.login(smtp_user, smtp_pass)
             app.logger.info(f"{smtp_host} ")
-            smtp_server.sendmail(from_email, to_email, message.as_string())
             smtp_server.send_message(email)
 
             status["sent"] = True
