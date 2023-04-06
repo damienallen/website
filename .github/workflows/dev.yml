@@ -1,10 +1,9 @@
-name: Production build
+name: Development build
 
 on:
   push:
     branches:
-      - master
-      - feature/docker
+      - dev
     paths-ignore:
       - "**.md"
 
@@ -14,8 +13,8 @@ jobs:
     env:
       CI: true
       IMAGE_NAME: website
-      REGISTRY_URL: docker.pkg.github.com/damienallen/website/flask
-      TAG: master
+      REGISTRY_URL: ghcr.io/damienallen/website
+      TAG: dev
 
     steps:
       - uses: actions/checkout@v3
