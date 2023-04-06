@@ -28,7 +28,7 @@ jobs:
 
       - name: Build docker container
         run: |
-          docker login docker.pkg.github.com --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }}
+          docker login ghcr.io --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }}
           docker pull $REGISTRY_URL:$TAG || true
           docker build -t $IMAGE_NAME:$TAG --cache-from $REGISTRY_URL:$TAG --target production_build -f docker/Dockerfile .
           docker tag $IMAGE_NAME:$TAG $REGISTRY_URL:$TAG
