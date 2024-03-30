@@ -17,11 +17,9 @@ ENV YOUR_ENV=${YOUR_ENV} \
     PIP_DEFAULT_TIMEOUT=100 \
     # Poetry's configuration:
     POETRY_NO_INTERACTION=1 \
-    POETRY_VIRTUALENVS_CREATE=false \
-    POETRY_CACHE_DIR='/var/cache/pypoetry' \
-    POETRY_HOME='/usr/local'
+    POETRY_VIRTUALENVS_CREATE=false
 
-RUN pipx install poetry==1.7.1; pipx ensurepath
+RUN pipx install poetry==1.7.1
 
 # Install node & yarn
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
@@ -30,8 +28,7 @@ RUN apt-get install nodejs && npm install -g yarn
 # Initialize project and add python dependencies
 WORKDIR /code
 COPY ./poetry.lock ./pyproject.toml  /code/
-RUN poetry config virtualenvs.create false && \
-    poetry install --no-interaction --no-ansi
+RUN /root/.local/bin/poetry install --no-interaction --no-ansi
 
 # Copy and build in production
 FROM development_build as production_build
