@@ -21,7 +21,7 @@ ENV YOUR_ENV=${YOUR_ENV} \
     POETRY_CACHE_DIR='/var/cache/pypoetry' \
     POETRY_HOME='/usr/local'
 
-RUN pipx install poetry==1.7.1
+RUN pipx install poetry==1.7.1; pipx ensurepath
 
 # Install node & yarn
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
