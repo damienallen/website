@@ -428,10 +428,6 @@ hr {
     margin-top: -10px;
     margin-right: 45px;
     border-right: 2px solid #ddd;
-
-    &.no-logo {
-      margin-top: 50px;
-    }
   }
 
   .timeline-dot {
@@ -442,19 +438,11 @@ hr {
     background-color: #ddd;
     border-radius: 50%;
     display: inline-block;
-
-    &.no-logo {
-      margin-top: 20px;
-    }
   }
 
   .col-content {
     flex: 1 1 320px;
     padding-bottom: 80px;
-
-    &.no-logo {
-      padding-bottom: 20px;
-    }
   }
 
   .current-logo {
