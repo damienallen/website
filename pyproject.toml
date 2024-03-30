@@ -4,6 +4,7 @@ name = "dallen-website"
 description = "Basic Flask backend for dallen.co"
 version = "2024.0"
 authors = ["Damien Allen <dev@dallen.co>"]
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.11"
