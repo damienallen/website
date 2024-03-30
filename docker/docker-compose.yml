@@ -1,0 +1,18 @@
+---
+services:
+
+  website:
+    image: ghcr.io/damienallen/website:dev
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    restart: unless-stopped
+    command: sh ./docker/gunicorn.sh
+    env_file: ../.env
+    expose:
+      - 8080
+    volumes:
+      - website-develop:/dist
+
+volumes:
+  website-develop:
