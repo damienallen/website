@@ -542,8 +542,7 @@ hr {
 $form-spacing: 24px;
 
 #contact {
-  min-height: 80dvh;
-  margin: 48px 0;
+  min-height: 100dvh;
 }
 
 #contact-form {
@@ -601,6 +600,7 @@ $form-spacing: 24px;
   .trumbowyg-editor {
     color: #000;
     padding: 16px;
+    height: 40dvh;
   }
 
   .form-textarea {
