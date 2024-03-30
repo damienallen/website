@@ -1,34 +1,36 @@
+FROM debian:12-slim AS builder
+RUN apt update; apt install -y -q pipx
+ENV PATH="/root/.local/bin:${PATH}"
+RUN pipx install poetry
+RUN pipx inject poetry poetry-plugin-bundle
+
+WORKDIR /code
+COPY ./poetry.lock ./pyproject.toml  /code/
+RUN poetry install --no-interaction --no-ansi
+
+RUN poetry bundle venv --python=/usr/bin/python3 --only=main /venv
+
+
 FROM python:3.11 as development_build
 
 LABEL maintainer="Damien Allen <dev@dallen.co>"
 
 RUN apt update; apt install -y -q \
     curl \
-    nano \
-    pipx
+    nano
 
-# Install Poetry
 ENV YOUR_ENV=${YOUR_ENV} \
     PYTHONFAULTHANDLER=1 \
     PYTHONUNBUFFERED=1 \
-    PYTHONHASHSEED=random \
-    PIP_NO_CACHE_DIR=off \
-    PIP_DISABLE_PIP_VERSION_CHECK=on \
-    PIP_DEFAULT_TIMEOUT=100 \
-    # Poetry's configuration:
-    POETRY_NO_INTERACTION=1 \
-    POETRY_VIRTUALENVS_CREATE=false
-
-RUN pipx install poetry==1.7.1
+    PYTHONHASHSEED=random
 
 # Install node & yarn
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
-RUN apt-get install nodejs && npm install -g yarn
+RUN apt install nodejs && npm install -g yarn
 
-# Initialize project and add python dependencies
+# Initialize project and inject python dependencies
+COPY --from=builder /venv /venv
 WORKDIR /code
-COPY ./poetry.lock ./pyproject.toml  /code/
-RUN /root/.local/bin/poetry install --no-interaction --no-ansi
 
 # Copy and build in production
 FROM development_build as production_build

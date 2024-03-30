@@ -7,7 +7,7 @@ set -o nounset
 if [ "$FLASK_DEBUG" = "1" ]
 then
   echo 'Running in development mode...'
-  /usr/local/bin/gunicorn main:app --reload \
+  /venv/bin/gunicorn main:app --reload \
     --workers 2 \
     --bind 0.0.0.0:8080 \
     --chdir=/code/app \
@@ -17,7 +17,7 @@ else
   echo 'Copying static assets...'
   rm -rf /dist/*
   cp -r /code/dist/* /dist/
-  /usr/local/bin/gunicorn main:app \
+  /venv/bin/gunicorn main:app \
     --workers 4 \
     --bind 0.0.0.0:8080 \
     --chdir=/code/app \
