@@ -6,13 +6,11 @@ RUN pipx inject poetry poetry-plugin-bundle
 
 WORKDIR /code
 COPY ./poetry.lock ./pyproject.toml  /code/
-RUN poetry install --no-interaction --no-ansi
-
+RUN poetry install --no-interaction --no-root --no-ansi
 RUN poetry bundle venv --python=/usr/bin/python3 --only=main /venv
 
 
 FROM python:3.11 as development_build
-
 LABEL maintainer="Damien Allen <dev@dallen.co>"
 
 RUN apt update; apt install -y -q \
