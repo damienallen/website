@@ -276,7 +276,7 @@ hr {
 /*--[ section styling  ]--*/
 
 .section {
-  min-height: 100dvh;
+  min-height: 50dvh;
   padding: 20px 70px 80px 70px;
 
   @media (max-width: $mobile-breakpoint) {
