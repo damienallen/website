@@ -10,7 +10,7 @@ python = "^3.11"
 email_validator = "^2.1"
 flask = "^2.3"
 flask-wtf = "^1.2"
-gunicorn = "^21.2"
+gunicorn = "^22.0"
 requests = "^2.31"
 
 [tool.poetry.group.dev.dependencies]
