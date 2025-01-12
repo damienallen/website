@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+
+    height: 100%;
+    width: 100%;
+
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 16px;
+}
+
+body {
+    color: #fff;
+    background-image: url('./images/colombia_cover.jpg');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+    background-color: #000;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    font-size: 1.2em;
+
+    & ul {
+        list-style-type: none;
+
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+        justify-content: space-around;
+        gap: 10px;
+
+        & a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        & a:hover {
+            text-decoration: underline wavy;
+        }
+    }
+}
+
+main {
+    max-width: 640px;
+}
+
+section {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+
+    @media (min-width: 768px) {
+        border-radius: 10px;
+    }
+}
+
+footer {
+    & h1 {
+        font-size: 1.5em;
+    }
+}
+
+.hello, .name {
+    & img {
+        height: 50px;
+    }
+}
