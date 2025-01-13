@@ -1,5 +1,10 @@
 :root {
     --content-width: 800px;
+    --border-radius: 8px;
+    --blur-radius: 4px;
+    --spacing-sm: 4px;
+    --spacing-md: 8px;
+    --spacing-lg: 16px;
 }
 
 * {
@@ -58,6 +63,10 @@ nav {
             text-decoration: underline wavy;
         }
     }
+
+    & .active {
+        font-weight: bold;
+    }
 }
 
 main {
@@ -66,10 +75,12 @@ main {
 
 section {
     background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(var(--blur-radius));
+
+    padding: var(--spacing-lg);
 
     @media (min-width: 768px) {
-        border-radius: 10px;
+        border-radius: var(--border-radius);
     }
 }
 
