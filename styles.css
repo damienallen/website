@@ -1,10 +1,12 @@
 :root {
-    --content-width: 800px;
+    --content-width: 768px;
     --border-radius: 8px;
     --blur-radius: 4px;
-    --spacing-sm: 4px;
-    --spacing-md: 8px;
-    --spacing-lg: 16px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 64px;
 }
 
 * {
@@ -17,9 +19,6 @@ html, body {
 
     height: 100%;
     width: 100%;
-
-    font-family: 'Roboto', 'Arial', sans-serif;
-    font-size: 16px;
 }
 
 body {
@@ -34,11 +33,21 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 16px;
+
+    ::selection {
+        background: white;
+        color: black;
+        text-shadow: none;
+    }
 }
 
 header {
     display: flex;
     justify-content: center;
+    margin: var(--spacing-lg) 0;
 }
 
 nav {
@@ -64,20 +73,33 @@ nav {
         }
     }
 
+    & li {
+        user-select: none;
+    }
+
     & .active {
         font-weight: bold;
     }
 }
 
 main {
-    max-width: 640px;
+    max-width: var(--content-width);
+
+    & a {
+        color: #fff;
+        text-decoration: underline dotted;
+    }
+
+    & a:hover {
+        text-decoration: underline;
+    }
 }
 
 section {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(var(--blur-radius));
 
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
 
     @media (min-width: 768px) {
         border-radius: var(--border-radius);
@@ -86,12 +108,34 @@ section {
 
 footer {
     & h1 {
-        font-size: 1.5em;
+        font-size: 2em;
+        font-family: "Orbitron", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+
+        margin: var(--spacing-xl) 0;
     }
 }
 
-.hello, .name {
-    & img {
-        height: 50px;
+#intro {
+    font-size: 1.2em;
+
+    & p {
+        margin: var(--spacing-md);
+    }
+
+    & .hello, & .sig {
+        user-select: none;
+        
+        & img {
+            height: 50px;
+            margin: var(--spacing-sm) 0;
+        }
+    }
+
+    & .sig {
+        display: flex;
+        margin-left: var(--spacing-xxl);
     }
 }
