@@ -1,7 +1,3 @@
 ,B
 .vscode
-*.pyc
-__pycache__/
-dist/
-node_modules/
 .env

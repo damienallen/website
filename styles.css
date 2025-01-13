@@ -23,7 +23,7 @@ html, body {
 
 body {
     color: #fff;
-    background-image: url('./images/colombia_cover.jpg');
+    background-image: url('/images/colombia_cover.jpg');
     background-color: rgba(0, 0, 0, 0.1);
     background-blend-mode: darken;
     background-repeat: no-repeat;
@@ -48,11 +48,11 @@ body {
 header {
     display: flex;
     justify-content: center;
-    margin: var(--spacing-lg) 0;
+    margin: var(--spacing-xl) 0;
 }
 
 nav {
-    font-size: 1.2em;
+    font-size: 1.5em;
 
     & ul {
         list-style-type: none;
