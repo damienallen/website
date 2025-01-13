@@ -1,5 +1,5 @@
 :root {
-    --content-width: 768px;
+    --content-width: 680px;
     --border-radius: 8px;
     --blur-radius: 4px;
     --spacing-sm: 8px;
@@ -24,10 +24,11 @@ html, body {
 body {
     color: #fff;
     background-image: url('./images/colombia_cover.jpg');
+    background-color: rgba(0, 0, 0, 0.1);
+    background-blend-mode: darken;
     background-repeat: no-repeat;
     background-position: left;
     background-size: cover;
-    background-color: #000;
 
     display: flex;
     flex-direction: column;
@@ -83,7 +84,8 @@ nav {
 }
 
 main {
-    max-width: var(--content-width);
+    width: var(--content-width);
+    max-width: 100vw;
 
     & a {
         color: #fff;
@@ -96,12 +98,12 @@ main {
 }
 
 section {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(var(--blur-radius));
 
     padding: var(--spacing-md);
 
-    @media (min-width: 768px) {
+    @media (min-width: 680px) {
         border-radius: var(--border-radius);
     }
 }
@@ -127,7 +129,7 @@ footer {
 
     & .hello, & .sig {
         user-select: none;
-        
+
         & img {
             height: 50px;
             margin: var(--spacing-sm) 0;
@@ -137,5 +139,22 @@ footer {
     & .sig {
         display: flex;
         margin-left: var(--spacing-xxl);
+    }
+}
+
+#links {
+    font-size: 1.2em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+
+    padding: var(--spacing-xxl) 0;
+
+    & .item {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
     }
 }
