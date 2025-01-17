@@ -186,6 +186,11 @@ footer {
         gap: var(--spacing-sm);
     }
 
+    & .screenshot {
+        width: 256px;
+        border-radius: var(--border-radius);
+        margin: var(--spacing-md) 0;
+    }
 
     & .links {
         display: flex;
