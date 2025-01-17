@@ -3,6 +3,7 @@
     --content-width: 680px;
     --border-radius: 8px;
     --blur-radius: 4px;
+    --mobile-blur-radius: calc(var(--blur-radius) / 2);
 
     --spacing-base: 16px;
     --spacing-xs: calc(var(--spacing-base) / 4);
@@ -31,7 +32,12 @@ body {
     background-color: black;
     background-repeat: no-repeat;
     background-position: left;
-    background-size: cover;
+    background-size: auto 100%;
+
+
+    @media (min-width: 680px) {
+        background-size: cover;
+    }
 
     display: flex;
     flex-direction: column;
@@ -118,11 +124,12 @@ section {
     width: 100%;
 
     background: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(var(--blur-radius));
+    backdrop-filter: blur(var(--mobile-blur-radius));
 
     padding: var(--spacing-xl);
 
     @media (min-width: 680px) {
+        backdrop-filter: blur(var(--blur-radius));
         border-radius: var(--border-radius);
         padding: var(--spacing-lg);
     }
