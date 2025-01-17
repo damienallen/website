@@ -120,10 +120,11 @@ section {
     background: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(var(--blur-radius));
 
-    padding: var(--spacing-lg);
+    padding: var(--spacing-xl);
 
     @media (min-width: 680px) {
         border-radius: var(--border-radius);
+        padding: var(--spacing-lg);
     }
 
     & h3 {
@@ -174,10 +175,17 @@ footer {
 }
 
 #apps {
-    margin: var(--spacing-md) 0;
+    margin: 0;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-xxl);
+
+    @media (min-width: 680px) {
+        margin: var(--spacing-md) 0;
+        flex-direction: row;
+        gap: var(--spacing-lg);
+    }
 
     & .project {
         display: flex;
@@ -207,10 +215,17 @@ footer {
 }
 
 #skills {
-    margin: var(--spacing-md) 0;
+    margin: 0;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-xl);
+
+    @media (min-width: 680px) {
+        margin: var(--spacing-md) 0;
+        flex-direction: row;
+        gap: var(--spacing-lg);
+    }
 
     & ul, & .col {
         display: flex;
