@@ -101,12 +101,12 @@ main {
     }
 
     & a {
-        color: white;
-        text-decoration: underline dotted;
+        color: #9fd1db;
+        text-decoration: none;
     }
 
     & a:hover {
-        text-decoration: underline;
+        text-decoration: underline dotted;
     }
 }
 
