@@ -22,7 +22,7 @@ html, body {
 }
 
 body {
-    color: #fff;
+    color: white;
     background-image: url('/images/colombia_cover.jpg');
     background-color: black;
     background-repeat: no-repeat;
@@ -51,6 +51,7 @@ header {
 }
 
 nav {
+    color: #333;
     font-size: 1.4em;
 
     & ul {
@@ -64,12 +65,12 @@ nav {
         gap: 10px;
 
         & a {
-            color: #fff;
+            color: white;
             text-decoration: none;
         }
 
         & a:hover {
-            font-style: italic;
+            color: #333;
         }
     }
 
@@ -79,6 +80,10 @@ nav {
 
     & .active {
         text-decoration: underline wavy 2px;
+    }
+
+    & .bullet {
+        color: white;
     }
 }
 
@@ -96,7 +101,7 @@ main {
     }
 
     & a {
-        color: #fff;
+        color: white;
         text-decoration: underline dotted;
     }
 
@@ -177,7 +182,7 @@ footer {
         gap: var(--spacing-sm);
     }
 
-    .col {
+    & .col {
         flex: 1;
     }
 
