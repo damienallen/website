@@ -1,35 +1,27 @@
-name: Production build
+name: main
 
 on:
   push:
     branches:
       - main
-      - feature/docker
-    paths-ignore:
-      - "**.md"
 
 jobs:
-  build:
+  deploy:
+    name: deploy
     runs-on: ubuntu-latest
-    env:
-      CI: true
-      IMAGE_NAME: website
-      REGISTRY_URL: ghcr.io/damienallen/website
-      TAG: main
-
     steps:
-      - uses: actions/checkout@v3
-      - name: Checkout repo with submodules
-        shell: bash
-        run: |
-          auth_header="$(git config --local --get http.https://github.com/.extraheader)"
-          git submodule sync --recursive
-          git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
+      - uses: actions/checkout@v4
 
-      - name: Build docker container
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: unnecessary
+
+      - name: Add Known Hosts
+        run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Sync Static Files
         run: |
-          docker login ghcr.io --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }}
-          docker pull $REGISTRY_URL:$TAG || true
-          docker build -t $IMAGE_NAME:$TAG --cache-from $REGISTRY_URL:$TAG --target production_build -f docker/Dockerfile .
-          docker tag $IMAGE_NAME:$TAG $REGISTRY_URL:$TAG
-          docker push $REGISTRY_URL:$TAG
+          rsync -avz --delete --exclude .git/ --exclude .github/ --exclude .gitignore --exclude README.md \
+          -e "ssh -p ${{ secrets.SSH_PORT }}" . ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/website/main
