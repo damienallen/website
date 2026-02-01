@@ -26,6 +26,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ghcr.io/damienallen/website:main
+          tags: ghcr.io/damienallen/website:latest
           cache-from: type=gha
           cache-to: type=gha
