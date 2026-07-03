@@ -3,85 +3,150 @@
 
 <head>
     <meta charset="UTF-8">
-
     <title>Damien Allen</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Maker and software developer based in Rotterdam, NL.">
-    <meta name="keywords" content="damien allen, rotterdam, boulder, voedseltuin, ripe ncc, tu delft">
+    <meta name="keywords" content="damien allen, rotterdam, ripe ncc, tu delft">
 
     <meta property="og:title" content="Damien Allen">
     <meta property="og:description" content="Maker and software developer based in Rotterdam, NL.">
     <meta property="og:url" content="https://dallen.co">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://dev.dallen.co/images/meta.png">
+    <meta property="og:image" content="https://dallen.co/images/beach.jpg">
 
-    <meta http-equiv="Content-Security-Policy"
-        content="script-src 'self' 'unsafe-inline' 'unsafe-eval' io.dallen.dev">
-    <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline' fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=fragment-mono:400,600|hanken-grotesk:400,400i,600" rel="stylesheet" />
 
     <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
-    <link rel="preload" href="/images/colombia_cover.jpg" as="image">
-    <link rel="preload" href="/styles.css" as="style" onload="this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="styles.css">
-    </noscript>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <header>
-        <nav>
-            <ul>
-                <li class="active">
-                    intro
-                </li>
-                <li class="bullet">&bull;</li>
-                <li>
-                    <a href="/apps">apps</a>
-                </li>
-                <li class="bullet">&bull;</li>
-                <li>
-                    <a href="/skills">skills</a>
-                </li>
-                <li class="bullet">&bull;</li>
-                <li>
-                    <a href="/links">links</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <div class="photo">
+        <img srcset="/images/beach-800.jpg 800w, /images/beach-1600.jpg 1600w, /images/beach-3024.jpg 3024w" sizes="100vw"
+            src="/images/beach-1600.jpg" alt="Me and my dog on at the beach" fetchpriority="high">
+        <div class="fade"></div>
+    </div>
 
-    <main>
-        <h2>intro</h2>
-        <section id="intro">
-            <div class="hello">
-                <img src="/images/hello.png" alt="Hello!">
-            </div>
-            <p>
-                <i>Who am I?</i> A maker and software developer based in Rotterdam, NL.
-            </p>
-            <p>
-                I am currently developing information services and analytics for internet resources at the
-                <a href="https://ripe.net" target="_blank">RIPE NCC</a>, the regional internet registry for Europe, the
-                Middle East and Central Asia.
-            </p>
-            <p>
-                I enjoy gardening, 3D printing, and adventures with my dog.
-            </p>
-            <div class="sig">
-                <img src="/images/damien.png" alt="- Damien">
+    <main id="top">
+
+        <section class="intro">
+            <h1>damien allen</h1>
+            <p>A maker and software developer based in Rotterdam, NL. I build information services and
+                analytics for internet resources at the <a href="https://ripe.net" target="_blank">RIPE
+                    NCC</a> &mdash; the regional internet registry for Europe, the Middle East and Central Asia.</p>
+            <a href="https://cv.dallen.co" class="button">view full cv <span class="arrow">&#8599;</span></a>
+        </section>
+
+        <section id="apps">
+            <h2>apps</h2>
+            <div class="cards">
+
+                <article class="card">
+                    <a href="https://urbanheat.app/" target="_blank" class="screenshot">
+                        <img src="/images/urbanheat.png" alt="urban-heat screenshot">
+                    </a>
+                    <div>
+                        <h3>urban-heat</h3>
+                        <p>urban heat island explorer</p>
+                    </div>
+                    <div class="card__links">
+                        <a href="https://urbanheat.app/" target="_blank">
+                            <img src="/icons/link.svg" aria-hidden="true" alt="">urbanheat.app
+                        </a>
+                        <a href="https://github.com/damienallen/urban-heat" target="_blank">
+                            <img src="/icons/code.svg" aria-hidden="true" alt="">source
+                        </a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <a href="https://bosmapper.dallen.dev/" target="_blank" class="screenshot">
+                        <img src="/images/bosmapper.png" alt="bosmapper screenshot">
+                    </a>
+                    <div>
+                        <h3>bosmapper</h3>
+                        <p>forest garden inventory manager</p>
+                    </div>
+                    <div class="card__links">
+                        <a href="https://bosmapper.dallen.dev/" target="_blank">
+                            <img src="/icons/link.svg" aria-hidden="true" alt="">bosmapper.dallen.dev
+                        </a>
+                        <a href="https://github.com/damienallen/bosmapper" target="_blank">
+                            <img src="/icons/code.svg" aria-hidden="true" alt="">source
+                        </a>
+                    </div>
+                </article>
+
             </div>
         </section>
+
+        <section id="skills">
+            <h2>skills</h2>
+            <div class="skills">
+                <div>
+                    <h4>backend</h4>
+                    <ul>
+                        <li>python</li>
+                        <li>django &amp; fastapi</li>
+                        <li>sql &amp; nosql</li>
+                        <li>containers (w/k8s)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>frontend</h4>
+                    <ul>
+                        <li>javascript</li>
+                        <li>web components</li>
+                        <li>three.js</li>
+                        <li>ui design</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>analysis</h4>
+                    <ul>
+                        <li>geospatial analysis</li>
+                        <li>applied math</li>
+                        <li>data pipelines</li>
+                        <li>gis / cartography</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>design</h4>
+                    <ul>
+                        <li>vector graphics</li>
+                        <li>image editing</li>
+                        <li>(parametric) 3d</li>
+                        <li>digital fabrication</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="links">
+            <h2>links</h2>
+            <div class="links">
+                <a href="mailto:mail@dallen.co">
+                    <img class="icon" src="/icons/email.svg" alt="Email">mail@dallen.co
+                </a>
+                <a href="https://github.com/damienallen/" target="_blank">
+                    <img class="icon" src="/icons/github.svg" alt="Github">github.com/damienallen
+                </a>
+                <a href="https://www.linkedin.com/in/-dallen-/" target="_blank">
+                    <img class="icon" src="/icons/linkedin.svg" alt="LinkedIn">linkedin.com/in/-dallen-
+                </a>
+            </div>
+        </section>
+
     </main>
 
     <footer>
-        <h1>damien allen</h1>
+        <div class="bar">
+            <span>2026 damien allen</span>
+            <span>rotterdam, nl</span>
+        </div>
     </footer>
 
     <script defer src="https://io.dallen.dev/script.js" data-website-id="33453d16-844d-4578-b2f7-0263999c9bb8"></script>
