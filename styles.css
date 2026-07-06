@@ -119,6 +119,13 @@ footer {
 	}
 }
 
+.icon {
+	display: inline-block;
+	background-color: currentColor;
+	-webkit-mask: var(--icon) no-repeat center / contain;
+	mask: var(--icon) no-repeat center / contain;
+}
+
 /* Header */
 
 .photo {
@@ -228,7 +235,7 @@ footer {
 		font-family: var(--mono);
 		font-size: 13px;
 
-		& img {
+		& .icon {
 			width: 15px;
 			height: 15px;
 		}
@@ -243,10 +250,6 @@ footer {
 
 		& a:hover {
 			color: var(--accent);
-		}
-
-		& svg {
-			flex: none;
 		}
 	}
 
