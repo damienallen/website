@@ -24,7 +24,7 @@
 
 <body>
 
-    <div class="photo">
+    <div class="cover">
         <img srcset="/images/beach-800.jpg 800w, /images/beach-1600.jpg 1600w, /images/beach-3024.jpg 3024w" sizes="100vw"
             src="/images/beach-1600.jpg" alt="Me and my dog on at the beach" fetchpriority="high">
         <div class="fade"></div>
@@ -40,8 +40,8 @@
             <a href="https://cv.dallen.co" class="button">view cv <span class="arrow">&#8599;</span></a>
         </section>
 
-        <section id="apps">
-            <h2>apps</h2>
+        <section id="projects">
+            <h2>projects</h2>
             <div class="cards">
 
                 <article class="card">
@@ -140,11 +140,14 @@
 
     <footer>
         <div class="bar">
-            <span>damien allen</span>
-            <span>
-                <a href="https://github.com/damienallen/website">source code</a>
-            </span>
-            <span>rotterdam, nl</span>
+            <div>damien allen</div>
+            <div>
+                <a href="https://github.com/damienallen/website">
+                    <span class="icon" style="--icon: url(/icons/code.svg)" aria-hidden="true"></span>
+                    source code
+                </a>
+            </div>
+            <div>rotterdam, nl</div>
         </div>
     </footer>
 
