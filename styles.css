@@ -60,7 +60,7 @@ h4 {
 
 h1 {
 	font-weight: 600;
-	font-size: clamp(2.5em, 8vw, 4em);
+	font-size: clamp(2em, 8vw, 4em);
 }
 
 h2 {
