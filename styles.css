@@ -60,12 +60,12 @@ h4 {
 
 h1 {
 	font-weight: 600;
-	font-size: clamp(40px, 8vw, 64px);
+	font-size: clamp(2.5em, 8vw, 4em);
 }
 
 h3 {
 	font-weight: 600;
-	font-size: 16px;
+	font-size: 1em;
 	margin: var(--space-sm) 0;
 }
 
@@ -89,8 +89,8 @@ main {
 }
 
 section {
-	margin: var(--space-lg) 0;
-	padding: var(--space-xl) 0 var(--space-xxl);
+	margin: var(--space-xxl) 0;
+	padding: var(--space-lg) 0;
 	border-top: 1px solid var(--line);
 }
 
@@ -108,7 +108,7 @@ footer {
 		justify-content: space-between;
 		gap: var(--space-lg);
 		font-family: var(--mono);
-		font-size: 12px;
+		font-size: 0.75em;
 		color: var(--muted);
 
 		& div {
@@ -156,6 +156,16 @@ footer {
 @media (prefers-color-scheme: dark) {
 	.cover img {
 		filter: grayscale(0.2) contrast(0.95) brightness(0.85);
+	}
+}
+
+@media (min-width: 1440px) {
+	.cover {
+		height: clamp(420px, 40vw, 840px);
+
+		& img {
+			object-position: 42% 56%;
+		}
 	}
 }
 
@@ -222,7 +232,7 @@ footer {
 .cards {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-	gap: var(--space-md);
+	gap: var(--space-lg);
 }
 
 .card {
@@ -242,7 +252,7 @@ footer {
 		margin-top: auto;
 		padding-top: 4px;
 		font-family: var(--mono);
-		font-size: 13px;
+		font-size: 0.8125em;
 
 		& .icon {
 			width: var(--icon-lg);
@@ -280,7 +290,7 @@ footer {
 	}
 
 	& p {
-		font-size: 14px;
+		font-size: 0.875em;
 		line-height: 1.5;
 		color: var(--muted);
 		margin: 0;
