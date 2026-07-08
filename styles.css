@@ -63,6 +63,14 @@ h1 {
 	font-size: clamp(2.5em, 8vw, 4em);
 }
 
+h2 {
+	font-size: 0.75em;
+	letter-spacing: 0.16em;
+	color: var(--muted);
+	margin-bottom: 0;
+	text-transform: uppercase;
+}
+
 h3 {
 	font-weight: 600;
 	font-size: 1em;
@@ -91,12 +99,24 @@ main {
 section {
 	margin: var(--space-xxl) 0;
 	padding: var(--space-lg) 0;
-	border-top: 1px solid var(--line);
+
+	& .section-header {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+		margin-bottom: var(--space-xl);
+
+		& .line {
+			flex: 1;
+			height: 1px;
+			background: var(--line);
+		}
+	}
 }
 
 footer {
 	margin-top: var(--space-lg);
-	border-top: 1px solid var(--line);
+	background: var(--line);
 	display: flex;
 	justify-content: center;
 
